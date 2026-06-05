@@ -13,13 +13,14 @@
         }
 
         :root {
-            --primary: #1e0b36;       /* Violet très sombre et profond */
-            --secondary: #4c1d95;     /* Violet royal sombre */
-            --accent: #8b5cf6;        /* Violet vif pour les éléments interactifs */
-            --dark: #0f041c;          /* Presque noir avec un reflet violet */
-            --light: #f5f3ff;         /* Fond de page très clair légèrement teinté */
-            --text: #1f1a24;          /* Texte principal sombre */
-            --text-light: #5a5266;    /* Texte secondaire adouci */
+            --primary: #1e293b;       /* Bleu ardoise sombre */
+            --secondary: #3b82f6;     /* Bleu premium technique */
+            --accent: #0ea5e9;        /* Bleu ciel de précision */
+            --dark: #0f172a;          /* Fond de bloc sombre */
+            --light: #f8fafc;         /* Fond général clair */
+            --text: #334155;          /* Texte principal */
+            --text-light: #64748b;    /* Texte secondaire */
+            --border: #e2e8f0;        /* Bordures techniques */
         }
 
         body {
@@ -33,10 +34,11 @@
         nav {
             background: white;
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(30, 11, 54, 0.06);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-container {
@@ -49,7 +51,7 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
@@ -57,11 +59,12 @@
             background-clip: text;
             cursor: pointer;
             user-select: none;
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             list-style: none;
         }
 
@@ -104,7 +107,7 @@
         /* ===== PAGES ===== */
         .page {
             display: none;
-            animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.4s ease-in-out;
         }
 
         .page.active {
@@ -114,7 +117,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -124,29 +127,12 @@
 
         /* ===== HERO SECTION ===== */
         .hero {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 60%, var(--secondary) 100%);
             color: white;
-            padding: 8rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.08), transparent);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(30px) translateX(20px); }
         }
 
         .hero-content {
@@ -157,23 +143,24 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
         }
 
         .hero .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             opacity: 0.95;
             margin-bottom: 0.5rem;
+            font-weight: 400;
+            color: var(--accent);
         }
 
         .hero .tagline {
             font-size: 1rem;
             opacity: 0.8;
             margin-bottom: 2.5rem;
-            font-style: italic;
         }
 
         .cta-group {
@@ -184,13 +171,13 @@
         }
 
         .btn {
-            padding: 0.9rem 2.2rem;
+            padding: 0.8rem 2rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-decoration: none;
             display: inline-block;
         }
@@ -201,19 +188,19 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(76, 29, 149, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
         }
 
         .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid white;
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
         }
 
         .btn-secondary:hover {
-            background: transparent;
-            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
         }
 
         /* ===== CONTENT SECTIONS ===== */
@@ -224,21 +211,21 @@
         }
 
         .section-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
             color: var(--primary);
             font-weight: 700;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-light);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .title-line {
             display: inline-block;
-            width: 60px;
+            width: 50px;
             height: 4px;
             background: var(--secondary);
             border-radius: 2px;
@@ -250,15 +237,15 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .team-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 2.5rem;
             text-align: center;
-            border: 2px solid #eae6f2;
+            border: 1px solid var(--border);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
@@ -271,14 +258,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: var(--secondary);
             transform: scaleX(0);
             transition: transform 0.3s;
         }
 
         .team-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(30, 11, 54, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
             border-color: var(--secondary);
         }
 
@@ -287,37 +274,150 @@
         }
 
         .avatar {
-            width: 110px;
-            height: 110px;
+            width: 90px;
+            height: 90px;
             margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: white;
             font-weight: 700;
-            box-shadow: 0 8px 20px rgba(30, 11, 54, 0.15);
         }
 
         .team-name {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
+            color: var(--primary);
         }
 
         .team-role {
             color: var(--secondary);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .team-desc {
             color: var(--text-light);
-            line-height: 1.8;
+            line-height: 1.7;
             font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* ===== GESTION DE PROJET (DASHBOARD) ===== */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+        }
+
+        .metric-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: var(--border);
+            border-radius: 4px;
+            margin-top: 0.8rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: var(--secondary);
+            width: 30%;
+            border-radius: 4px;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            position: relative;
+        }
+
+        .timeline-item {
+            padding: 1.5rem 2rem;
+            position: relative;
+            border-left: 2px solid var(--border);
+            margin-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 1.8rem;
+            width: 10px;
+            height: 10px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .risks-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-top: 1.5rem;
+        }
+
+        .risks-table th, .risks-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .risks-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        .risks-table tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
         }
 
         /* ===== ROBOT ===== */
@@ -326,59 +426,57 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .robot-visual {
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 3rem;
             text-align: center;
-            border: 2px dashed var(--accent);
-            font-size: 2.2rem;
-            font-weight: 700;
+            border: 1px solid var(--border);
+            font-size: 2rem;
+            font-weight: 600;
             color: var(--primary);
             min-height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
         }
 
         .specs-list {
             display: grid;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .spec-card {
             background: white;
             padding: 1.5rem;
-            border-radius: 10px;
+            border-radius: 8px;
             border-left: 4px solid var(--primary);
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
             transition: all 0.3s;
         }
 
         .spec-card:hover {
             border-left-color: var(--secondary);
-            transform: translateX(8px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
         }
 
         .spec-title {
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
         }
 
         .spec-text {
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.6;
             font-size: 0.95rem;
         }
 
@@ -387,20 +485,20 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .epreuve {
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 2rem;
-            border: 2px solid #eae6f2;
+            border: 1px solid var(--border);
             transition: all 0.3s;
             position: relative;
         }
 
         .epreuve-title {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 0.8rem;
             color: var(--primary);
@@ -408,24 +506,25 @@
 
         .epreuve-text {
             color: var(--text-light);
-            margin-bottom: 1rem;
-            line-height: 1.7;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
             font-size: 0.95rem;
         }
 
         .epreuve-badge {
             display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
+            background: #f1f5f9;
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
             font-size: 0.8rem;
             font-weight: 600;
+            border: 1px solid var(--border);
         }
 
         .epreuve:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             border-color: var(--secondary);
         }
 
@@ -433,19 +532,19 @@
         .code-cards {
             display: grid;
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .code-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 2rem;
-            border: 2px solid #eae6f2;
+            border: 1px solid var(--border);
             transition: all 0.3s;
         }
 
         .code-card:hover {
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             border-color: var(--accent);
         }
 
@@ -459,27 +558,28 @@
         }
 
         .code-title {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--primary);
         }
 
         .ia-badge {
             color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            padding: 0.4rem 0.9rem;
+            border-radius: 4px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        .ia-high { background: linear-gradient(135deg, #6d28d9, #8b5cf6); }
-        .ia-medium { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
-        .ia-low { background: linear-gradient(135deg, #4c1d95, #6d28d9); }
+        .ia-high { background: #1e3a8a; }
+        .ia-medium { background: #2563eb; }
+        .ia-low { background: #475569; }
 
         .code-description {
             color: var(--text-light);
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            line-height: 1.7;
+            font-size: 0.95rem;
         }
 
         .code-links {
@@ -490,27 +590,28 @@
 
         .code-link {
             display: inline-block;
-            padding: 0.7rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             background: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 4px;
             font-weight: 600;
+            font-size: 0.9rem;
             transition: all 0.3s;
         }
 
         .code-link:hover {
             background: var(--secondary);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .ia-note {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            background: #f4f0fa;
-            border-left: 4px solid var(--primary);
-            border-radius: 6px;
-            font-size: 0.95rem;
+            margin-top: 1.2rem;
+            padding: 0.8rem 1rem;
+            background: var(--light);
+            border-left: 4px solid var(--secondary);
+            border-radius: 4px;
+            font-size: 0.9rem;
             color: var(--text);
         }
 
@@ -519,144 +620,105 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .video-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border: 1px solid var(--border);
             transition: all 0.3s;
         }
 
         .video-placeholder {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--primary), var(--dark));
             aspect-ratio: 16/9;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 500;
             color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .video-placeholder::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), transparent);
-            pointer-events: none;
         }
 
         .video-content {
-            padding: 1.5rem;
+            padding: 1.2rem;
         }
 
         .video-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: var(--text);
         }
 
         .video-desc {
             color: var(--text-light);
             font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         .video-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(30, 11, 54, 0.12);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.1);
         }
 
         /* ===== ORIGINALITÉ ===== */
         .placeholder {
-            background: linear-gradient(135deg, #f5f3ff 0%, #eae6f2 100%);
-            border: 3px dashed var(--accent);
-            border-radius: 12px;
+            background: white;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
             padding: 4rem 2rem;
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
         .placeholder-text {
             color: var(--text-light);
-            font-size: 1.1rem;
-            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.6;
         }
 
         /* ===== FOOTER ===== */
         footer {
             background: var(--dark);
             color: white;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 4rem;
+            border-top: 4px solid var(--secondary);
         }
 
         footer p {
-            margin: 0.5rem 0;
+            margin: 0.4rem 0;
+            font-size: 0.95rem;
             opacity: 0.9;
-        }
-
-        footer .emoji {
-            margin: 0 0.3rem;
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .robot-container {
-                grid-template-columns: 1fr;
-            }
-
-            .robot-visual {
-                min-height: 300px;
-                font-size: 1.8rem;
-            }
-
-            .nav-links {
-                gap: 0.8rem;
-                font-size: 0.85rem;
-            }
-
-            .code-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .cta-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
+            .hero h1 { font-size: 2.2rem; }
+            .hero .subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 1.8rem; }
+            .robot-container { grid-template-columns: 1fr; }
+            .robot-visual { min-height: 300px; }
+            .nav-links { gap: 0.8rem; font-size: 0.85rem; flex-wrap: wrap; justify-content: center; }
+            .code-header { flex-direction: column; align-items: flex-start; }
+            .cta-group { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+            .risks-table th, .risks-table td { padding: 0.8rem; font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
-            <div class="logo" onclick="goToPage('home')">CACHAN</div>
+            <div class="logo" onclick="goToPage('home')">CACHAN GEII</div>
             <ul class="nav-links">
                 <li><a href="#" class="nav-link active" data-page="home" onclick="goToPage('home'); return false;">Accueil</a></li>
                 <li><a href="#" class="nav-link" data-page="equipe" onclick="goToPage('equipe'); return false;">Équipe</a></li>
+                <li><a href="#" class="nav-link" data-page="gestion" onclick="goToPage('gestion'); return false;">Gestion</a></li>
                 <li><a href="#" class="nav-link" data-page="robot" onclick="goToPage('robot'); return false;">Robot</a></li>
                 <li><a href="#" class="nav-link" data-page="epreuves" onclick="goToPage('epreuves'); return false;">Épreuves</a></li>
                 <li><a href="#" class="nav-link" data-page="prog" onclick="goToPage('prog'); return false;">Code</a></li>
@@ -669,22 +731,22 @@
     <div id="home" class="page active">
         <div class="hero">
             <div class="hero-content">
-                <h1>ROBOT CACHAN</h1>
-                <p class="subtitle">Pololu 3Pi+</p>
+                <h1>PROJET ROBOTIQUE CACHAN</h1>
+                <p class="subtitle">Configuration et optimisation de la plateforme Pololu 3Pi+</p>
                 <p class="tagline">GEII Vélizy | Compétition Nationale de Robotique</p>
                 <div class="cta-group">
-                    <button class="btn btn-primary" onclick="goToPage('robot')">Voir le Robot</button>
-                    <button class="btn btn-secondary" onclick="goToPage('epreuves')">Les Défis</button>
+                    <button class="btn btn-primary" onclick="goToPage('gestion')">Indicateurs de Projet</button>
+                    <button class="btn btn-secondary" onclick="goToPage('robot')">Spécifications du Robot</button>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Bienvenue dans notre aventure robotique</h2>
+            <h2 class="section-title">Présentation du Projet</h2>
             <div class="title-line"></div>
-            <div style="max-width: 700px; margin: 0 auto; color: var(--text-light); line-height: 2; text-align: center; font-size: 1.05rem;">
-                <p>Nous sommes trois étudiants en électronique et informatique industrielles (GEII) passionnés par la robotique. Notre mission : construire un robot autonome capable de conquérir le concours Cachan, l'une des plus prestigieuses compétitions nationales de robotique en France.</p>
-                <p style="margin-top: 1.5rem;">Notre arme : un Pololu 3Pi+ optimisé, programmé avec précision et une pincée de créativité.</p>
+            <div style="max-width: 750px; margin: 0 auto; color: var(--text-light); line-height: 1.8; text-align: justify; font-size: 1rem;">
+                <p>Ce site présente les travaux de développement réalisés par notre équipe de trois étudiants en Génie Électrique et Informatique Industrielle (GEII) de l'IUT de Vélizy dans le cadre du concours Cachan. Cette compétition nationale évalue les performances d'architectures robotiques autonomes sur des parcours spécifiques.</p>
+                <p style="margin-top: 1.2rem;">Notre approche repose sur l'exploitation approfondie, l'étalonnage et la programmation logicielle d'un robot mobile pré-assemblé Pololu 3Pi+, configuré pour maximiser la vitesse de traitement des données et la précision des trajectoires.</p>
             </div>
         </div>
     </div>
@@ -692,8 +754,8 @@
     <div id="equipe" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>NOTRE ÉQUIPE</h1>
-                <p class="subtitle">Les trois cerveaux derrière le robot</p>
+                <h1>COMPOSITION DE L'ÉQUIPE</h1>
+                <p class="subtitle">Répartition des axes de développement technique et managérial</p>
             </div>
         </div>
 
@@ -701,59 +763,146 @@
             <div class="title-line"></div>
             <div class="team-grid">
                 <div class="team-card">
-                    <div class="avatar">F</div>
-                    <h3 class="team-name">Fabian</h3>
-                    <p class="team-role">Électronique & Capteurs</p>
-                    <p class="team-desc">Celui qui fait parler les circuits. Expert en intégration électronique, capteurs infrarouges et gestion d'énergie pour que le robot ne tombe pas en panne au pire moment.</p>
-                </div>
-                <div class="team-card">
                     <div class="avatar">Y</div>
                     <h3 class="team-name">Yann</h3>
-                    <p class="team-role">Mécanique & Cinématique</p>
-                    <p class="team-desc">Le MacGyver du projet. Conçoit et optimise chaque pièce mécanique pour que notre robot soit aussi stable qu'une montagne et aussi rapide qu'un lièvre.</p>
+                    <p class="team-role">Chef de Projet | Cinématique & Planification</p>
+                    <p class="team-desc">Responsable de la conduite globale du projet, de l'analyse opérationnelle, ainsi que de l'élaboration et du suivi du diagramme de Gantt. Il assure également la gestion des essais physiques sur piste et la validation de la dynamique globale du châssis.</p>
                 </div>
                 <div class="team-card">
                     <div class="avatar">T</div>
                     <h3 class="team-name">Tom</h3>
-                    <p class="team-role">Développement & Firmware</p>
-                    <p class="team-desc">Le gourou du code. Développe les algorithmes qui font fonctionner le cerveau du robot, transformant des mathématiques complexes en actions simples et efficaces.</p>
+                    <p class="team-role">Algorithmique | Intégration Web & Firmware</p>
+                    <p class="team-desc">Dédié à la structure du micrologiciel de navigation en langage C et à l'implémentation des algorithmes d'asservissement temps réel. Participe activement au développement de la plateforme web et aux campagnes de tests du robot.</p>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">F</div>
+                    <h3 class="team-name">Fabian</h3>
+                    <p class="team-role">Matériel | Intégration Web & Électronique</p>
+                    <p class="team-desc">En charge de la caractérisation hardware, de l'étalonnage des capteurs d'acquisition infrarouges et de la surveillance des variables énergétiques. Co-développeur de l'architecture du site web, de la structure logicielle et des phases de validation expérimentale.</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="gestion" class="page">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>SUIVI ET PLANIFICATION</h1>
+                <p class="subtitle">Tableau de bord opérationnel de l'ingénierie</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Indicateurs Clés de Performance</h2>
+            <div class="title-line"></div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">15 avr. - 18 juin</div>
+                    <div class="metric-label">Période du Projet (2026)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">30%</div>
+                    <div class="metric-label">Avancement Global</div>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">17</div>
+                    <div class="metric-label">Tâches Répertoriées</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">0</div>
+                    <div class="metric-label">Ressources Externes</div>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 2rem;">Jalons du Projet (Milestones)</h2>
+            <div class="title-line"></div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Mi-Mai 2026</div>
+                    <div class="timeline-title">Prototype Fonctionnel</div>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Validation des premières routines d'asservissement de trajectoire et de la communication matérielle de base.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">26 Mai 2026</div>
+                    <div class="timeline-title">Qualification Réussie</div>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Homologation technique du système et validation de la conformité vis-à-vis du règlement officiel du concours.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">11 Juin 2026</div>
+                    <div class="timeline-title">Jour J du Concours</div>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Phase finale de la compétition nationale de robotique à Cachan et évaluation des performances sur piste.</p>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 2rem;">Analyse et Maîtrise des Risques</h2>
+            <div class="title-line"></div>
+            
+            <table class="risks-table">
+                <thead>
+                    <tr>
+                        <th>Risque Identifié</th>
+                        <th>Impact Potentiel</th>
+                        <th>Stratégie de Mitigation / Prévention</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: 600; color: var(--primary);">Retards de développement logicielles</td>
+                        <td style="color: var(--text);">Décalage des jalons intermédiaires et non-respect des délais.</td>
+                        <td style="color: var(--text-light);">Suivi rigoureux via le diagramme de Gantt mené par Yann et parallélisation du codage entre Tom et Fabian.</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600; color: var(--primary);">Défaillance du matériel embarqué</td>
+                        <td style="color: var(--text);">Interruption complète des phases de tests physiques sur le robot.</td>
+                        <td style="color: var(--text-light);">Maintenance préventive du châssis, caractérisation hardware par Fabian et isolation des circuits d'alimentation.</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600; color: var(--primary);">Anomalies logicielles (Bugs de dernière minute)</td>
+                        <td style="color: var(--text);">Instabilité des boucles PID ou échec lors des épreuves critiques.</td>
+                        <td style="color: var(--text-light);">Mise en place d'une batterie de tests unitaires systématiques et gel du code source 48h avant le concours.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <div id="robot" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>NOTRE ROBOT</h1>
-                <p class="subtitle">Pololu 3Pi+ - Une petite merveille d'ingénierie</p>
+                <h1>ARCHITECTURE DE LA PLATEFORME</h1>
+                <p class="subtitle">Spécifications techniques du robot d'origine Pololu 3Pi+</p>
             </div>
         </div>
 
         <div class="section">
             <div class="title-line"></div>
             <div class="robot-container">
-                <div class="robot-visual">Pololu 3Pi+</div>
+                <div class="robot-visual">Pololu 3Pi+ Diagram</div>
                 <div class="specs-list">
                     <div class="spec-card">
-                        <div class="spec-title">Plateforme Compacte</div>
-                        <div class="spec-text">Robot Pololu 3Pi+ : petit mais puissant. Conçu pour naviguer dans des espaces restreints tout en étant performant sur des terrains complexes.</div>
+                        <div class="spec-title">Châssis et Intégration</div>
+                        <div class="spec-text">Structure mobile pré-assemblée compacte conçue pour les évolutions en milieu contraignant, associant légèreté et faible inertie de rotation.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Motorisation Haute Performance</div>
-                        <div class="spec-text">Deux moteurs DC réducteurs offrant accélération rapide et stabilité directionnelle précise. Parfait pour les virages rapides et les lignes droites explosives.</div>
+                        <div class="spec-title">Groupe Motopropulseur</div>
+                        <div class="spec-text">Deux moteurs à courant continu couplés à des réducteurs mécaniques assurant un couple constant, une accélération linéaire et une rétroaction par encodeurs.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Capteurs Infrarouge</div>
-                        <div class="spec-text">Cinq yeux infrarouges qui voient mieux que nous. Détectent les lignes au sol et les obstacles pour naviguer sans crasher (fingers crossed).</div>
+                        <div class="spec-title">Réseau de Capteurs Infrarouges</div>
+                        <div class="spec-text">Barrette frontale de 5 capteurs de réflectance infrarouge dédiée à la discrimination fine des lignes de guidage au sol et au repérage des repères topographiques.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Microcontrôleur AVR 32-bit</div>
-                        <div class="spec-text">Cerveau du robot fonctionnant à 20 MHz. Assez puissant pour exécuter des algorithmes complexes en temps réel sans sudation.</div>
+                        <div class="spec-title">Unité de Traitement Électronique</div>
+                        <div class="spec-text">Microcontrôleur cible compatible AVR cadencé à une fréquence d'horloge de 20 MHz, optimisé pour exécuter la boucle d'asservissement principale sans latence.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Système d'Alimentation Optimisé</div>
-                        <div class="spec-text">Batterie rechargeable pour 2-3 heures d'autonomie. Gestion intelligente de l'énergie pour que le robot finisse plus fort qu'il ne commence.</div>
+                        <div class="spec-title">Sous-système d'Alimentation</div>
+                        <div class="spec-text">Régulation de tension embarquée alimentée par accumulateurs, dimensionnée pour maintenir une tension nominale stable et garantir une autonomie adaptée à la durée du concours.</div>
                     </div>
                 </div>
             </div>
@@ -763,44 +912,44 @@
     <div id="epreuves" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>LES ÉPREUVES</h1>
-                <p class="subtitle">Les défis qui nous attendent</p>
+                <h1>CAHIER DES CHARGES DES ÉPREUVES</h1>
+                <p class="subtitle">Validation des aptitudes de navigation du système autonome</p>
             </div>
         </div>
 
         <div class="section">
-            <p class="section-subtitle">Le concours Cachan, c'est comme un triathlon... mais pour robots</p>
+            <p class="section-subtitle">Le concours de Cachan s'articule autour de plusieurs défis techniques mesurant la précision et la rapidité du robot.</p>
             <div class="title-line"></div>
             <div class="epreuves-grid">
                 <div class="epreuve">
-                    <h3 class="epreuve-title">Sprint Ligne Droite</h3>
-                    <p class="epreuve-text">Accélère à fond et franchis la distance le plus vite possible. Pas de détour, pas de compromis. Pur test de vitesse.</p>
-                    <span class="epreuve-badge">Temps chronométré</span>
+                    <h3 class="epreuve-title">Sprint en Ligne Droite</h3>
+                    <p class="epreuve-text">Évaluation de l'accélération maximale et de la stabilité de la correction de trajectoire sur une distance définie.</p>
+                    <span class="epreuve-badge">Mesure temporelle</span>
                 </div>
                 <div class="epreuve">
                     <h3 class="epreuve-title">Parcours Sinueux</h3>
-                    <p class="epreuve-text">Suit une ligne avec des courbes délicates. Demande de la précision, de la réactivité et une certaine finesse de pilotage.</p>
-                    <span class="epreuve-badge">Précision + Vitesse</span>
+                    <p class="epreuve-text">Suivi d'une trajectoire courbe continue exigeant un traitement dynamique et réactif des erreurs de positionnement.</p>
+                    <span class="epreuve-badge">Régulation PID</span>
                 </div>
                 <div class="epreuve">
-                    <h3 class="epreuve-title">Franchissement Obstacles</h3>
-                    <p class="epreuve-text">Détecte les obstacles et les contourne intelligemment. Teste la vraie autonomie et les capacités décisionnelles du robot.</p>
-                    <span class="epreuve-badge">Autonomie</span>
+                    <h3 class="epreuve-title">Franchissement d'Obstacles</h3>
+                    <p class="epreuve-text">Détection de barrières sur la piste, planification d'un contournement et recalage automatique sur la ligne de référence.</p>
+                    <span class="epreuve-badge">Évitement autonome</span>
                 </div>
                 <div class="epreuve">
                     <h3 class="epreuve-title">Fiabilité Énergétique</h3>
-                    <p class="epreuve-text">Une seule charge. Toutes les missions. Teste l'optimisation énergétique et la gestion intelligente de la batterie.</p>
-                    <span class="epreuve-badge">Endurance</span>
+                    <p class="epreuve-text">Modélisation de la consommation électrique du système pour maximiser le rendement énergétique sur l'ensemble du cycle de fonctionnement.</p>
+                    <span class="epreuve-badge">Optimisation de profil</span>
                 </div>
                 <div class="epreuve">
-                    <h3 class="epreuve-title">Précision Positionnement</h3>
-                    <p class="epreuve-text">Atteint des positions exactes. Teste la calibration des capteurs et la précision des calculs de localisation.</p>
-                    <span class="epreuve-badge">Localisation</span>
+                    <h3 class="epreuve-title">Précision de Positionnement</h3>
+                    <p class="epreuve-text">Contrôle d'arrêt précis sur des repères fixes par exploitation combinée des données odométriques et des capteurs de sol.</p>
+                    <span class="epreuve-badge">Odométrie</span>
                 </div>
                 <div class="epreuve">
                     <h3 class="epreuve-title">Grand Défi Chronométré</h3>
-                    <p class="epreuve-text">L'épreuve finale. Tous les défis combinés. Une chance de briller sur le podium. Pas d'erreur possible.</p>
-                    <span class="epreuve-badge">L'épreuve reine</span>
+                    <p class="epreuve-text">Épreuve finale de synthèse combinant la totalité des contraintes algorithmiques et matérielles du règlement.</p>
+                    <span class="epreuve-badge">Validation finale</span>
                 </div>
             </div>
         </div>
@@ -809,13 +958,13 @@
     <div id="prog" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>PROGRAMMATION</h1>
-                <p class="subtitle">Le code qui fait vivre notre robot</p>
+                <h1>DÉVELOPPEMENT LOGICIEL</h1>
+                <p class="subtitle">Architecture du code et indicateurs de génération</p>
             </div>
         </div>
 
         <div class="section">
-            <p class="section-subtitle">Découvrez les programmes et le niveau d'assistance IA utilisée</p>
+            <p class="section-subtitle">Documentation des modules logiciels développés et niveau d'assistance par IA appliqué lors du codage.</p>
             <div class="title-line"></div>
 
             <div class="code-cards">
@@ -824,12 +973,12 @@
                         <div class="code-title">Firmware Principal</div>
                         <span class="ia-badge ia-high">75% IA</span>
                     </div>
-                    <p class="code-description">Code embarqué du microcontrôleur AVR. Gère la boucle principale, les interruptions, les moteurs et les capteurs en temps réel. L'épine dorsale du robot.</p>
+                    <p class="code-description">Structure centrale du programme embarqué. Gère la boucle déterministe principale, la configuration des registres, le routage des interruptions et la synchronisation des tâches temporelles.</p>
                     <div class="code-links">
-                        <a href="#" class="code-link">Télécharger</a>
-                        <a href="#" class="code-link">Documentation</a>
+                        <a href="#" class="code-link">Code Source</a>
+                        <a href="#" class="code-link">Spécifications</a>
                     </div>
-                    <div class="ia-note">Optimisé et affiné avec assistance IA pour maximiser les performances</div>
+                    <div class="ia-note">Optimisation des structures de boucle et de l'allocation mémoire via modèles de langage.</div>
                 </div>
 
                 <div class="code-card">
@@ -837,12 +986,12 @@
                         <div class="code-title">Suivi de Ligne (PID)</div>
                         <span class="ia-badge ia-medium">45% IA</span>
                     </div>
-                    <p class="code-description">Algorithme de suivi avec boucles PID pour naviguer précisément sur le parcours. Corrige la trajectoire en fonction des capteurs infrarouges.</p>
+                    <p class="code-description">Algorithme d'asservissement proportionnel intégral dérivé. Calcule l'erreur de positionnement par rapport à la ligne au sol et ajuste le différentiel de vitesse des moteurs.</p>
                     <div class="code-links">
-                        <a href="#" class="code-link">Télécharger</a>
-                        <a href="#" class="code-link">Documentation</a>
+                        <a href="#" class="code-link">Code Source</a>
+                        <a href="#" class="code-link">Spécifications</a>
                     </div>
-                    <div class="ia-note">Partiellement généré avec suggestions et optimisations IA</div>
+                    <div class="ia-note">Assistance à la modélisation mathématique initiale des coefficients de correction.</div>
                 </div>
 
                 <div class="code-card">
@@ -850,12 +999,12 @@
                         <div class="code-title">Détection d'Obstacles</div>
                         <span class="ia-badge ia-high">80% IA</span>
                     </div>
-                    <p class="code-description">Système d'évitement automatique. Identifie les obstacles et ajuste la trajectoire pour les contourner intelligemment.</p>
+                    <p class="code-description">Machine à états finis gérant la transition entre le mode suivi de ligne et le mode évitement lors de l'acquisition d'un signal d'obstacle en logique d'interruption.</p>
                     <div class="code-links">
-                        <a href="#" class="code-link">Télécharger</a>
-                        <a href="#" class="code-link">Documentation</a>
+                        <a href="#" class="code-link">Code Source</a>
+                        <a href="#" class="code-link">Spécifications</a>
                     </div>
-                    <div class="ia-note">Largement généré et affiné avec assistance IA</div>
+                    <div class="ia-note">Génération de la matrice de transition d'états et écriture des cas limites.</div>
                 </div>
 
                 <div class="code-card">
@@ -863,12 +1012,12 @@
                         <div class="code-title">Contrôle Moteur (PWM)</div>
                         <span class="ia-badge ia-low">10% IA</span>
                     </div>
-                    <p class="code-description">Gestion bas niveau des moteurs via PWM. Code technique complexe, mostly manuel. C'est ici qu'on voit le vrai travail de programmation.</p>
+                    <p class="code-description">Configuration bas niveau des timers du microcontrôleur pour générer les signaux de modulation de largeur d'impulsion (PWM) nécessaires au pilotage des ponts en H.</p>
                     <div class="code-links">
-                        <a href="#" class="code-link">Télécharger</a>
-                        <a href="#" class="code-link">Documentation</a>
+                        <a href="#" class="code-link">Code Source</a>
+                        <a href="#" class="code-link">Spécifications</a>
                     </div>
-                    <div class="ia-note">Principalement développé manuellement avec quelques suggestions IA</div>
+                    <div class="ia-note">Écriture manuelle exclusive basée sur la fiche technique constructeur du composant.</div>
                 </div>
 
                 <div class="code-card">
@@ -876,12 +1025,12 @@
                         <div class="code-title">Calibration Capteurs</div>
                         <span class="ia-badge ia-high">60% IA</span>
                     </div>
-                    <p class="code-description">Utilitaire automatique pour calibrer les capteurs infrarouges. Ajuste les seuils en fonction de l'éclairage et de l'environnement.</p>
+                    <p class="code-description">Routine d'initialisation permettant de lire et d'enregistrer les valeurs minimales et maximales de réflectance afin de normaliser les signaux des photodiodes.</p>
                     <div class="code-links">
-                        <a href="#" class="code-link">Télécharger</a>
-                        <a href="#" class="code-link">Documentation</a>
+                        <a href="#" class="code-link">Code Source</a>
+                        <a href="#" class="code-link">Spécifications</a>
                     </div>
-                    <div class="ia-note">Généré avec assistance IA et optimisé pour différents environnements</div>
+                    <div class="ia-note">Algorithme de mise à l'échelle automatique généré par IA et validé par l'équipe.</div>
                 </div>
 
                 <div class="code-card">
@@ -889,25 +1038,24 @@
                         <div class="code-title">Gestion d'Énergie</div>
                         <span class="ia-badge ia-medium">35% IA</span>
                     </div>
-                    <p class="code-description">Système intelligent de gestion de l'alimentation. Surveille la batterie et ajuste les paramètres pour maximiser l'autonomie en compétition.</p>
+                    <p class="code-description">Suivi de la tension de la batterie via le convertisseur analogique-numérique (CAN) pour moduler la vitesse maximale en fonction de la décharge calculée.</p>
                     <div class="code-links">
-                        <a href="#" class="code-link">Télécharger</a>
-                        <a href="#" class="code-link">Documentation</a>
+                        <a href="#" class="code-link">Code Source</a>
+                        <a href="#" class="code-link">Spécifications</a>
                     </div>
-                    <div class="ia-note">Partiellement assisté par IA pour les optimisations</div>
+                    <div class="ia-note">Ajustement des seuils de protection contre les sous-tensions assisté par IA.</div>
                 </div>
             </div>
 
-            <div style="background: linear-gradient(135deg, #f4f0fa 0%, #eae6f2 100%); border-radius: 12px; padding: 2.5rem; margin-top: 3rem; border-left: 4px solid var(--primary);">
-                <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">À propos de l'utilisation de l'IA</p>
-                <p style="color: var(--text); line-height: 1.8; margin-bottom: 1rem;">Les pourcentages indiqués reflètent le niveau d'assistance d'outils IA (ChatGPT, Claude, etc.) dans la création, l'optimisation et le débuggage du code. Cela peut inclure :</p>
-                <ul style="color: var(--text-light); line-height: 1.8; margin-left: 2rem;">
-                    <li>Génération de structure et logique de base</li>
-                    <li>Optimisations d'algorithmes</li>
-                    <li>Débuggage et suggestions de corrections</li>
-                    <li>Documentation et commentaires</li>
+            <div style="background: #f1f5f9; border-radius: 8px; padding: 2.5rem; margin-top: 3rem; border-left: 4px solid var(--primary); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+                <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">Rapport méthodologique sur l'usage de l'IA</p>
+                <p style="color: var(--text); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">Les taux affichés représentent la proportion d'utilisation d'outils d'intelligence artificielle générative (LLM) dans le processus de refactorisation, d'optimisation d'algorithmes et d'aide au débogage du code embarqué. Cet outil a été employé pour :</p>
+                <ul style="color: var(--text-light); line-height: 1.8; margin-left: 2rem; margin-bottom: 1rem;">
+                    <li>La structuration initiale des modules logiciels et l'architecture des fonctions.</li>
+                    <li>L'analyse de performance et l'optimisation mathématique des fonctions de transfert.</li>
+                    <li>La génération de commentaires normés et la documentation technique du projet.</li>
                 </ul>
-                <p style="color: var(--text); margin-top: 1.5rem; font-style: italic;">Le développement, les tests et la validation finale restent sous responsabilité complète de notre équipe. L'IA est un outil, pas un remplaçant.</p>
+                <p style="color: var(--text); font-style: italic; font-size: 0.95rem;">Note : La réalisation des tests sur banc d'essai, l'intégration finale et la validation de la sûreté de fonctionnement demeurent sous la responsabilité exclusive des membres de l'équipe.</p>
             </div>
         </div>
     </div>
@@ -915,61 +1063,61 @@
     <div id="videos" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>VIDÉOS</h1>
-                <p class="subtitle">Regardez notre robot en action</p>
+                <h1>DOCUMENTS VIDÉOS</h1>
+                <p class="subtitle">Enregistrements des phases de test et d'acquisition</p>
             </div>
         </div>
 
         <div class="section">
-            <p class="section-subtitle">Des tests en laboratoire jusqu'à la compétition</p>
+            <p class="section-subtitle">Suivi chronologique des essais dynamiques en laboratoire.</p>
             <div class="title-line"></div>
 
             <div class="videos-grid">
                 <div class="video-card">
-                    <div class="video-placeholder">Aperçu Vidéo</div>
+                    <div class="video-placeholder">Enregistrement 01</div>
                     <div class="video-content">
-                        <h3 class="video-title">Premier Test du Robot</h3>
-                        <p class="video-desc">Les premières étapes d'intégration et tests en laboratoire</p>
+                        <h3 class="video-title">Validation Initiale</h3>
+                        <p class="video-desc">Premières réponses de la boucle d'asservissement après étalonnage des capteurs.</p>
                     </div>
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Aperçu Vidéo</div>
+                    <div class="video-placeholder">Enregistrement 02</div>
                     <div class="video-content">
-                        <h3 class="video-title">Démonstration sur Parcours</h3>
-                        <p class="video-desc">Navigation autonome sur un parcours de test</p>
+                        <h3 class="video-title">Comportement en Courbe</h3>
+                        <p class="video-desc">Analyse vidéo des trajectoires sur une piste d'essai à rayon de courbure variable.</p>
                     </div>
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Aperçu Vidéo</div>
+                    <div class="video-placeholder">Enregistrement 03</div>
                     <div class="video-content">
-                        <h3 class="video-title">Préparation Concours</h3>
-                        <p class="video-desc">Les derniers réglages avant le jour J</p>
+                        <h3 class="video-title">Routine d'Évitement</h3>
+                        <p class="video-desc">Test d'interruption logicielle lors de la rencontre d'un obstacle fixe.</p>
                     </div>
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Aperçu Vidéo</div>
+                    <div class="video-placeholder">Enregistrement 04</div>
                     <div class="video-content">
-                        <h3 class="video-title">Présentation Technique</h3>
-                        <p class="video-desc">Explication détaillée des systèmes et circuits</p>
+                        <h3 class="video-title">Régulation Énergétique</h3>
+                        <p class="video-desc">Mesure de la dérive de trajectoire en fonction de la baisse de tension de la batterie.</p>
                     </div>
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Aperçu Vidéo</div>
+                    <div class="video-placeholder">Enregistrement 05</div>
                     <div class="video-content">
-                        <h3 class="video-title">Jour de Compétition</h3>
-                        <p class="video-desc">Résumé de notre participation au concours Cachan</p>
+                        <h3 class="video-title">Synthèse de Parcours</h3>
+                        <p class="video-desc">Essai complet enchaînant l'ensemble des contraintes réglementaires du concours.</p>
                     </div>
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Aperçu Vidéo</div>
+                    <div class="video-placeholder">Enregistrement 06</div>
                     <div class="video-content">
-                        <h3 class="video-title">Retour d'Expérience</h3>
-                        <p class="video-desc">Ce que nous avons appris et les améliorations futures</p>
+                        <h3 class="video-title">Analyse Post-Essai</h3>
+                        <p class="video-desc">Comparaison des données odométriques théoriques et des trajectoires mesurées.</p>
                     </div>
                 </div>
             </div>
@@ -979,50 +1127,50 @@
     <div id="original" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>ORIGINALITÉ</h1>
-                <p class="subtitle">Notre approche unique</p>
+                <h1>ORIGINALITÉ DU PROJET</h1>
+                <p class="subtitle">Développements spécifiques et optimisations logicielles</p>
             </div>
         </div>
 
         <div class="section">
             <div class="title-line"></div>
             <div class="placeholder">
-                <p class="placeholder-text">Cette section accueillera les détails sur l'originalité et les innovations spécifiques de votre projet.</p>
-                <p class="placeholder-text" style="margin-top: 1rem;">Vous pouvez ajouter ici vos développements uniques, vos approches novatrices, et ce qui différencie votre robot des autres compétiteurs.</p>
+                <p class="placeholder-text">Cette section documentera les solutions algorithmiques spécifiques, les optimisations de trajectoire ou les méthodes d'exploitation des capteurs développées par l'équipe pour se démarquer des configurations standards du concours.</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p style="font-size: 1.1rem; font-weight: 600;">Robot Cachan - GEII Vélizy</p>
-        <p>Équipe : <span class="emoji">F</span> Fabian | <span class="emoji">Y</span> Yann | <span class="emoji">T</span> Tom</p>
-        <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.7;">Compétition Nationale de Robotique • Concours Cachan 2026</p>
+        <p style="font-size: 1rem; font-weight: 600; letter-spacing: 0.5px;">Projet Robotique Cachan - GEII Vélizy</p>
+        <p>Équipe : Yann | Tom | Fabian</p>
+        <p style="margin-top: 1.2rem; font-size: 0.85rem; opacity: 0.6;">Compétition Nationale de Robotique • Concours Cachan 2026</p>
     </footer>
 
     <script>
         function goToPage(pageId) {
-            // Masquer toutes les pages
+            // Masquer toutes les sections de page
             document.querySelectorAll('.page').forEach(function(page) {
                 page.classList.remove('active');
             });
 
-            // Afficher la page sélectionnée
+            // Activer la page cible
             var selectedPage = document.getElementById(pageId);
             if (selectedPage) {
                 selectedPage.classList.add('active');
             }
 
-            // Mettre à jour la navigation
+            // Réinitialiser les états des liens de navigation
             document.querySelectorAll('.nav-link').forEach(function(link) {
                 link.classList.remove('active');
             });
             
+            // Activer le lien correspondant à la page actuelle
             var activeLink = document.querySelector('[data-page="' + pageId + '"]');
             if (activeLink) {
                 activeLink.classList.add('active');
             }
 
-            // Scroller vers le haut
+            // Repositionner le défilement de la fenêtre au sommet
             window.scrollTo(0, 0);
         }
     </script>
