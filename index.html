@@ -312,7 +312,7 @@
             text-align: justify;
         }
 
-        /* ===== GESTION DE PROJET (DASHBOARD) ===== */
+        /* ===== GESTION DE PROJET ===== */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -530,7 +530,7 @@
             border-color: var(--secondary);
         }
 
-        /* ===== PROGRAMMATION - CODE PARCOURS ===== */
+        /* ===== PROGRAMMATION ===== */
         .code-parcours {
             display: grid;
             grid-template-columns: 1fr;
@@ -616,22 +616,22 @@
     <div id="home" class="page active">
         <div class="hero">
             <div class="hero-content">
-                <h1>PROJET ROBOTIQUE CACHAN</h1>
-                <p class="subtitle">Configuration et optimisation de la plateforme Pololu 3Pi+</p>
-                <p class="tagline">GEII Vélizy | Concours de Robotique de Cachan</p>
+                <h1>PROJET ROBOTIQUE</h1>
+                <p class="subtitle">Concours de Cachan - IUT de Vélizy</p>
+                <p class="tagline">Configuration et tests de notre robot Pololu 3Pi+</p>
                 <div class="cta-group">
-                    <button class="btn btn-primary" onclick="goToPage('gestion')">Suivi du Projet</button>
-                    <button class="btn btn-secondary" onclick="goToPage('robot')">Spécifications du Robot</button>
+                    <button class="btn btn-primary" onclick="goToPage('gestion')">Suivi du projet</button>
+                    <button class="btn btn-secondary" onclick="goToPage('robot')">Infos du robot</button>
                 </div>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Présentation du Projet</h2>
+            <h2 class="section-title">Présentation du projet</h2>
             <div class="title-line"></div>
             <div style="max-width: 750px; margin: 0 auto; color: var(--text-light); line-height: 1.8; text-align: justify; font-size: 1rem;">
-                <p>Ce site présente les travaux de développement réalisés par notre équipe de trois étudiants en Génie Électrique et Informatique Industrielle (GEII) de l'IUT de Vélizy dans le cadre du concours de Cachan. Ce concours évalue les performances d'architectures robotiques autonomes sur des parcours spécifiques.</p>
-                <p style="margin-top: 1.2rem;">Notre approche repose sur l'exploitation approfondie, l'étalonnage et la programmation logicielle d'un robot mobile pré-assemblé Pololu 3Pi+, configuré pour maximiser la vitesse de traitement des données et la précision des trajectoires.</p>
+                <p>On est une équipe de trois étudiants en BUT GEII à l'IUT de Vélizy. Ce site sert à présenter notre projet et notre préparation pour le concours de robotique de Cachan.</p>
+                <p style="margin-top: 1.2rem;">On utilise un robot Pololu 3Pi+. Notre travail consiste principalement à calibrer les capteurs et à écrire un code en C efficace pour que le robot suive les lignes de la piste le plus vite possible et sans faire d'erreurs.</p>
             </div>
         </div>
     </div>
@@ -639,8 +639,8 @@
     <div id="equipe" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>COMPOSITION DE L'ÉQUIPE</h1>
-                <p class="subtitle">Répartition des axes de développement technique et managérial</p>
+                <h1>L'ÉQUIPE</h1>
+                <p class="subtitle">La répartition des rôles pour le projet</p>
             </div>
         </div>
 
@@ -650,20 +650,20 @@
                 <div class="team-card">
                     <div class="avatar">Y</div>
                     <h3 class="team-name">Yann</h3>
-                    <p class="team-role">Chef de Projet | Cinématique & Planification</p>
-                    <p class="team-desc">Responsable de la conduite globale du projet, de l'analyse opérationnelle, ainsi que de l'élaboration et du suivi du diagramme de Gantt. Il assure également la gestion des essais physiques sur piste et la validation de la dynamique globale du châssis.</p>
+                    <p class="team-role">Chef de projet & Suivi</p>
+                    <p class="team-desc">Il s'occupe de la gestion globale du projet, de l'organisation des tâches et de la mise à jour du planning. Il gère aussi les essais du robot sur la piste pour analyser comment il réagit en situation réelle.</p>
                 </div>
                 <div class="team-card">
                     <div class="avatar">T</div>
                     <h3 class="team-name">Tom</h3>
-                    <p class="team-role">Algorithmique | Intégration Web & Firmware</p>
-                    <p class="team-desc">Dédié à la structure du micrologiciel de navigation en langage C et à l'implémentation des algorithmes d'asservissement temps réel. Participe activement au développement de la plateforme web et aux campagnes de tests du robot.</p>
+                    <p class="team-role">Développement & Code</p>
+                    <p class="team-desc">Il est chargé d'écrire le code en C pour le robot, notamment les algorithmes pour la gestion des moteurs et la programmation des trajectoires. Il participe aussi à la structure globale du site web.</p>
                 </div>
                 <div class="team-card">
                     <div class="avatar">F</div>
                     <h3 class="team-name">Fabian</h3>
-                    <p class="team-role">Matériel | Intégration Web & Électronique</p>
-                    <p class="team-desc">En charge de la caractérisation hardware, de l'étalonnage des capteurs d'acquisition infrarouges et de la surveillance des variables énergétiques. Co-développeur de l'architecture du site web, de la structure logicielle et des phases de validation expérimentale.</p>
+                    <p class="team-role">Matériel & Site Web</p>
+                    <p class="team-desc">Il s'occupe de la partie électronique, du calibrage de la barrette de capteurs infrarouges et de la surveillance de la batterie. Il s'est également chargé du développement et de la mise en page de ce site web.</p>
                 </div>
             </div>
         </div>
@@ -673,12 +673,12 @@
         <div class="hero">
             <div class="hero-content">
                 <h1>SUIVI DU PROJET</h1>
-                <p class="subtitle">Notre avancée et la gestion des tâches</p>
+                <p class="subtitle">Notre avancement et le planning</p>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Avancement du projet</h2>
+            <h2 class="section-title">Avancement global</h2>
             <div class="title-line"></div>
             
             <div class="metrics-grid">
@@ -695,32 +695,32 @@
                 </div>
                 <div class="metric-card">
                     <div class="metric-value">17</div>
-                    <div class="metric-label">Tâches à faire</div>
+                    <div class="metric-label">Tâches restantes</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-value">0</div>
-                    <div class="metric-label">Ressources</div>
+                    <div class="metric-label">Ressources externes</div>
                 </div>
             </div>
 
-            <h2 class="section-title" style="margin-top: 2rem;">Dates clés (Jalons)</h2>
+            <h2 class="section-title" style="margin-top: 2rem;">Dates clés</h2>
             <div class="title-line"></div>
             
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">Mi-Mai 2026</div>
-                    <div class="timeline-title">Prototype Fonctionnel</div>
-                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Tests des premiers codes pour suivre la ligne et s'assurer que les capteurs fonctionnent bien.</p>
+                    <div class="timeline-title">Premier prototype fonctionnel</div>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Premiers tests de code pour le suivi de ligne et vérification du bon fonctionnement des capteurs.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">26 Mai 2026</div>
-                    <div class="timeline-title">Qualification Réussie</div>
-                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Validation du robot pour vérifier qu'il respecte bien le règlement officiel du concours de Cachan.</p>
+                    <div class="timeline-title">Qualification réussie</div>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Le robot a été testé avec succès et respecte toutes les règles officielles du concours.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">11 Juin 2026</div>
-                    <div class="timeline-title">Jour J du Concours</div>
-                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Le jour j du concours à Cachan avec les tests et évaluations sur la piste finale.</p>
+                    <div class="timeline-title">Jour du concours</div>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Passage final devant le jury et évaluations chronométrées sur la piste officielle de Cachan.</p>
                 </div>
             </div>
 
@@ -730,26 +730,26 @@
             <table class="risks-table">
                 <thead>
                     <tr>
-                        <th>Risque Identifié</th>
-                        <th>Impact Potentiel</th>
-                        <th>Stratégie de Mitigation / Prévention</th>
+                        <th>Risque</th>
+                        <th>Impact</th>
+                        <th>Solution / Prévention</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="font-weight: 600; color: var(--primary);">Prendre du retard sur le code</td>
-                        <td style="color: var(--text);">Pas prêts à temps pour les tests ou les jalons.</td>
-                        <td style="color: var(--text-light);">Yann gère le planning et Tom et Fabian codent en même temps pour avancer plus vite.</td>
+                        <td style="font-weight: 600; color: var(--primary);">Retard dans l'écriture du code</td>
+                        <td style="color: var(--text);">Pas prêts à temps pour valider les étapes du projet.</td>
+                        <td style="color: var(--text-light);">Yann suit le planning de près, pendant que Tom et Fabian codent en parallèle pour avancer plus vite.</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: 600; color: var(--primary);">Problème technique ou casse sur le robot</td>
-                        <td style="color: var(--text);">Impossible de tester le robot sur la piste.</td>
-                        <td style="color: var(--text-light);">Fabian vérifie régulièrement l'électronique et fait attention aux batteries.</td>
+                        <td style="font-weight: 600; color: var(--primary);">Casse mécanique ou problème matériel</td>
+                        <td style="color: var(--text);">Impossible de faire rouler le robot pour les tests.</td>
+                        <td style="color: var(--text-light);">Fabian vérifie régulièrement l'électronique, les branchements et l'état des batteries.</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: 600; color: var(--primary);">Gros bugs de dernière minute dans le code</td>
-                        <td style="color: var(--text);">Le robot perd le suivi de ligne ou rate une épreuve.</td>
-                        <td style="color: var(--text-light);">Faire plein de tests avant et arrêter de modifier le code 2 jours avant le concours.</td>
+                        <td style="font-weight: 600; color: var(--primary);">Bugs de dernière minute dans le code</td>
+                        <td style="color: var(--text);">Le robot sort de la piste ou rate une épreuve le jour J.</td>
+                        <td style="color: var(--text-light);">Faire un maximum de tests sur place et bloquer les modifications du code deux jours avant le concours.</td>
                     </tr>
                 </tbody>
             </table>
@@ -759,8 +759,8 @@
     <div id="robot" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>ARCHITECTURE DE LA PLATEFORME</h1>
-                <p class="subtitle">Spécifications techniques du robot d'origine Pololu 3Pi+</p>
+                <h1>NOTRE ROBOT</h1>
+                <p class="subtitle">Caractéristiques techniques de la base Pololu 3Pi+</p>
             </div>
         </div>
 
@@ -770,24 +770,24 @@
                 <div class="robot-visual">Pololu 3Pi+ Diagram</div>
                 <div class="specs-list">
                     <div class="spec-card">
-                        <div class="spec-title">Châssis et Intégration</div>
-                        <div class="spec-text">Structure mobile pré-assemblée compacte conçue pour les évolutions en milieu contraignant, associant légèreté et faible inertia de rotation.</div>
+                        <div class="spec-title">Châssis du robot</div>
+                        <div class="spec-text">Une structure compacte et très légère, idéale pour changer de direction rapidement sur la piste sans perdre de vitesse.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Groupe Motopropulseur</div>
-                        <div class="spec-text">Deux moteurs à courant continu couplés à des réducteurs mécaniques assurant un couple constant, une accélération linéaire et une rétroaction par encodeurs.</div>
+                        <div class="spec-title">Moteurs et roues</div>
+                        <div class="spec-text">Deux moteurs à courant continu reliés à des roues avec encodeurs pour mesurer et contrôler précisément la vitesse de chaque côté.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Réseau de Capteurs Infrarouges</div>
-                        <div class="spec-text">Barrette frontale de 5 capteurs de réflectance infrarouge dédiée à la discrimination fine des lignes de guidage au sol et au repérage des repères topographiques.</div>
+                        <div class="spec-title">Capteurs infrarouges</div>
+                        <div class="spec-text">Une barrette de 5 capteurs de réflectance placée à l'avant pour détecter la position de la ligne noire au sol.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Unité de Traitement Électronique</div>
-                        <div class="spec-text">Microcontrôleur cible compatible AVR cadencé à une fréquence d'horloge de 20 MHz, optimisé pour exécuter la boucle d'asservissement principale sans latence.</div>
+                        <div class="spec-title">Carte de contrôle</div>
+                        <div class="spec-text">Un microcontrôleur cadencé à 20 MHz qui reçoit les données des capteurs et ajuste la trajectoire des moteurs en temps réel.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Sous-système d'Alimentation</div>
-                        <div class="spec-text">Régulation de tension embarquée alimentée par accumulateurs, dimensionnée pour maintenir une tension nominale stable et garantir une autonomie adaptée à la durée du concours.</div>
+                        <div class="spec-title">Alimentation</div>
+                        <div class="spec-text">Le robot fonctionne avec des piles rechargeables, associées à un régulateur de tension pour garder des performances stables.</div>
                     </div>
                 </div>
             </div>
@@ -797,38 +797,38 @@
     <div id="epreuves" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>CAHIER DES CHARGES DES ÉPREUVES</h1>
-                <p class="subtitle">Validation des aptitudes de navigation du système autonome</p>
+                <h1>LES ÉPREUVES DU CONCOURS</h1>
+                <p class="subtitle">Ce que le robot doit savoir faire sur la piste</p>
             </div>
         </div>
 
         <div class="section">
-            <p class="section-subtitle">Le concours de Cachan s'articule autour de plusieurs défis techniques mesurant la précision et la rapidité du robot.</p>
+            <p class="section-subtitle">Le concours de Cachan demande au robot de valider plusieurs défis techniques pour tester sa précision et sa rapidité.</p>
             <div class="title-line"></div>
             <div class="epreuves-grid">
                 <div class="epreuve">
-                    <h3 class="epreuve-title">Sprint en Ligne Droite</h3>
-                    <p class="epreuve-text">Évaluation de l'accélération maximale et de la stabilité de la correction de trajectoire sur une distance définie.</p>
-                    <span class="epreuve-badge">Mesure temporelle</span>
+                    <h3 class="epreuve-title">Sprint en ligne droite</h3>
+                    <p class="epreuve-text">Aller le plus vite possible en ligne droite sur une distance définie sans dévier de la trajectoire.</p>
+                    <span class="epreuve-badge">Chronomètre</span>
                 </div>
                 <div class="epreuve">
-                    <h3 class="epreuve-title">Parcours Sinueux</h3>
-                    <p class="epreuve-text">Suivi d'une trajectoire courbe continue exigeant un traitement dynamique et réactif des erreurs de positionnement.</p>
+                    <h3 class="epreuve-title">Parcours sinueux</h3>
+                    <p class="epreuve-text">Suivre une ligne avec plusieurs virages en utilisant un asservissement PID pour rester bien stable.</p>
                     <span class="epreuve-badge">Régulation PID</span>
                 </div>
                 <div class="epreuve">
-                    <h3 class="epreuve-title">Franchissement d'Obstacles</h3>
-                    <p class="epreuve-text">Détection de barrières sur la piste, planification d'un contournement et recalage automatique sur la ligne de référence.</p>
-                    <span class="epreuve-badge">Évitement autonome</span>
+                    <h3 class="epreuve-title">Franchissement d'obstacle</h3>
+                    <p class="epreuve-text">Détecter un obstacle posé sur la piste, le contourner proprement et retrouver automatiquement la ligne noire.</p>
+                    <span class="epreuve-badge">Évitement</span>
                 </div>
                 <div class="epreuve">
-                    <h3 class="epreuve-title">Précision de Positionnement</h3>
-                    <p class="epreuve-text">Contrôle d'arrêt précis sur des repères fixes par exploitation combinée des données odométriques et des capteurs de sol.</p>
-                    <span class="epreuve-badge">Odométrie</span>
+                    <h3 class="epreuve-title">Arrêt de précision</h3>
+                    <p class="epreuve-text">S'arrêter précisément sur un repère fixe au sol grâce aux capteurs et au calcul des tours de roues.</p>
+                    <span class="epreuve-badge">Capteurs et roues</span>
                 </div>
                 <div class="epreuve">
-                    <h3 class="epreuve-title">Grand Défi Chronométré</h3>
-                    <p class="epreuve-text">Épreuve finale de synthèse combinant la totalité des contraintes algorithmiques et matérielles du règlement.</p>
+                    <h3 class="epreuve-title">Le grand défi</h3>
+                    <p class="epreuve-text">Le parcours de synthèse final qui mélange toutes les difficultés du règlement.</p>
                     <span class="epreuve-badge">Validation finale</span>
                 </div>
             </div>
@@ -838,20 +838,20 @@
     <div id="prog" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>DÉVELOPPEMENT LOGICIEL</h1>
-                <p class="subtitle">Code source des parcours et missions - Pololu 3Pi+</p>
+                <h1>CODE SOURCE</h1>
+                <p class="subtitle">Nos programmes pour les différents parcours</p>
             </div>
         </div>
 
         <div class="section">
-            <p class="section-subtitle">Implémentation complète des firmwares de navigation pour les parcours de compétition et missions d'entraînement avec routines d'asservissement en temps réel.</p>
+            <p class="section-subtitle">Voici les codes et algorithmes qu'on a écrits pour faire fonctionner le robot sur les différentes pistes.</p>
             <div class="title-line"></div>
 
             <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 1.5rem 0;">PARCOURS DE COMPÉTITION</h3>
             <div class="code-parcours">
                 <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Parcours 3 - Détection de Tirés (Dashes)</h3>
-                    <p class="code-parcours-desc">Algorithme de suivi de ligne avec détection de 4 tirés transversaux isolés (repères noirs perpendiculaires à la trajectoire). Le robot s'arrête immédiatement après franchissement du 4ème tiré. Utilise un filtre anti-rebond pour éviter les faux comptages et une régulation proportionnelle simple (Kp = 0.06).</p>
+                    <h3 class="code-parcours-title">Parcours 3 - Détection des tirés (Dashes)</h3>
+                    <p class="code-parcours-desc">Ce code permet de suivre la ligne noire et d'arrêter le robot après le 4ème tiré transversal. On a ajouté un filtre anti-rebond dans la boucle pour éviter de compter plusieurs fois la même ligne par erreur, et on utilise une régulation proportionnelle simple avec un coefficient Kp de 0.06.</p>
                     <div class="code-container">
                         <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
 using namespace Pololu3piPlus32U4;
@@ -958,113 +958,54 @@ void loop()
                 </div>
 
                 <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Parcours 9 - Détection Latérale + Virage</h3>
-                    <p class="code-parcours-desc">Suivi de ligne avec détection de 7 marques latérales. À la détection de la 7ème marque, le robot effectue un virage à 90° avant de continuer. Implémente un contrôle PD (avec dérivée). Kp = 0.04, Kd = 0.08.</p>
+                    <h3 class="code-parcours-title">Parcours 9 - Détection latérale et virage</h3>
+                    <p class="code-parcours-desc">Suivi de ligne avec détection de 7 marques sur le côté. Quand la 7ème marque est lue, le robot tourne à 90 degrés avant de continuer sa route. On utilise ici un contrôle PD (avec dérivée) pour adoucir les mouvements.</p>
                     <div class="code-container">
-                        <pre class="code-content">// ... (Code Parcours 9 préservé) ...</pre>
+                        <pre class="code-content">// Code du parcours 9</pre>
                     </div>
                 </div>
 
                 <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Parcours 5 - Virage 180° après Tiré</h3>
-                    <p class="code-parcours-desc">Détecte un tiré isolé. Après la détection du 2ème tiré, le robot effectue un virage à 180° complet pour repartir en direction opposée.</p>
+                    <h3 class="code-parcours-title">Parcours 5 - Demi-tour après un tiré</h3>
+                    <p class="code-parcours-desc">Le robot détecte les repères au sol. Après avoir franchi le 2ème tiré, il fait un demi-tour complet à 180 degrés sur lui-même pour repartir dans l'autre sens.</p>
                     <div class="code-container">
-                        <pre class="code-content">// ... (Code Parcours 5 préservé) ...</pre>
+                        <pre class="code-content">// Code du parcours 5</pre>
                     </div>
                 </div>
-
-                <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Parcours 13 - Machine d'États Complexe</h3>
-                    <p class="code-parcours-desc">Implémentation multi-états pour gérer des transitions de parcours complexes (marques, retournements 180° et arrêts conditionnels).</p>
-                    <div class="code-container">
-                        <pre class="code-content">// ... (Code Parcours 13 préservé) ...</pre>
-                    </div>
-                </div>
-
-                <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Parcours 13 (v2) - Aller-Retour Simple</h3>
-                    <p class="code-parcours-desc">Version optimisée du parcours 13 avec machine à 2 états. Demi-tour en fin de piste et retour autonome.</p>
-                    <div class="code-container">
-                        <pre class="code-content">// ... (Code Parcours 13 v2 préservé) ...</pre>
-                    </div>
-                </div>
-            </div>
-
-            <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin: 3rem 0 1.5rem 0;">MISSIONS D'ENTRAÎNEMENT</h3>
-            <div class="code-parcours">
-                <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Mission 24 - Suivi de Ligne Simple</h3>
-                    <p class="code-parcours-desc">Niveau introductif : suivi basique de ligne droite et courbe sans détection d'obstacles secondaires.</p>
-                    <div class="code-container">
-                        <pre class="code-content">// ... (Code Mission 24 préservé) ...</pre>
-                    </div>
-                </div>
-
-                <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Mission 27 - Aller-Retour avec Demi-Tour</h3>
-                    <p class="code-parcours-desc">Intermédiaire : gestion de la perte de signal en bout de piste et exécution d'un demi-tour temporisé.</p>
-                    <div class="code-container">
-                        <pre class="code-content">// ... (Code Mission 27 préservé) ...</pre>
-                    </div>
-                </div>
-
-                <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Mission 30 - Compter 3 Tours Autour d'un Point</h3>
-                    <p class="code-parcours-desc">Avancé : suivi en boucle fermée et arrêt automatique indexé sur le décompte d'événements matériels (18 marques).</p>
-                    <div class="code-container">
-                        <pre class="code-content">// ... (Code Mission 30 préservé) ...</pre>
-                    </div>
-                </div>
-
-                <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Mission 31 - Parcours Bouclé avec Point de Passage</h3>
-                    <p class="code-parcours-desc">Expert : logique de routage conditionnel aiguillant le robot vers la zone finale d'arrivée après deux révolutions complètes.</p>
-                    <div class="code-container">
-                        <pre class="code-content">// ... (Code Mission 31 préservé) ...</pre>
-                    </div>
-                </div>
-            </div>
-
-            <div style="background: #f1f5f9; border-radius: 8px; padding: 2.5rem; margin-top: 3rem; border-left: 4px solid var(--primary); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-                <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">Notes Techniques sur l'Implémentation</p>
-                <p style="color: var(--text); line-height: 1.8; margin-bottom: 1rem;"><strong>Boucle Temps Réel :</strong> Fréquence ~1 kHz sur processeur AVR cadencé à 20 MHz.</p>
-                <p style="color: var(--text); line-height: 1.8;"><strong>Régulation :</strong> Algorithmes PD/Proportionnels combinés à des fenêtres d'anti-rebond configurables (80 à 150 cycles de traitement) pour éliminer le bruit sur les capteurs optiques.</p>
             </div>
         </div>
     </div>
 
-    <!-- ===== ONGLET VIDÉOS ===== -->
     <div id="videos" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>DÉMONSTRATIONS VIDÉOS</h1>
-                <p class="subtitle">Analyse du comportement cinématique et des essais sur piste</p>
+                <h1>VIDÉOS DES ESSAIS</h1>
+                <p class="subtitle">Aperçu du robot en action sur la piste</p>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Essais du Robot - Rencontre Robotique BUT1 GEII</h2>
+            <h2 class="section-title">Tests sur la piste de l'IUT</h2>
             <div class="title-line"></div>
             
             <div style="max-width: 850px; margin: 0 auto; background: white; border: 1px solid var(--border); border-radius: 8px; padding: 2rem; box-shadow: 0 4px 15px rgba(15, 23, 42, 0.02);">
-                <!-- Conteneur Vidéo responsive 16:9 -->
                 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; background: #0f172a; border: 1px solid var(--border);">
                     <video controls style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="video1.mov">
-                        Votre navigateur ne prend pas en charge la lecture de vidéos HTML5. Veuillez vérifier que votre fichier vidéo "video1.mov" est bien présent à la racine du dépôt.
+                        Votre navigateur ne prend pas en charge la lecture de vidéos HTML5. Vérifiez que le fichier video1.mov est bien à la racine du dépôt GitHub.
                     </video>
                 </div>
                 
                 <div style="margin-top: 2rem;">
-                    <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.6rem;">Observation & Analyse Technique de la Piste</h3>
+                    <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.6rem;">Analyse des essais</h3>
                     <p style="color: var(--text-light); line-height: 1.7; font-size: 0.95rem; text-align: justify;">
-                        Cette séquence vidéo documente l'exécution expérimentale du robot Pololu 3Pi+ naviguant sur la piste officielle de l'IUT. Le tracé comporte les zones de <strong>Départ 1</strong>, ainsi que les bifurcations vers l'<strong>Arrivée 1</strong> et l'<strong>Arrivée 2</strong>, jalonnées de repères transversaux et de boucles de rebroussement.
+                        Cette vidéo montre notre robot pendant un test réel sur la piste d'entraînement de l'IUT. On y voit la gestion du départ, le comportement général lors du suivi de ligne, et la façon dont il négocie les intersections et les zones de demi-tour.
                     </p>
                     
                     <div style="margin-top: 1.5rem; background: #fff7ed; border-left: 4px solid #f97316; padding: 1.2rem; border-radius: 4px;">
-                        <p style="color: #c2410c; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">⚠️ Rapport d'Essai - Problématique d'Aléas (Instabilité Algorithmique)</p>
+                        <p style="color: #c2410c; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem;">Note sur les tests - Problème de stabilité</p>
                         <p style="color: #7c2d12; font-size: 0.9rem; line-height: 1.6;">
                             <em>« Ça fonctionne une fois sur deux... c'est aléatoire... il n'y a rien qui change dans le code. »</em><br>
-                            <strong>Diagnostic de l'équipe :</strong> La boucle d'asservissement subit des sautes de comportement cinématique (ralentissements inexpliqués et pertes intermittentes du suivi de ligne). L'étalonnage de la barrette de réflectance infrarouge est fortement sujet aux variations de la luminosité ambiante du laboratoire et aux micro-reliefs du support. Une optimisation du profil logiciel et une stabilisation des seuils de détection sont impératives avant le passage devant le jury de Cachan.
+                            <strong>Analyse de l'équipe :</strong> Le robot subit parfois des ralentissements bizarres ou perd le fil de la ligne. La calibration des capteurs infrarouges est très sensible aux changements de lumière dans la salle et aux petits défauts du sol. On doit retravailler les seuils de détection et stabiliser le code avant le jour du concours.
                         </p>
                     </div>
                 </div>
