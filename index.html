@@ -638,22 +638,6 @@
             box-shadow: 0 15px 30px rgba(15, 23, 42, 0.1);
         }
 
-        /* ===== ORIGINALITÉ ===== */
-        .placeholder {
-            background: white;
-            border: 2px dashed var(--border);
-            border-radius: 8px;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .placeholder-text {
-            color: var(--text-light);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
         /* ===== FOOTER ===== */
         footer {
             background: var(--dark);
@@ -698,7 +682,6 @@
                 <li><a href="#" class="nav-link" data-page="epreuves" onclick="goToPage('epreuves'); return false;">Épreuves</a></li>
                 <li><a href="#" class="nav-link" data-page="prog" onclick="goToPage('prog'); return false;">Code</a></li>
                 <li><a href="#" class="nav-link" data-page="videos" onclick="goToPage('videos'); return false;">Vidéos</a></li>
-                <li><a href="#" class="nav-link" data-page="original" onclick="goToPage('original'); return false;">Originalité</a></li>
             </ul>
         </div>
     </nav>
@@ -708,9 +691,9 @@
             <div class="hero-content">
                 <h1>PROJET ROBOTIQUE CACHAN</h1>
                 <p class="subtitle">Configuration et optimisation de la plateforme Pololu 3Pi+</p>
-                <p class="tagline">GEII Vélizy | Compétition Nationale de Robotique</p>
+                <p class="tagline">GEII Vélizy | Concours de Robotique de Cachan</p>
                 <div class="cta-group">
-                    <button class="btn btn-primary" onclick="goToPage('gestion')">Indicateurs de Projet</button>
+                    <button class="btn btn-primary" onclick="goToPage('gestion')">Suivi du Projet</button>
                     <button class="btn btn-secondary" onclick="goToPage('robot')">Spécifications du Robot</button>
                 </div>
             </div>
@@ -720,7 +703,7 @@
             <h2 class="section-title">Présentation du Projet</h2>
             <div class="title-line"></div>
             <div style="max-width: 750px; margin: 0 auto; color: var(--text-light); line-height: 1.8; text-align: justify; font-size: 1rem;">
-                <p>Ce site présente les travaux de développement réalisés par notre équipe de trois étudiants en Génie Électrique et Informatique Industrielle (GEII) de l'IUT de Vélizy dans le cadre du concours Cachan. Cette compétition nationale évalue les performances d'architectures robotiques autonomes sur des parcours spécifiques.</p>
+                <p>Ce site présente les travaux de développement réalisés par notre équipe de trois étudiants en Génie Électrique et Informatique Industrielle (GEII) de l'IUT de Vélizy dans le cadre du concours de Cachan. Ce concours évalue les performances d'architectures robotiques autonomes sur des parcours spécifiques.</p>
                 <p style="margin-top: 1.2rem;">Notre approche repose sur l'exploitation approfondie, l'étalonnage et la programmation logicielle d'un robot mobile pré-assemblé Pololu 3Pi+, configuré pour maximiser la vitesse de traitement des données et la précision des trajectoires.</p>
             </div>
         </div>
@@ -762,59 +745,59 @@
     <div id="gestion" class="page">
         <div class="hero">
             <div class="hero-content">
-                <h1>SUIVI ET PLANIFICATION</h1>
-                <p class="subtitle">Tableau de bord opérationnel de l'ingénierie</p>
+                <h1>SUIVI DU PROJET</h1>
+                <p class="subtitle">Notre avancée et la gestion des tâches</p>
             </div>
         </div>
 
         <div class="section">
-            <h2 class="section-title">Indicateurs Clés de Performance</h2>
+            <h2 class="section-title">Avancement du projet</h2>
             <div class="title-line"></div>
             
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-value">15 avr. - 18 juin</div>
-                    <div class="metric-label">Période du Projet (2026)</div>
+                    <div class="metric-label">Dates du projet (2026)</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-value">30%</div>
-                    <div class="metric-label">Avancement Global</div>
+                    <div class="metric-label">Avancement</div>
                     <div class="progress-container">
                         <div class="progress-bar"></div>
                     </div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-value">17</div>
-                    <div class="metric-label">Tâches Répertoriées</div>
+                    <div class="metric-label">Tâches à faire</div>
                 </div>
                 <div class="metric-card">
                     <div class="metric-value">0</div>
-                    <div class="metric-label">Ressources Externes</div>
+                    <div class="metric-label">Ressources</div>
                 </div>
             </div>
 
-            <h2 class="section-title" style="margin-top: 2rem;">Jalons du Projet (Milestones)</h2>
+            <h2 class="section-title" style="margin-top: 2rem;">Dates clés (Jalons)</h2>
             <div class="title-line"></div>
             
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">Mi-Mai 2026</div>
                     <div class="timeline-title">Prototype Fonctionnel</div>
-                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Validation des premières routines d'asservissement de trajectoire et de la communication matérielle de base.</p>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Tests des premiers codes pour suivre la ligne et s'assurer que les capteurs fonctionnent bien.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">26 Mai 2026</div>
                     <div class="timeline-title">Qualification Réussie</div>
-                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Homologation technique du système et validation de la conformité vis-à-vis du règlement officiel du concours.</p>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Validation du robot pour vérifier qu'il respecte bien le règlement officiel du concours de Cachan.</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">11 Juin 2026</div>
                     <div class="timeline-title">Jour J du Concours</div>
-                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Phase finale de la compétition nationale de robotique à Cachan et évaluation des performances sur piste.</p>
+                    <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.3rem;">Le jour j du concours à Cachan avec les tests et évaluations sur la piste finale.</p>
                 </div>
             </div>
 
-            <h2 class="section-title" style="margin-top: 2rem;">Analyse et Maîtrise des Risques</h2>
+            <h2 class="section-title" style="margin-top: 2rem;">Gestion des risques</h2>
             <div class="title-line"></div>
             
             <table class="risks-table">
@@ -827,19 +810,19 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="font-weight: 600; color: var(--primary);">Retards de développement logicielles</td>
-                        <td style="color: var(--text);">Décalage des jalons intermédiaires et non-respect des délais.</td>
-                        <td style="color: var(--text-light);">Suivi rigoureux via le diagramme de Gantt mené par Yann et parallélisation du codage entre Tom et Fabian.</td>
+                        <td style="font-weight: 600; color: var(--primary);">Prendre du retard sur le code</td>
+                        <td style="color: var(--text);">Pas prêts à temps pour les tests ou les jalons.</td>
+                        <td style="color: var(--text-light);">Yann gère le planning et Tom et Fabian codent en même temps pour avancer plus vite.</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: 600; color: var(--primary);">Défaillance du matériel embarqué</td>
-                        <td style="color: var(--text);">Interruption complète des phases de tests physiques sur le robot.</td>
-                        <td style="color: var(--text-light);">Maintenance préventive du châssis, caractérisation hardware par Fabian et isolation des circuits d'alimentation.</td>
+                        <td style="font-weight: 600; color: var(--primary);">Problème technique ou casse sur le robot</td>
+                        <td style="color: var(--text);">Impossible de tester le robot sur la piste.</td>
+                        <td style="color: var(--text-light);">Fabian vérifie régulièrement l'électronique et fait attention aux batteries.</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: 600; color: var(--primary);">Anomalies logicielles (Bugs de dernière minute)</td>
-                        <td style="color: var(--text);">Instabilité des boucles PID ou échec lors des épreuves critiques.</td>
-                        <td style="color: var(--text-light);">Mise en place d'une batterie de tests unitaires systématiques et gel du code source 48h avant le concours.</td>
+                        <td style="font-weight: 600; color: var(--primary);">Gros bugs de dernière minute dans le code</td>
+                        <td style="color: var(--text);">Le robot perd le suivi de ligne ou rate une épreuve.</td>
+                        <td style="color: var(--text-light);">Faire plein de tests avant et arrêter de modifier le code 2 jours avant le concours.</td>
                     </tr>
                 </tbody>
             </table>
@@ -850,67 +833,36 @@
         <div class="hero">
             <div class="hero-content">
                 <h1>ARCHITECTURE DE LA PLATEFORME</h1>
-                <p class="subtitle">Pololu 3Pi+ 32U4 - Spécifications techniques officielles</p>
+                <p class="subtitle">Spécifications techniques du robot d'origine Pololu 3Pi+</p>
             </div>
         </div>
 
         <div class="section">
             <div class="title-line"></div>
             <div class="robot-container">
-                <div class="robot-visual">Pololu 3Pi+ 32U4 OLED</div>
+                <div class="robot-visual">Pololu 3Pi+ Diagram</div>
                 <div class="specs-list">
                     <div class="spec-card">
-                        <div class="spec-title">Microcontrôleur et Électronique</div>
-                        <div class="spec-text"><strong>ATmega32U4</strong> 8-bit AVR compatible Arduino. Mémoire Flash: 32 KB (4 KB utilisés par bootloader). Fréquence: 16 MHz. Interface USB native pour programmation et débogage en temps réel.</div>
+                        <div class="spec-title">Châssis et Intégration</div>
+                        <div class="spec-text">Structure mobile pré-assemblée compacte conçue pour les évolutions en milieu contraignant, associant légèreté et faible inertie de rotation.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Dimensions Physiques</div>
-                        <div class="spec-text"><strong>Diamètre:</strong> 97 mm (3,8 pouces). <strong>Hauteur:</strong> environ 35 mm. Compact et léger, tient dans la paume de la main. Design circulaire optimisé pour stabilité et maniabilité.</div>
+                        <div class="spec-title">Groupe Motopropulseur</div>
+                        <div class="spec-text">Deux moteurs à courant continu couplés à des réducteurs mécaniques assurant un couple constant, une accélération linéaire et une rétroaction par encodeurs.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Moteurs et Transmission</div>
-                        <div class="spec-text"><strong>2x Micro Metal Gearmotors 30:1 MP 6V</strong> (version Standard). Alternative 75:1 LP pour plus de couple. Double pont en H (H-bridge) pour pilotage indépendant. Encodeurs magnétiques quadrature: 12 CPR par révolution du moteur = ~358 CPR aux roues (30:1).</div>
+                        <div class="spec-title">Réseau de Capteurs Infrarouges</div>
+                        <div class="spec-text">Barrette frontale de 5 capteurs de réflectance infrarouge dédiée à la discrimination fine des lignes de guidage au sol et au repérage des repères topographiques.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Capteurs de Ligne (Reflectance Sensors)</div>
-                        <div class="spec-text"><strong>5 capteurs infrarouges</strong> en barrette frontale pour suivi de ligne. Détection de réflectance de 0-1023 (calibrée). Permet discrimination précise ligne noire/surface blanche et détection de marques.</div>
+                        <div class="spec-title">Unité de Traitement Électronique</div>
+                        <div class="spec-text">Microcontrôleur cible compatible AVR cadencé à une fréquence d'horloge de 20 MHz, optimisé pour exécuter la boucle d'asservissement principale sans latence.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Centrale Inertielle (IMU)</div>
-                        <div class="spec-text"><strong>9 axes complets:</strong> accéléromètre 3D, gyroscope 3D, magnétomètre 3D. Communication I²C. Permet détection d'orientation, de mouvement et de champ magnétique pour navigation avancée.</div>
-                    </div>
-                    <div class="spec-card">
-                        <div class="spec-title">Capteurs de Contact (Bumpers)</div>
-                        <div class="spec-text"><strong>2 capteurs tactiles</strong> à l'avant pour détection physique de collisions. Utiles pour détection d'obstacles passifs et sécurité du système.</div>
-                    </div>
-                    <div class="spec-card">
-                        <div class="spec-title">Affichage et Interface</div>
-                        <div class="spec-text"><strong>Écran OLED graphique</strong> (version 3Pi+ 32U4 OLED) pour feedback visuel temps réel. <strong>3 boutons-poussoirs</strong> pour interface utilisateur. Buzzer intégré pour feedback sonore. 6 LEDs RVB programmables (version 2040).</div>
-                    </div>
-                    <div class="spec-card">
-                        <div class="spec-title">Alimentation</div>
-                        <div class="spec-text"><strong>4 piles AAA</strong> (non incluses) en boîtier accessible sous le robot. Tension nominale: 6V (4.8-6V recommandé). Régulation interne pour microcontrôleur et capteurs. Autonomie typique: 2-4 heures selon charge et moteurs.</div>
-                    </div>
-                    <div class="spec-card">
-                        <div class="spec-title">Roues et Propulsion</div>
-                        <div class="spec-text"><strong>2 roues motrices</strong> avec pneumatique caoutchouc. <strong>1 ball caster</strong> à l'arrière pour équilibre. Diamètre roue: 32 mm. Vitesse max ~1.5 m/s (30:1) à ~0.4 m/s (75:1).</div>
-                    </div>
-                    <div class="spec-card">
-                        <div class="spec-title">Entrées/Sorties Programmables</div>
-                        <div class="spec-text">Ports d'extension 0.1" pour capteurs externes. I²C, SPI, UART/Serial disponibles. GPIOs supplémentaires libérables. Permet ajout de capteurs personnalisés (distance, couleur, température, etc.).</div>
+                        <div class="spec-title">Sous-système d'Alimentation</div>
+                        <div class="spec-text">Régulation de tension embarquée alimentée par accumulateurs, dimensionnée pour maintenir une tension nominale stable et garantir une autonomie adaptée à la durée du concours.</div>
                     </div>
                 </div>
-            </div>
-
-            <div style="background: #f1f5f9; border-radius: 8px; padding: 2rem; margin-top: 2.5rem; border-left: 4px solid var(--primary);">
-                <p style="color: var(--primary); font-weight: 700; margin-bottom: 0.8rem;"><strong>Notes Techniques</strong></p>
-                <ul style="color: var(--text-light); line-height: 1.8; margin-left: 2rem; font-size: 0.9rem;">
-                    <li>Version utilisée: <strong>Pololu 3Pi+ 32U4 OLED Standard Edition</strong> (moteurs 30:1 MP)</li>
-                    <li>Programmation: Arduino IDE compatible + librairie Pololu3piPlus32U4</li>
-                    <li>Encodeurs: résolution suffisante pour odométrie et contrôle de position</li>
-                    <li>IMU: permet navigation avancée et estimation d'orientation en temps réel</li>
-                    <li>Tout le code est écrit directement sans assistance de génération IA</li>
-                </ul>
             </div>
         </div>
     </div>
@@ -973,7 +925,7 @@
             <p class="section-subtitle">Implémentation complète des firmwares de navigation pour les parcours de compétition et missions d'entraînement avec routines d'asservissement en temps réel.</p>
             <div class="title-line"></div>
 
-            <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 1.5rem 0;">🏁 PARCOURS DE COMPÉTITION</h3>
+            <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 1.5rem 0;">PARCOURS DE COMPÉTITION</h3>
             <div class="code-parcours">
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">📍 Parcours 3 - Détection de Tirés (Dashes)</h3>
@@ -1646,7 +1598,7 @@ void loop()
                 </div>
             </div>
 
-            <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin: 3rem 0 1.5rem 0;">🎯 MISSIONS D'ENTRAÎNEMENT</h3>
+            <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin: 3rem 0 1.5rem 0;">MISSIONS D'ENTRAÎNEMENT</h3>
             <div class="code-parcours">
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">🎓 Mission 24 - Suivi de Ligne Simple</h3>
@@ -2025,7 +1977,7 @@ void loop()
                 </div>
 
             <div style="background: #f1f5f9; border-radius: 8px; padding: 2.5rem; margin-top: 3rem; border-left: 4px solid var(--primary); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-                <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">📋 Notes Techniques sur l'Implémentation</p>
+                <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">Notes Techniques sur l'Implémentation</p>
                 <p style="color: var(--text); line-height: 1.8; margin-bottom: 1rem;"><strong>Progression Pédagogique :</strong></p>
                 <ul style="color: var(--text); line-height: 1.8; margin-left: 2rem; margin-bottom: 1.5rem;">
                     <li><strong>Parcours 3, 5, 9, 13 :</strong> Cas de compétition avec contraintes multiples (détection de marques, virages, arrêts programmés).</li>
@@ -2107,26 +2059,10 @@ void loop()
         </div>
     </div>
 
-    <div id="original" class="page">
-        <div class="hero">
-            <div class="hero-content">
-                <h1>ORIGINALITÉ DU PROJET</h1>
-                <p class="subtitle">Développements spécifiques et optimisations logicielles</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="title-line"></div>
-            <div class="placeholder">
-                <p class="placeholder-text">Cette section documentera les solutions algorithmiques spécifiques, les optimisations de trajectoire ou les méthodes d'exploitation des capteurs développées par l'équipe pour se démarquer des configurations standards du concours.</p>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <p style="font-size: 1rem; font-weight: 600; letter-spacing: 0.5px;">Projet Robotique Cachan - GEII Vélizy</p>
         <p>Équipe : Yann | Tom | Fabian</p>
-        <p style="margin-top: 1.2rem; font-size: 0.85rem; opacity: 0.6;">Compétition Nationale de Robotique • Concours Cachan 2026</p>
+        <p style="margin-top: 1.2rem; font-size: 0.85rem; opacity: 0.6;">Concours de Robotique de Cachan 2026</p>
     </footer>
 
     <script>
