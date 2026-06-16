@@ -589,68 +589,6 @@
         .code-highlight-string { color: #f87171; }
         .code-highlight-comment { color: #94a3b8; }
 
-        /* ===== VIDÉOS ===== */
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .video-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s;
-        }
-
-        .video-player {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: #0f172a;
-            display: block;
-            object-fit: contain;
-        }
-
-        .video-content {
-            padding: 1.2rem;
-        }
-
-        .video-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-            color: var(--text);
-        }
-
-        .video-desc {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(15, 23, 42, 0.1);
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-            border-top: 4px solid var(--secondary);
-        }
-
-        footer p {
-            margin: 0.4rem 0;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
@@ -677,7 +615,6 @@
                 <li><a href="#" class="nav-link" data-page="robot" onclick="goToPage('robot'); return false;">Robot</a></li>
                 <li><a href="#" class="nav-link" data-page="epreuves" onclick="goToPage('epreuves'); return false;">Épreuves</a></li>
                 <li><a href="#" class="nav-link" data-page="prog" onclick="goToPage('prog'); return false;">Code</a></li>
-                <li><a href="#" class="nav-link" data-page="videos" onclick="goToPage('videos'); return false;">Vidéos</a></li>
             </ul>
         </div>
     </nav>
@@ -699,7 +636,7 @@
             <h2 class="section-title">Présentation du Projet</h2>
             <div class="title-line"></div>
             <div style="max-width: 750px; margin: 0 auto; color: var(--text-light); line-height: 1.8; text-align: justify; font-size: 1rem;">
-                <p>Ce site présente les travaux de développement réalisés par notre équipe de trois étudiants en Génie Électrique et Informatique Industrielle (GEII) de l'IUT de Vélizy dans le cadre du concours de Cachan. Ce concours évalue les performances d'architectures robotiques autonomes sur des parcours spécifiques.</p>
+                <p>Ce site presents les travaux de développement réalisés par notre équipe de trois étudiants en Génie Électrique et Informatique Industrielle (GEII) de l'IUT de Vélizy dans le cadre du concours de Cachan. Ce concours évalue les performances d'architectures robotiques autonomes sur des parcours spécifiques.</p>
                 <p style="margin-top: 1.2rem;">Notre approche repose sur l'exploitation approfondie, l'étalonnage et la programmation logicielle d'un robot mobile pré-assemblé Pololu 3Pi+, configuré pour maximiser la vitesse de traitement des données et la précision des trajectoires.</p>
             </div>
         </div>
@@ -889,11 +826,6 @@
                     <h3 class="epreuve-title">Franchissement d'Obstacles</h3>
                     <p class="epreuve-text">Détection de barrières sur la piste, planification d'un contournement et recalage automatique sur la ligne de référence.</p>
                     <span class="epreuve-badge">Évitement autonome</span>
-                </div>
-                <div class="epreuve">
-                    <h3 class="epreuve-title">Fiabilité Énergétique</h3>
-                    <p class="epreuve-text">Modélisation de la consommation électrique du système pour maximiser le rendement énergétique sur l'ensemble du cycle de fonctionnement.</p>
-                    <span class="epreuve-badge">Optimisation de profil</span>
                 </div>
                 <div class="epreuve">
                     <h3 class="epreuve-title">Précision de Positionnement</h3>
@@ -1987,70 +1919,6 @@ void loop()
                     <li><strong>Détection Marques :</strong> Seuillage adaptatif (SIDE_THRESHOLD: 450-500) + anti-rebond (DEBOUNCE_LOOPS: 80-150).</li>
                     <li><strong>Machine d'États :</strong> Transitions de phase pour aller-retour, comptage tours, arrêts conditionnels.</li>
                 </ul>
-            </div>
-        </div>
-    </div>
-
-    <div id="videos" class="page">
-        <div class="hero">
-            <div class="hero-content">
-                <h1>DOCUMENTS VIDÉOS</h1>
-                <p class="subtitle">Enregistrements des phases de test et d'acquisition</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <p class="section-subtitle">Suivi chronologique des essais dynamiques en laboratoire.</p>
-            <div class="title-line"></div>
-
-            <div class="videos-grid">
-                <div class="video-card">
-                    <video class="video-player" controls src="video1.mp4"></video>
-                    <div class="video-content">
-                        <h3 class="video-title">Validation Initiale</h3>
-                        <p class="video-desc">Premières réponses de la boucle d'asservissement après étalonnage des capteurs.</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <video class="video-player" controls src="video2.mp4"></video>
-                    <div class="video-content">
-                        <h3 class="video-title">Comportement en Courbe</h3>
-                        <p class="video-desc">Analyse vidéo des trajectoires sur une piste d'essai à rayon de courbure variable.</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <video class="video-player" controls src="video3.mp4"></video>
-                    <div class="video-content">
-                        <h3 class="video-title">Routine d'Évitement</h3>
-                        <p class="video-desc">Test d'interruption logicielle lors de la rencontre d'un obstacle fixe.</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <video class="video-player" controls src="video4.mp4"></video>
-                    <div class="video-content">
-                        <h3 class="video-title">Régulation Énergétique</h3>
-                        <p class="video-desc">Mesure de la dérive de trajectoire en fonction de la baisse de tension de la batterie.</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <video class="video-player" controls src="video5.mp4"></video>
-                    <div class="video-content">
-                        <h3 class="video-title">Synthèse de Parcours</h3>
-                        <p class="video-desc">Essai complet enchaînant l'ensemble des contraintes réglementaires du concours.</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <video class="video-player" controls src="video6.mp4"></video>
-                    <div class="video-content">
-                        <h3 class="video-title">Analyse Post-Essai</h3>
-                        <p class="video-desc">Comparaison des données odométriques théoriques et des trajectoires mesurées.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
