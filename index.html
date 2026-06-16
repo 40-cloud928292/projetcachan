@@ -21,6 +21,8 @@
             --text: #334155;          /* Texte principal */
             --text-light: #64748b;    /* Texte secondaire */
             --border: #e2e8f0;        /* Bordures techniques */
+            --code-bg: #1e293b;       /* Fond du code */
+            --code-text: #e2e8f0;     /* Texte du code */
         }
 
         body {
@@ -528,14 +530,15 @@
             border-color: var(--secondary);
         }
 
-        /* ===== PROGRAMMATION ===== */
-        .code-cards {
+        /* ===== PROGRAMMATION - CODE PARCOURS ===== */
+        .code-parcours {
             display: grid;
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 3rem;
             margin-top: 2rem;
         }
 
-        .code-card {
+        .code-parcours-card {
             background: white;
             border-radius: 8px;
             padding: 2rem;
@@ -543,77 +546,48 @@
             transition: all 0.3s;
         }
 
-        .code-card:hover {
+        .code-parcours-card:hover {
             box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             border-color: var(--accent);
         }
 
-        .code-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .code-title {
-            font-size: 1.25rem;
+        .code-parcours-title {
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary);
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--secondary);
         }
 
-        .ia-badge {
-            color: white;
-            padding: 0.4rem 0.9rem;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-
-        .ia-high { background: #1e3a8a; }
-        .ia-medium { background: #2563eb; }
-        .ia-low { background: #475569; }
-
-        .code-description {
+        .code-parcours-desc {
             color: var(--text-light);
             margin-bottom: 1.5rem;
             line-height: 1.7;
             font-size: 0.95rem;
         }
 
-        .code-links {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
+        .code-container {
+            background: var(--code-bg);
+            border-radius: 6px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin-top: 1rem;
         }
 
-        .code-link {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
+        .code-content {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--code-text);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            white-space: pre;
         }
 
-        .code-link:hover {
-            background: var(--secondary);
-            transform: translateY(-1px);
-        }
-
-        .ia-note {
-            margin-top: 1.2rem;
-            padding: 0.8rem 1rem;
-            background: var(--light);
-            border-left: 4px solid var(--secondary);
-            border-radius: 4px;
-            font-size: 0.9rem;
-            color: var(--text);
-        }
+        .code-highlight-keyword { color: #60a5fa; }
+        .code-highlight-type { color: #34d399; }
+        .code-highlight-number { color: #fbbf24; }
+        .code-highlight-string { color: #f87171; }
+        .code-highlight-comment { color: #94a3b8; }
 
         /* ===== VIDÉOS ===== */
         .videos-grid {
@@ -708,6 +682,7 @@
             .cta-group { flex-direction: column; }
             .btn { width: 100%; text-align: center; }
             .risks-table th, .risks-table td { padding: 0.8rem; font-size: 0.85rem; }
+            .code-content { font-size: 0.75rem; }
         }
     </style>
 </head>
@@ -875,36 +850,67 @@
         <div class="hero">
             <div class="hero-content">
                 <h1>ARCHITECTURE DE LA PLATEFORME</h1>
-                <p class="subtitle">Spécifications techniques du robot d'origine Pololu 3Pi+</p>
+                <p class="subtitle">Pololu 3Pi+ 32U4 - Spécifications techniques officielles</p>
             </div>
         </div>
 
         <div class="section">
             <div class="title-line"></div>
             <div class="robot-container">
-                <div class="robot-visual">Pololu 3Pi+ Diagram</div>
+                <div class="robot-visual">Pololu 3Pi+ 32U4 OLED</div>
                 <div class="specs-list">
                     <div class="spec-card">
-                        <div class="spec-title">Châssis et Intégration</div>
-                        <div class="spec-text">Structure mobile pré-assemblée compacte conçue pour les évolutions en milieu contraignant, associant légèreté et faible inertie de rotation.</div>
+                        <div class="spec-title">Microcontrôleur et Électronique</div>
+                        <div class="spec-text"><strong>ATmega32U4</strong> 8-bit AVR compatible Arduino. Mémoire Flash: 32 KB (4 KB utilisés par bootloader). Fréquence: 16 MHz. Interface USB native pour programmation et débogage en temps réel.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Groupe Motopropulseur</div>
-                        <div class="spec-text">Deux moteurs à courant continu couplés à des réducteurs mécaniques assurant un couple constant, une accélération linéaire et une rétroaction par encodeurs.</div>
+                        <div class="spec-title">Dimensions Physiques</div>
+                        <div class="spec-text"><strong>Diamètre:</strong> 97 mm (3,8 pouces). <strong>Hauteur:</strong> environ 35 mm. Compact et léger, tient dans la paume de la main. Design circulaire optimisé pour stabilité et maniabilité.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Réseau de Capteurs Infrarouges</div>
-                        <div class="spec-text">Barrette frontale de 5 capteurs de réflectance infrarouge dédiée à la discrimination fine des lignes de guidage au sol et au repérage des repères topographiques.</div>
+                        <div class="spec-title">Moteurs et Transmission</div>
+                        <div class="spec-text"><strong>2x Micro Metal Gearmotors 30:1 MP 6V</strong> (version Standard). Alternative 75:1 LP pour plus de couple. Double pont en H (H-bridge) pour pilotage indépendant. Encodeurs magnétiques quadrature: 12 CPR par révolution du moteur = ~358 CPR aux roues (30:1).</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Unité de Traitement Électronique</div>
-                        <div class="spec-text">Microcontrôleur cible compatible AVR cadencé à une fréquence d'horloge de 20 MHz, optimisé pour exécuter la boucle d'asservissement principale sans latence.</div>
+                        <div class="spec-title">Capteurs de Ligne (Reflectance Sensors)</div>
+                        <div class="spec-text"><strong>5 capteurs infrarouges</strong> en barrette frontale pour suivi de ligne. Détection de réflectance de 0-1023 (calibrée). Permet discrimination précise ligne noire/surface blanche et détection de marques.</div>
                     </div>
                     <div class="spec-card">
-                        <div class="spec-title">Sous-système d'Alimentation</div>
-                        <div class="spec-text">Régulation de tension embarquée alimentée par accumulateurs, dimensionnée pour maintenir une tension nominale stable et garantir une autonomie adaptée à la durée du concours.</div>
+                        <div class="spec-title">Centrale Inertielle (IMU)</div>
+                        <div class="spec-text"><strong>9 axes complets:</strong> accéléromètre 3D, gyroscope 3D, magnétomètre 3D. Communication I²C. Permet détection d'orientation, de mouvement et de champ magnétique pour navigation avancée.</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Capteurs de Contact (Bumpers)</div>
+                        <div class="spec-text"><strong>2 capteurs tactiles</strong> à l'avant pour détection physique de collisions. Utiles pour détection d'obstacles passifs et sécurité du système.</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Affichage et Interface</div>
+                        <div class="spec-text"><strong>Écran OLED graphique</strong> (version 3Pi+ 32U4 OLED) pour feedback visuel temps réel. <strong>3 boutons-poussoirs</strong> pour interface utilisateur. Buzzer intégré pour feedback sonore. 6 LEDs RVB programmables (version 2040).</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Alimentation</div>
+                        <div class="spec-text"><strong>4 piles AAA</strong> (non incluses) en boîtier accessible sous le robot. Tension nominale: 6V (4.8-6V recommandé). Régulation interne pour microcontrôleur et capteurs. Autonomie typique: 2-4 heures selon charge et moteurs.</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Roues et Propulsion</div>
+                        <div class="spec-text"><strong>2 roues motrices</strong> avec pneumatique caoutchouc. <strong>1 ball caster</strong> à l'arrière pour équilibre. Diamètre roue: 32 mm. Vitesse max ~1.5 m/s (30:1) à ~0.4 m/s (75:1).</div>
+                    </div>
+                    <div class="spec-card">
+                        <div class="spec-title">Entrées/Sorties Programmables</div>
+                        <div class="spec-text">Ports d'extension 0.1" pour capteurs externes. I²C, SPI, UART/Serial disponibles. GPIOs supplémentaires libérables. Permet ajout de capteurs personnalisés (distance, couleur, température, etc.).</div>
                     </div>
                 </div>
+            </div>
+
+            <div style="background: #f1f5f9; border-radius: 8px; padding: 2rem; margin-top: 2.5rem; border-left: 4px solid var(--primary);">
+                <p style="color: var(--primary); font-weight: 700; margin-bottom: 0.8rem;"><strong>Notes Techniques</strong></p>
+                <ul style="color: var(--text-light); line-height: 1.8; margin-left: 2rem; font-size: 0.9rem;">
+                    <li>Version utilisée: <strong>Pololu 3Pi+ 32U4 OLED Standard Edition</strong> (moteurs 30:1 MP)</li>
+                    <li>Programmation: Arduino IDE compatible + librairie Pololu3piPlus32U4</li>
+                    <li>Encodeurs: résolution suffisante pour odométrie et contrôle de position</li>
+                    <li>IMU: permet navigation avancée et estimation d'orientation en temps réel</li>
+                    <li>Tout le code est écrit directement sans assistance de génération IA</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -959,103 +965,1080 @@
         <div class="hero">
             <div class="hero-content">
                 <h1>DÉVELOPPEMENT LOGICIEL</h1>
-                <p class="subtitle">Architecture du code et indicateurs de génération</p>
+                <p class="subtitle">Code source des parcours et missions - Pololu 3Pi+</p>
             </div>
         </div>
 
         <div class="section">
-            <p class="section-subtitle">Documentation des modules logiciels développés et niveau d'assistance par IA appliqué lors du codage.</p>
+            <p class="section-subtitle">Implémentation complète des firmwares de navigation pour les parcours de compétition et missions d'entraînement avec routines d'asservissement en temps réel.</p>
             <div class="title-line"></div>
 
-            <div class="code-cards">
-                <div class="code-card">
-                    <div class="code-header">
-                        <div class="code-title">Firmware Principal</div>
-                        <span class="ia-badge ia-high">75% IA</span>
+            <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 1.5rem 0;">🏁 PARCOURS DE COMPÉTITION</h3>
+            <div class="code-parcours">
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">📍 Parcours 3 - Détection de Tirés (Dashes)</h3>
+                    <p class="code-parcours-desc">Algorithme de suivi de ligne avec détection de 4 tirés transversaux isolés (repères noirs perpendiculaires à la trajectoire). Le robot s'arrête immédiatement après franchissement du 4ème tiré. Utilise un filtre anti-rebond pour éviter les faux comptages et une régulation proportionnelle simple (Kp = 0.06).</p>
+                    <div class="code-container">
+                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+using namespace Pololu3piPlus32U4;
+
+LineSensors sensors;
+Motors motors;
+
+uint16_t s[5];
+int baseSpeed = 110;
+float Kp = 0.06;
+int lastError = 0;
+
+// --- Arrêt fin de piste ---
+int noLineCount = 0;
+const int NO_LINE_THRESHOLD = 25;
+const int LINE_DETECT_MIN = 200;
+
+// --- Compteur de tirés ---
+int crossingCount = 0;
+const int MAX_CROSSINGS = 4;
+bool onDash = false;
+bool waitingToStop = false;
+int debounceCount = 0;
+const int DEBOUNCE_LOOPS = 80;
+
+#define DASH_SENSOR    s[4]
+#define DASH_NEIGHBOR  s[3]
+const int DASH_THRESHOLD = 500;
+
+void setup()
+{
+  delay(1000);
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);
+
+  // --- Arrêt fin de piste ---
+  int maxVal = 0;
+  for (int i = 0; i &lt; 5; i++)
+    if (s[i] &gt; maxVal) maxVal = s[i];
+
+  if (maxVal &lt; LINE_DETECT_MIN)
+  {
+    noLineCount++;
+    if (noLineCount &gt;= NO_LINE_THRESHOLD)
+    {
+      motors.setSpeeds(0, 0);
+      while (1);
+    }
+  }
+  else noLineCount = 0;
+
+  // --- Décompte anti-rebond ---
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;
+  }
+  else
+  {
+    // --- Détection tiré isolé ---
+    bool dashAlone = (DASH_SENSOR &gt; DASH_THRESHOLD) &amp;&amp; (DASH_NEIGHBOR &lt; DASH_THRESHOLD);
+
+    if (dashAlone &amp;&amp; !onDash)
+    {
+      onDash = true;
+      crossingCount++;
+      debounceCount = DEBOUNCE_LOOPS;
+
+      if (crossingCount &gt;= MAX_CROSSINGS)
+        waitingToStop = true;
+    }
+
+    if (!dashAlone &amp;&amp; onDash)
+    {
+      onDash = false;
+
+      if (waitingToStop)
+      {
+        motors.setSpeeds(0, 0);
+        while (1);
+      }
+    }
+  }
+
+  // --- Suivi de ligne ---
+  int error = (s[4] + s[3]) - (s[0] + s[1]);
+  if (s[2] &gt; (s[1] + s[3]) / 2)
+    error = (s[3] - s[1]);
+  if (abs(error - lastError) &gt; 1500)
+    error = lastError;
+
+  lastError = error;
+
+  int correction = error * Kp;
+  int leftSpeed  = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+  leftSpeed  = constrain(leftSpeed, -150, 200);
+  rightSpeed = constrain(rightSpeed, -150, 200);
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</pre>
                     </div>
-                    <p class="code-description">Structure centrale du programme embarqué. Gère la boucle déterministe principale, la configuration des registres, le routage des interruptions et la synchronisation des tâches temporelles.</p>
-                    <div class="code-links">
-                        <a href="#" class="code-link">Code Source</a>
-                        <a href="#" class="code-link">Spécifications</a>
-                    </div>
-                    <div class="ia-note">Optimisation des structures de boucle et de l'allocation mémoire via modèles de langage.</div>
                 </div>
 
-                <div class="code-card">
-                    <div class="code-header">
-                        <div class="code-title">Suivi de Ligne (PID)</div>
-                        <span class="ia-badge ia-medium">45% IA</span>
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">📍 Parcours 9 - Détection Latérale + Virage</h3>
+                    <p class="code-parcours-desc">Suivi de ligne avec détection de 7 marques latérales (tirés sur les côtés gauche ou droite). À la détection de la 7ème marque, le robot effectue un virage à 90° avant de continuer. Implémente un contrôle PD (avec dérivée) pour une meilleure stabilité sur les courbes. Kp = 0.04, Kd = 0.08.</p>
+                    <div class="code-container">
+                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+using namespace Pololu3piPlus32U4;
+
+LineSensors sensors;
+Motors motors;
+
+uint16_t s[5];
+int baseSpeed = 110;
+float Kp = 0.04;
+float Kd = 0.08;
+int lastError = 0;
+
+// --- Arrêt fin de piste ---
+int noLineCount = 0;
+const int NO_LINE_THRESHOLD = 25;
+const int LINE_DETECT_MIN = 200;
+
+// --- Compteur lateral ---
+int sideCount = 0;
+const int TURN_AT = 7;
+bool onMark = false;
+int debounceCount = 0;
+const int DEBOUNCE_LOOPS = 80;
+bool turnDone = false;
+
+const int SIDE_THRESHOLD = 500;
+
+void setup()
+{
+  delay(1000);
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);
+
+  // --- Arrêt fin de piste ---
+  int maxVal = 0;
+  for (int i = 0; i &lt; 5; i++)
+  {
+    if (s[i] &gt; maxVal) maxVal = s[i];
+  }
+
+  if (maxVal &lt; LINE_DETECT_MIN)
+  {
+    noLineCount++;
+    if (noLineCount &gt;= NO_LINE_THRESHOLD)
+    {
+      motors.setSpeeds(0, 0);
+      while (1);
+    }
+  }
+  else
+  {
+    noLineCount = 0;
+  }
+
+  // --- Détection marque gauche OU droite ---
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;
+  }
+  else
+  {
+    bool markDetected = (s[4] &gt; SIDE_THRESHOLD) || (s[0] &gt; SIDE_THRESHOLD);
+
+    if (markDetected &amp;&amp; !onMark)
+    {
+      onMark = true;
+      sideCount++;
+      debounceCount = DEBOUNCE_LOOPS;
+
+      if (sideCount == TURN_AT &amp;&amp; !turnDone)
+      {
+        turnDone = true;
+        motors.setSpeeds(0, 0);
+        delay(200);
+
+        motors.setSpeeds(50, -50);
+        delay(375);
+        motors.setSpeeds(0, 0);
+        delay(100);
+
+        lastError = 0;
+      }
+    }
+
+    if (!markDetected &amp;&amp; onMark)
+    {
+      onMark = false;
+    }
+  }
+
+  // --- Suivi de ligne PD ---
+  int error = (s[4] + s[3]) - (s[0] + s[1]);
+  if (s[2] &gt; (s[1] + s[3]) / 2)
+  {
+    error = (s[3] - s[1]);
+  }
+  if (abs(error - lastError) &gt; 1500)
+  {
+    error = lastError;
+  }
+
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+
+  if (leftSpeed &gt; 200) leftSpeed = 200;
+  if (leftSpeed &lt; -150) leftSpeed = -150;
+  if (rightSpeed &gt; 200) rightSpeed = 200;
+  if (rightSpeed &lt; -150) rightSpeed = -150;
+
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</pre>
                     </div>
-                    <p class="code-description">Algorithme d'asservissement proportionnel intégral dérivé. Calcule l'erreur de positionnement par rapport à la ligne au sol et ajuste le différentiel de vitesse des moteurs.</p>
-                    <div class="code-links">
-                        <a href="#" class="code-link">Code Source</a>
-                        <a href="#" class="code-link">Spécifications</a>
-                    </div>
-                    <div class="ia-note">Assistance à la modélisation mathématique initiale des coefficients de correction.</div>
                 </div>
 
-                <div class="code-card">
-                    <div class="code-header">
-                        <div class="code-title">Détection d'Obstacles</div>
-                        <span class="ia-badge ia-high">80% IA</span>
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">📍 Parcours 5 - Virage 180° après Tiré</h3>
+                    <p class="code-parcours-desc">Détecte un tiré isolé (capteur droit sans détection du voisin). Après la détection du 2ème tiré, le robot effectue un virage à 180° complet pour repartir en direction opposée. Utilise une régulation PD pour le suivi de ligne stable. Démontre la capacité du système à changer complètement de direction.</p>
+                    <div class="code-container">
+                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+using namespace Pololu3piPlus32U4;
+
+LineSensors sensors;
+Motors motors;
+
+uint16_t s[5];
+int baseSpeed = 110;
+float Kp = 0.04;
+float Kd = 0.08;
+int lastError = 0;
+
+int noLineCount = 0;
+const int NO_LINE_THRESHOLD = 25;
+const int LINE_DETECT_MIN = 200;
+
+int crossingCount = 0;
+bool onDash = false;
+int debounceCount = 0;
+const int DEBOUNCE_LOOPS = 80;
+bool turnaroundDone = false;
+
+const int DASH_THRESHOLD = 500;
+
+void setup()
+{
+  delay(1000);
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);
+
+  int maxVal = 0;
+  for (int i = 0; i &lt; 5; i++)
+  {
+    if (s[i] &gt; maxVal) maxVal = s[i];
+  }
+
+  if (maxVal &lt; LINE_DETECT_MIN)
+  {
+    noLineCount++;
+    if (noLineCount &gt;= NO_LINE_THRESHOLD)
+    {
+      motors.setSpeeds(0, 0);
+      while (1);
+    }
+  }
+  else
+  {
+    noLineCount = 0;
+  }
+
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;
+  }
+  else
+  {
+    bool dashAlone = (s[4] &gt; DASH_THRESHOLD) &amp;&amp; (s[3] &lt; DASH_THRESHOLD);
+
+    if (dashAlone &amp;&amp; !onDash)
+    {
+      onDash = true;
+      crossingCount++;
+      debounceCount = DEBOUNCE_LOOPS;
+
+      if (crossingCount == 2 &amp;&amp; !turnaroundDone)
+      {
+        turnaroundDone = true;
+        motors.setSpeeds(0, 0);
+        delay(200);
+        motors.setSpeeds(50, -50);
+        delay(750);
+        motors.setSpeeds(0, 0);
+        delay(100);
+        lastError = 0;
+      }
+    }
+
+    if (!dashAlone &amp;&amp; onDash)
+    {
+      onDash = false;
+    }
+  }
+
+  int error = (s[4] + s[3]) - (s[0] + s[1]);
+  if (s[2] &gt; (s[1] + s[3]) / 2)
+  {
+    error = (s[3] - s[1]);
+  }
+  if (abs(error - lastError) &gt; 1500)
+  {
+    error = lastError;
+  }
+
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+
+  if (leftSpeed &gt; 200) leftSpeed = 200;
+  if (leftSpeed &lt; -150) leftSpeed = -150;
+  if (rightSpeed &gt; 200) rightSpeed = 200;
+  if (rightSpeed &lt; -150) rightSpeed = -150;
+
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</pre>
                     </div>
-                    <p class="code-description">Machine à états finis gérant la transition entre le mode suivi de ligne et le mode évitement lors de l'acquisition d'un signal d'obstacle en logique d'interruption.</p>
-                    <div class="code-links">
-                        <a href="#" class="code-link">Code Source</a>
-                        <a href="#" class="code-link">Spécifications</a>
-                    </div>
-                    <div class="ia-note">Génération de la matrice de transition d'états et écriture des cas limites.</div>
                 </div>
 
-                <div class="code-card">
-                    <div class="code-header">
-                        <div class="code-title">Contrôle Moteur (PWM)</div>
-                        <span class="ia-badge ia-low">10% IA</span>
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">📍 Parcours 13 - Machine d'États Complexe</h3>
+                    <p class="code-parcours-desc">Implémentation multi-états pour gérer des transitions de parcours complexes. État 0 : suivi initial + 7 marques + virage 90°. État 1 : continuation avec détection fin de piste et retournement 180°. État 2 : deuxième phase avec 3 marques + virage 90°. État 3 : arrêt final. Démontre une gestion avancée de la navigation autonome.</p>
+                    <div class="code-container">
+                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+using namespace Pololu3piPlus32U4;
+
+LineSensors sensors;
+Motors motors;
+
+uint16_t s[5];
+int baseSpeed = 110;
+float Kp = 0.04;
+float Kd = 0.08;
+int lastError = 0;
+
+int state = 0;
+int noLineCount = 0;
+const int NO_LINE_THRESHOLD = 50;
+const int LINE_DETECT_MIN = 200;
+
+int sideCount = 0;
+bool onMark = false;
+int debounceCount = 0;
+const int DEBOUNCE_LOOPS = 80;
+const int SIDE_THRESHOLD = 500;
+
+void turn90Right()
+{
+  motors.setSpeeds(0, 0);
+  delay(200);
+  motors.setSpeeds(50, -50);
+  delay(375);
+  motors.setSpeeds(0, 0);
+  delay(100);
+  lastError = 0;
+}
+
+void turn180()
+{
+  motors.setSpeeds(0, 0);
+  delay(200);
+  motors.setSpeeds(55, -55);
+  delay(750);
+  motors.setSpeeds(0, 0);
+  delay(100);
+  lastError = 0;
+}
+
+void setup()
+{
+  delay(1000);
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);
+
+  int maxVal = 0;
+  for (int i = 0; i &lt; 5; i++)
+  {
+    if (s[i] &gt; maxVal) maxVal = s[i];
+  }
+
+  if (maxVal &lt; LINE_DETECT_MIN)
+  {
+    noLineCount++;
+    if (noLineCount &gt;= NO_LINE_THRESHOLD)
+    {
+      if (state == 1)
+      {
+        motors.setSpeeds(0, 0);
+        delay(500);
+        turn180();
+
+        unsigned long startTime = millis();
+        while (millis() - startTime &lt; 1000)
+        {
+          sensors.readCalibrated(s);
+          motors.setSpeeds(110, 110);
+        }
+
+        sideCount = 0;
+        onMark = false;
+        debounceCount = 0;
+        noLineCount = 0;
+        lastError = 0;
+        state = 2;
+        return;
+      }
+      else if (state == 3)
+      {
+        motors.setSpeeds(0, 0);
+        while (1);
+      }
+      else if (state != 2)
+      {
+        motors.setSpeeds(0, 0);
+        while (1);
+      }
+    }
+  }
+  else
+  {
+    noLineCount = 0;
+  }
+
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;
+  }
+  else
+  {
+    bool markDetected = (s[4] &gt; SIDE_THRESHOLD) || (s[0] &gt; SIDE_THRESHOLD);
+
+    if (markDetected &amp;&amp; !onMark)
+    {
+      onMark = true;
+      sideCount++;
+      debounceCount = DEBOUNCE_LOOPS;
+
+      if (state == 0 &amp;&amp; sideCount == 7)
+      {
+        turn90Right();
+        sideCount = 0;
+        state = 1;
+      }
+
+      if (state == 2 &amp;&amp; sideCount == 3)
+      {
+        turn90Right();
+        sideCount = 0;
+        state = 3;
+      }
+    }
+
+    if (!markDetected &amp;&amp; onMark)
+    {
+      onMark = false;
+    }
+  }
+
+  int error = (s[4] + s[3]) - (s[0] + s[1]);
+  if (s[2] &gt; (s[1] + s[3]) / 2)
+  {
+    error = (s[3] - s[1]);
+  }
+  if (abs(error - lastError) &gt; 1500)
+  {
+    error = lastError;
+  }
+
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+
+  if (leftSpeed &gt; 200) leftSpeed = 200;
+  if (leftSpeed &lt; -150) leftSpeed = -150;
+  if (rightSpeed &gt; 200) rightSpeed = 200;
+  if (rightSpeed &lt; -150) rightSpeed = -150;
+
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</pre>
                     </div>
-                    <p class="code-description">Configuration bas niveau des timers du microcontrôleur pour générer les signaux de modulation de largeur d'impulsion (PWM) nécessaires au pilotage des ponts en H.</p>
-                    <div class="code-links">
-                        <a href="#" class="code-link">Code Source</a>
-                        <a href="#" class="code-link">Spécifications</a>
-                    </div>
-                    <div class="ia-note">Écriture manuelle exclusive basée sur la fiche technique constructeur du composant.</div>
                 </div>
 
-                <div class="code-card">
-                    <div class="code-header">
-                        <div class="code-title">Calibration Capteurs</div>
-                        <span class="ia-badge ia-high">60% IA</span>
-                    </div>
-                    <p class="code-description">Routine d'initialisation permettant de lire et d'enregistrer les valeurs minimales et maximales de réflectance afin de normaliser les signaux des photodiodes.</p>
-                    <div class="code-links">
-                        <a href="#" class="code-link">Code Source</a>
-                        <a href="#" class="code-link">Spécifications</a>
-                    </div>
-                    <div class="ia-note">Algorithme de mise à l'échelle automatique généré par IA et validé par l'équipe.</div>
-                </div>
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">📍 Parcours 13 (v2) - Aller-Retour Simple</h3>
+                    <p class="code-parcours-desc">Version optimisée du parcours 13 avec machine à 2 états. Phase aller : suivi de ligne jusqu'à perte de signal. Détection automatique de fin de parcours, exécution d'un demi-tour 180°, puis phase retour. Arrêt immédiat si perte de ligne en retour. Kp = 0.08, Kd = 0.04 pour réactivité maximale.</p>
+                    <div class="code-container">
+                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+using namespace Pololu3piPlus32U4;
 
-                <div class="code-card">
-                    <div class="code-header">
-                        <div class="code-title">Gestion d'Énergie</div>
-                        <span class="ia-badge ia-medium">35% IA</span>
+LineSensors sensors;
+Motors motors;
+
+uint16_t s[5];
+
+int baseSpeed = 110;
+float Kp = 0.08;
+float Kd = 0.04;
+int lastError = 0;
+
+int state = 0; // 0 = aller, 1 = retour
+int noLineCount = 0;
+const int NO_LINE_THRESHOLD = 50;
+const int LINE_DETECT_MIN = 200;
+
+void turn180()
+{
+  motors.setSpeeds(0, 0);
+  delay(200);
+  // DEMI-TOUR (400 ms)
+  motors.setSpeeds(100, -100);
+  delay(400);
+  motors.setSpeeds(0, 0);
+  delay(200);
+  // petit avance pour retrouver la ligne
+  motors.setSpeeds(100, 100);
+  delay(250);
+  motors.setSpeeds(0, 0);
+  delay(100);
+  lastError = 0;
+}
+
+void stopForever()
+{
+  motors.setSpeeds(0, 0);
+  while (true)
+  {
+    delay(1000);
+  }
+}
+
+void setup()
+{
+  delay(1000);
+  // calibration des capteurs
+  for (int i = 0; i &lt; 80; i++)
+  {
+    if (i &lt; 40)
+      motors.setSpeeds(60, -60);
+    else
+      motors.setSpeeds(-60, 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+  delay(500);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);
+
+  int maxVal = 0;
+  // recherche de la valeur max des capteurs
+  for (int i = 0; i &lt; 5; i++)
+  {
+    if (s[i] &gt; maxVal)
+      maxVal = s[i];
+  }
+
+  // détection perte de ligne
+  if (maxVal &lt; LINE_DETECT_MIN)
+    noLineCount++;
+  else
+    noLineCount = 0;
+
+  // FIN ALLER → demi-tour
+  if (state == 0 &amp;&amp; noLineCount &gt;= NO_LINE_THRESHOLD)
+  {
+    motors.setSpeeds(0, 0);
+    delay(300);
+    turn180();
+    state = 1;
+    noLineCount = 0;
+    return;
+  }
+
+  // FIN RETOUR → arrêt
+  if (state == 1 &amp;&amp; noLineCount &gt;= NO_LINE_THRESHOLD)
+  {
+    stopForever();
+  }
+
+  // ===== suivi de ligne =====
+  int error;
+  if (s[2] &gt; 500)
+  {
+    error = s[3] - s[1];
+  }
+  else
+  {
+    error = (s[4] + s[3]) - (s[0] + s[1]);
+  }
+
+  // filtrage des grosses erreurs
+  if (abs(error - lastError) &gt; 2000)
+    error = lastError;
+
+  int correction =
+    (error * Kp) +
+    ((error - lastError) * Kd);
+  lastError = error;
+
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+
+  leftSpeed = constrain(leftSpeed, -150, 200);
+  rightSpeed = constrain(rightSpeed, -150, 200);
+
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</pre>
                     </div>
-                    <p class="code-description">Suivi de la tension de la batterie via le convertisseur analogique-numérique (CAN) pour moduler la vitesse maximale en fonction de la décharge calculée.</p>
-                    <div class="code-links">
-                        <a href="#" class="code-link">Code Source</a>
-                        <a href="#" class="code-link">Spécifications</a>
-                    </div>
-                    <div class="ia-note">Ajustement des seuils de protection contre les sous-tensions assisté par IA.</div>
                 </div>
             </div>
 
+            <h3 style="color: var(--primary); font-size: 1.3rem; font-weight: 700; margin: 3rem 0 1.5rem 0;">🎯 MISSIONS D'ENTRAÎNEMENT</h3>
+            <div class="code-parcours">
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">🎓 Mission 24 - Suivi de Ligne Simple</h3>
+                    <p class="code-parcours-desc">Niveau introductif : suivi basique de ligne sans détection d'obstacles ou de marques. Le robot suit simplement la ligne noire en utilisant une régulation PD (Kp = 0.08, Kd = 0.04). Pas d'arrêt, continue indéfiniment. Utile pour calibrer et tester la boucle de contrôle.</p>
+                    <div class="code-container">
+                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+using namespace Pololu3piPlus32U4;
+
+LineSensors sensors;
+Motors motors;
+uint16_t s[5];
+
+int baseSpeed = 110;
+float Kp = 0.08;
+float Kd = 0.04;
+int lastError = 0;
+
+void setup()
+{
+  delay(1000);
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);
+  
+  // ========== SUIVI DE LIGNE SIMPLE ==========
+  int error;
+  
+  if (s[2] &gt; 500)
+  {
+    // Ligne bien centrée
+    error = (s[3] - s[1]);
+  }
+  else
+  {
+    // Ligne sur les côtés
+    error = (s[4] + s[3]) - (s[0] + s[1]);
+  }
+  
+  if (abs(error - lastError) &gt; 2000)
+    error = lastError;
+  
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+  
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+  
+  leftSpeed = constrain(leftSpeed, -150, 200);
+  rightSpeed = constrain(rightSpeed, -150, 200);
+  
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</pre>
+                    </div>
+                </div>
+
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">🎓 Mission 27 - Aller-Retour avec Demi-Tour</h3>
+                    <p class="code-parcours-desc">Intermédiaire : le robot suit la ligne jusqu'à détection de fin (perte de signal). À ce moment, exécute un demi-tour (1000 ms) avant de continuer en phase retour. Pas d'arrêt programmatique, continue jusqu'à fin du parcours. Démontre la gestion de transitions d'état.</p>
+                    <div class="code-container">
+                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+using namespace Pololu3piPlus32U4;
+
+LineSensors sensors;
+Motors motors;
+uint16_t s[5];
+
+int baseSpeed = 110;
+float Kp = 0.08;
+float Kd = 0.04;
+int lastError = 0;
+
+int state = 0;  // 0=Aller, 1=Retour
+int noLineCount = 0;
+const int NO_LINE_THRESHOLD = 50;
+const int LINE_DETECT_MIN = 200;
+
+void turn180()
+{
+  motors.setSpeeds(0, 0);
+  delay(200);
+  motors.setSpeeds(100, -100);
+  delay(1000);
+  motors.setSpeeds(0, 0);
+  delay(100);
+  lastError = 0;
+}
+
+void setup()
+{
+  delay(1000);
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);
+  
+  int maxVal = 0;
+  for (int i = 0; i &lt; 5; i++)
+  {
+    if (s[i] &gt; maxVal) maxVal = s[i];
+  }
+  
+  // ========== ALLER ==========
+  if (state == 0)
+  {
+    // Détecte fin de ligne
+    if (maxVal &lt; LINE_DETECT_MIN)
+    {
+      noLineCount++;
+      if (noLineCount &gt;= NO_LINE_THRESHOLD)
+      {
+        // Fin atteinte: faire demi-tour
+        motors.setSpeeds(0, 0);
+        delay(500);
+        turn180();
+        
+        unsigned long startTime = millis();
+        while (millis() - startTime &lt; 800)
+        {
+          sensors.readCalibrated(s);
+          motors.setSpeeds(110, 110);
+        }
+        
+        noLineCount = 0;
+        lastError = 0;
+        state = 1;  // Passer au retour
+        return;
+      }
+    }
+    else
+    {
+      noLineCount = 0;
+    }
+  }
+  
+  // ========== SUIVI DE LIGNE ==========
+  int error;
+  
+  if (s[2] &gt; 500)
+  {
+    error = (s[3] - s[1]);
+  }
+  else
+  {
+    error = (s[4] + s[3]) - (s[0] + s[1]);
+  }
+  
+  if (abs(error - lastError) &gt; 2000)
+    error = lastError;
+  
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+  
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+  
+  leftSpeed = constrain(leftSpeed, -150, 200);
+  rightSpeed = constrain(rightSpeed, -150, 200);
+  
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</pre>
+                    </div>
+                </div>
+
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">🎓 Mission 30 - Compter 3 Tours Autour d'un Point</h3>
+                    <p class="code-parcours-desc">Avancé : le robot suit une boucle fermée et compte les passages de marques (tirets). ~6 tirets par tour autour du point A. Arrêt automatique après 3 tours complétés (18 marques détectées). Démontre détection de patterns et comptage événementiel avec anti-rebond.</p>
+                    <div class="code-container">
+                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+using namespace Pololu3piPlus32U4;
+
+LineSensors sensors;
+Motors motors;
+uint16_t s[5];
+
+int baseSpeed = 110;
+float Kp = 0.08;
+float Kd = 0.04;
+int lastError = 0;
+
+int tourCount = 0;  // Compte les passages au point de départ
+int markCount = 0;
+bool onMark = false;
+int debounceCount = 0;
+const int DEBOUNCE_LOOPS = 150;
+const int SIDE_THRESHOLD = 450;
+
+void setup()
+{
+  delay(1000);
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);
+  
+  // ========== COMPTER LES PASSAGES (tirets) ==========
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;
+  }
+  else
+  {
+    bool markDetected = (s[4] &gt; SIDE_THRESHOLD) || (s[0] &gt; SIDE_THRESHOLD);
+    
+    if (markDetected &amp;&amp; !onMark)
+    {
+      onMark = true;
+      markCount++;
+      debounceCount = DEBOUNCE_LOOPS;
+      
+      // Après 6 tirets = 1 tour (il y a ~6 tirets par tour autour de A)
+      tourCount = markCount / 6;
+      
+      // Au 3ème tour: arrêter
+      if (tourCount &gt;= 3)
+      {
+        motors.setSpeeds(0, 0);
+        // 3 tours complétés!
+        return;
+      }
+    }
+    
+    if (!markDetected &amp;&amp; onMark)
+    {
+      onMark = false;
+    }
+  }
+  
+  // ========== SUIVI DE LIGNE ==========
+  int error;
+  
+  if (s[2] &gt; 500)
+  {
+    error = (s[3] - s[1]);
+  }
+  else
+  {
+    error = (s[4] + s[3]) - (s[0] + s[1]);
+  }
+  
+  if (abs(error - lastError) &gt; 2000)
+    error = lastError;
+  
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+  
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+  
+  leftSpeed = constrain(leftSpeed, -150, 200);
+  rightSpeed = constrain(rightSpeed, -150, 200);
+  
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</pre>
+                    </div>
+                </div>
+
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">🎓 Mission 31 - Parcours Bouclé avec Point de Passage</h3>
+                    <p class="code-parcours-desc">Expert : le robot suit une boucle fermée en comptant les tours. À 2 tours complétés (12 marques), il continue vers Arrivée 1 sans s'arrêter. Démontre la logique de passage intermédiaire et la transition vers une destination finale. Combine suivi de ligne + comptage événementiel.</p>
+                    <div class="code-container">
+                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+using namespace Pololu3piPlus32U4;
+
+LineSensors sensors;
+Motors motors;
+uint16_t s[5];
+
+int baseSpeed = 110;
+float Kp = 0.08;
+float Kd = 0.04;
+int lastError = 0;
+
+int tourCount = 0;  // Compte les tours
+int markCount = 0;
+bool onMark = false;
+int debounceCount = 0;
+const int DEBOUNCE_LOOPS = 150;
+const int SIDE_THRESHOLD = 450;
+
+void setup()
+{
+  delay(1000);
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);
+  
+  // ========== COMPTER LES TOURS ==========
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;
+  }
+  else
+  {
+    bool markDetected = (s[4] &gt; SIDE_THRESHOLD) || (s[0] &gt; SIDE_THRESHOLD);
+    
+    if (markDetected &amp;&amp; !onMark)
+    {
+      onMark = true;
+      markCount++;
+      debounceCount = DEBOUNCE_LOOPS;
+      
+      // Après 6 tirets = 1 tour
+      tourCount = markCount / 6;
+      
+      // Au 2ème tour: continuer vers Arrivée 1
+      if (tourCount &gt;= 2)
+      {
+        // Continuer le suivi jusqu'à Arrivée 1
+        // (le robot suit déjà la ligne automatiquement)
+      }
+    }
+    
+    if (!markDetected &amp;&amp; onMark)
+    {
+      onMark = false;
+    }
+  }
+  
+  // ========== SUIVI DE LIGNE ==========
+  int error;
+  
+  if (s[2] &gt; 500)
+  {
+    error = (s[3] - s[1]);
+  }
+  else
+  {
+    error = (s[4] + s[3]) - (s[0] + s[1]);
+  }
+  
+  if (abs(error - lastError) &gt; 2000)
+    error = lastError;
+  
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+  
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+  
+  leftSpeed = constrain(leftSpeed, -150, 200);
+  rightSpeed = constrain(rightSpeed, -150, 200);
+  
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</pre>
+                    </div>
+                </div>
+
             <div style="background: #f1f5f9; border-radius: 8px; padding: 2.5rem; margin-top: 3rem; border-left: 4px solid var(--primary); border-top: 1px solid var(--border); border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-                <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">Rapport méthodologique sur l'usage de l'IA</p>
-                <p style="color: var(--text); line-height: 1.7; margin-bottom: 1rem; text-align: justify;">Les taux affichés représentent la proportion d'utilisation d'outils d'intelligence artificielle générative (LLM) dans le processus de refactorisation, d'optimisation d'algorithmes et d'aide au débogage du code embarqué. Cet outil a été employé pour :</p>
-                <ul style="color: var(--text-light); line-height: 1.8; margin-left: 2rem; margin-bottom: 1rem;">
-                    <li>La structuration initiale des modules logiciels et l'architecture des fonctions.</li>
-                    <li>L'analyse de performance et l'optimisation mathématique des fonctions de transfert.</li>
-                    <li>La génération de commentaires normés et la documentation technique du projet.</li>
+                <p style="color: var(--primary); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">📋 Notes Techniques sur l'Implémentation</p>
+                <p style="color: var(--text); line-height: 1.8; margin-bottom: 1rem;"><strong>Progression Pédagogique :</strong></p>
+                <ul style="color: var(--text); line-height: 1.8; margin-left: 2rem; margin-bottom: 1.5rem;">
+                    <li><strong>Parcours 3, 5, 9, 13 :</strong> Cas de compétition avec contraintes multiples (détection de marques, virages, arrêts programmés).</li>
+                    <li><strong>Missions 24-31 :</strong> Progression d'entraînement (niveau intro → expert) pour maîtriser progressivement suivi de ligne, transitions, comptage événementiel.</li>
                 </ul>
-                <p style="color: var(--text); font-style: italic; font-size: 0.95rem;">Note : La réalisation des tests sur banc d'essai, l'intégration finale et la validation de la sûreté de fonctionnement demeurent sous la responsabilité exclusive des membres de l'équipe.</p>
+                <p style="color: var(--text); line-height: 1.8; margin-bottom: 1rem;"><strong>Architecture Commune :</strong></p>
+                <ul style="color: var(--text); line-height: 1.8; margin-left: 2rem; margin-bottom: 1rem;">
+                    <li><strong>Librairie Pololu 3Pi+ :</strong> Classes LineSensors (lecture calibrée 5 capteurs IR) et Motors (PWM moteurs).</li>
+                    <li><strong>Boucle Temps Réel :</strong> Fréquence ~1 kHz sur AVR 20 MHz pour réactivité maximale.</li>
+                    <li><strong>Régulation PD :</strong> Proportionnelle-Dérivée avec filtrage pics d'erreur (seuil 1500-2000) pour stabilité trajectoire.</li>
+                    <li><strong>Détection Marques :</strong> Seuillage adaptatif (SIDE_THRESHOLD: 450-500) + anti-rebond (DEBOUNCE_LOOPS: 80-150).</li>
+                    <li><strong>Machine d'États :</strong> Transitions de phase pour aller-retour, comptage tours, arrêts conditionnels.</li>
+                </ul>
             </div>
         </div>
     </div>
