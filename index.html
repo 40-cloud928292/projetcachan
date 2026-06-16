@@ -605,15 +605,12 @@
             transition: all 0.3s;
         }
 
-        .video-placeholder {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
+        .video-player {
+            width: 100%;
             aspect-ratio: 16/9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: white;
+            background: #0f172a;
+            display: block;
+            object-fit: contain;
         }
 
         .video-content {
@@ -660,7 +657,6 @@
             .hero .subtitle { font-size: 1.1rem; }
             .section-title { font-size: 1.8rem; }
             .robot-container { grid-template-columns: 1fr; }
-            .robot-visual { min-height: 300px; }
             .nav-links { gap: 0.8rem; font-size: 0.85rem; flex-wrap: wrap; justify-content: center; }
             .code-header { flex-direction: column; align-items: flex-start; }
             .cta-group { flex-direction: column; }
@@ -2009,7 +2005,7 @@ void loop()
 
             <div class="videos-grid">
                 <div class="video-card">
-                    <div class="video-placeholder">Enregistrement 01</div>
+                    <video class="video-player" controls src="video1.mp4"></video>
                     <div class="video-content">
                         <h3 class="video-title">Validation Initiale</h3>
                         <p class="video-desc">Premières réponses de la boucle d'asservissement après étalonnage des capteurs.</p>
@@ -2017,7 +2013,7 @@ void loop()
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Enregistrement 02</div>
+                    <video class="video-player" controls src="video2.mp4"></video>
                     <div class="video-content">
                         <h3 class="video-title">Comportement en Courbe</h3>
                         <p class="video-desc">Analyse vidéo des trajectoires sur une piste d'essai à rayon de courbure variable.</p>
@@ -2025,7 +2021,7 @@ void loop()
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Enregistrement 03</div>
+                    <video class="video-player" controls src="video3.mp4"></video>
                     <div class="video-content">
                         <h3 class="video-title">Routine d'Évitement</h3>
                         <p class="video-desc">Test d'interruption logicielle lors de la rencontre d'un obstacle fixe.</p>
@@ -2033,7 +2029,7 @@ void loop()
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Enregistrement 04</div>
+                    <video class="video-player" controls src="video4.mp4"></video>
                     <div class="video-content">
                         <h3 class="video-title">Régulation Énergétique</h3>
                         <p class="video-desc">Mesure de la dérive de trajectoire en fonction de la baisse de tension de la batterie.</p>
@@ -2041,7 +2037,7 @@ void loop()
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Enregistrement 05</div>
+                    <video class="video-player" controls src="video5.mp4"></video>
                     <div class="video-content">
                         <h3 class="video-title">Synthèse de Parcours</h3>
                         <p class="video-desc">Essai complet enchaînant l'ensemble des contraintes réglementaires du concours.</p>
@@ -2049,7 +2045,7 @@ void loop()
                 </div>
 
                 <div class="video-card">
-                    <div class="video-placeholder">Enregistrement 06</div>
+                    <video class="video-player" controls src="video6.mp4"></video>
                     <div class="video-content">
                         <h3 class="video-title">Analyse Post-Essai</h3>
                         <p class="video-desc">Comparaison des données odométriques théoriques et des trajectoires mesurées.</p>
