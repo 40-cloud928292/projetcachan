@@ -32,7 +32,7 @@
 
         html {
             scroll-behavior: smooth;
-            cursor: none; /* custom cursor on desktop */
+            cursor: none; /* Curseur custom sur desktop */
         }
 
         body {
@@ -47,7 +47,7 @@
                 radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%);
         }
 
-        /* ===== CUSTOM CURSOR ===== */
+        /* ===== CURSEUR CUSTOM ===== */
         .cursor-dot {
             width: 8px;
             height: 8px;
@@ -73,10 +73,10 @@
             pointer-events: none;
             z-index: 9998;
             transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s, border-color 0.2s;
+            transition: width 0.2s, height 0.2s, border-color 0.2s, background-color 0.2s;
         }
 
-        /* ===== ACCESSIBILITY ===== */
+        /* ===== ACCESSIBILITÉ ===== */
         a:focus-visible, button:focus-visible, .logo:focus-visible {
             outline: 2px solid var(--accent-blue);
             outline-offset: 4px;
@@ -138,7 +138,7 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        /* ===== PAGE STRUCTURE ===== */
+        /* ===== STRUCTURE DES PAGES ===== */
         .page {
             display: none;
             opacity: 0;
@@ -232,7 +232,7 @@
             border-color: #334155;
         }
 
-        /* ===== SECTION TITLES ===== */
+        /* ===== SECTIONS ===== */
         .section {
             max-width: 1000px;
             margin: 0 auto;
@@ -258,7 +258,7 @@
             border-radius: 2px;
         }
 
-        /* ===== TEAM GRID ===== */
+        /* ===== GRILLE ÉQUIPE ===== */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -395,7 +395,7 @@
             font-size: 0.95rem;
         }
 
-        /* ===== RISK TABLE ===== */
+        /* ===== TABLEAU DES RISQUES ===== */
         .risks-table {
             width: 100%;
             border-collapse: separate;
@@ -422,7 +422,7 @@
             border-bottom: none;
         }
 
-        /* ===== ROBOT SPECS ===== */
+        /* ===== FICHE TECHNIQUE ROBOT ===== */
         .robot-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -434,7 +434,7 @@
             background: linear-gradient(145deg, #131926 0%, #0b0f19 100%);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            min-height: 380px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -442,6 +442,14 @@
             color: var(--text-muted);
             font-weight: 600;
             letter-spacing: 0.5px;
+            /* Supprime le min-height pour s'adapter à l'iframe */
+        }
+
+        .robot-visual iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border: 0;
         }
 
         .specs-list {
@@ -467,7 +475,7 @@
             font-size: 0.9rem;
         }
 
-        /* ===== EPREUVES ===== */
+        /* ===== ÉPREUVES ===== */
         .epreuves-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -507,7 +515,7 @@
             border: 1px solid var(--border-color);
         }
 
-        /* ===== CODE BLOCKS ===== */
+        /* ===== BLOCS DE CODE ===== */
         .code-parcours-card {
             background: var(--bg-card);
             border-radius: 12px;
@@ -563,7 +571,7 @@
             line-height: 1.6;
         }
 
-        /* ===== VIDEO ===== */
+        /* ===== VIDÉO ===== */
         .video-wrapper {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -689,6 +697,7 @@
     </header>
 
     <main>
+        <!-- PAGE ACCUEIL -->
         <section id="home" class="page active" aria-hidden="false">
             <div class="hero">
                 <span class="subtitle">IUT de Vélizy • BUT GEII</span>
@@ -709,6 +718,7 @@
             </article>
         </section>
 
+        <!-- PAGE ÉQUIPE -->
         <section id="equipe" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>L'ÉQUIPE</h1>
@@ -739,6 +749,7 @@
             </article>
         </section>
 
+        <!-- PAGE SUIVI -->
         <section id="gestion" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>SUIVI DU PROJET</h1>
@@ -811,6 +822,7 @@
             </article>
         </section>
 
+        <!-- PAGE FICHE TECHNIQUE avec iframe -->
         <section id="robot" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>SPÉCIFICATIONS MATÉRIELLES</h1>
@@ -819,7 +831,10 @@
 
             <article class="section">
                 <div class="robot-container">
-                    <div class="robot-visual">[ Schéma Pololu 3Pi+ ]</div>
+                    <!-- IFRAME POUR LE PDF -->
+                    <div class="robot-visual">
+                        <iframe src="3pi-plus-32u4-oled-robot-dimensions.pdf" title="Schéma technique du robot Pololu 3Pi+"></iframe>
+                    </div>
                     <div class="specs-list">
                         <div class="spec-card">
                             <div class="spec-title">Châssis et motricité</div>
@@ -842,6 +857,7 @@
             </article>
         </section>
 
+        <!-- PAGE PARCOURS -->
         <section id="epreuves" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>PARCOURS DE VÉRIFICATION</h1>
@@ -874,6 +890,7 @@
             </article>
         </section>
 
+        <!-- PAGE CODE C (tous les programmes conservés) -->
         <section id="prog" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>CODE SOURCE</h1>
@@ -881,7 +898,7 @@
             </div>
 
             <article class="section">
-                <!-- Code blocks as provided, keep them intact -->
+                <!-- Parcours 3 -->
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 3 - Filtrage et détection des tirets (Dashes)</h3>
                     <p class="code-parcours-desc">Ce script assure le suivi de la ligne principale et comptabilise les lignes transversales. Un filtre numérique (anti-rebond par boucles) évite les doubles détections sur un même marquage. L'alignement repose sur un coefficient Kp de 0.06.</p>
@@ -990,6 +1007,7 @@ void loop()
                     </div>
                 </div>
 
+                <!-- Parcours 13 -->
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 13 - Demi-tour et retour</h3>
                     <p class="code-parcours-desc">Le robot suit la ligne jusqu'à sa fin, puis effectue un demi-tour automatique (180°) pour revenir au point de départ. Utilise un algorithme de détection de perte de ligne et une fonction turn180() pour pivoter avec précision.</p>
@@ -1107,6 +1125,7 @@ void loop()
                     </div>
                 </div>
 
+                <!-- Parcours 21 -->
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 21 - Suivi de ligne simple</h3>
                     <p class="code-parcours-desc">Programme de base pour le suivi de ligne utilisant un contrôleur PID (Proportionnel et Dérivé). Le robot utilise les 5 capteurs de réflectance pour ajuster sa trajectoire et rester centré sur la piste.</p>
@@ -1169,6 +1188,7 @@ void loop()
                     </div>
                 </div>
 
+                <!-- Parcours 22 -->
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 22 - Gestion avancée des 3 vitesses (Rouge/Orange/Vert)</h3>
                     <p class="code-parcours-desc">Parcours complexe avec gestion dynamique de 3 vitesses (SLOW=55, MEDIUM=90, FAST=130) selon 12 événements détectés. Machine d'états sophistiquée pour adapter la vitesse aux zones colorisées et aux intersections successives.</p>
@@ -1313,6 +1333,7 @@ void loop()
                     </div>
                 </div>
 
+                <!-- Parcours 23 -->
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 23 - Détection de 11 tirets et virage 90° droite</h3>
                     <p class="code-parcours-desc">Le robot compte les tirets détectés sur les capteurs latéraux. Au 11ème tiret détecté, il exécute automatiquement un virage de 90° vers la droite. Utilise des gains PID ajustés (Kp=0.1, Kd=0.05) pour un suivi précis en approche du virage.</p>
@@ -1413,6 +1434,7 @@ void loop()
                     </div>
                 </div>
 
+                <!-- Parcours 5 -->
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 5 - Demi-tour au 2ème tiret droit</h3>
                     <p class="code-parcours-desc">Le robot détecte les tirets uniquement sur le capteur droit (s[4]), indépendamment du capteur gauche (s[3]). Au 2ème tiret droit détecté, il effectue un demi-tour (rotation de 180° sur lui-même) pour revenir en arrière. Utile pour les pistes en cul-de-sac.</p>
@@ -1537,6 +1559,7 @@ void loop()
                     </div>
                 </div>
 
+                <!-- Parcours 9 -->
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 9 - Repères latéraux et déviation à 90°</h3>
                     <p class="code-parcours-desc">Le robot suit la ligne et détecte les marques sur les capteurs latéraux (s[0] ou s[4]). Au 7ème tiret latéral détecté, il exécute un virage de 90° vers la gauche (moteur gauche réduit). Utilise un anti-rebond pour éviter les doubles comptages.</p>
@@ -1671,6 +1694,7 @@ void loop()
             </article>
         </section>
 
+        <!-- PAGE VIDÉOS -->
         <section id="videos" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>ENREGISTREMENTS DES RUNS</h1>
@@ -1706,7 +1730,7 @@ void loop()
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // CUSTOM CURSOR
+            // CURSEUR CUSTOM ANIMÉ
             const cursorDot = document.querySelector('.cursor-dot');
             const cursorOutline = document.querySelector('.cursor-outline');
 
@@ -1714,16 +1738,20 @@ void loop()
                 const posX = e.clientX;
                 const posY = e.clientY;
                 
+                // Le point suit instantanément
                 cursorDot.style.left = `${posX}px`;
                 cursorDot.style.top = `${posY}px`;
                 
+                // L'outline suit avec un léger délai (animation douce)
                 cursorOutline.animate({
                     left: `${posX}px`,
                     top: `${posY}px`
                 }, { duration: 500, fill: "forwards" });
             });
 
-            document.querySelectorAll('a, button, .nav-trigger, .logo, .team-card, .metric-card, .epreuve, .code-parcours-card').forEach(el => {
+            // Effet de survol pour agrandir l'outline
+            const hoverTargets = document.querySelectorAll('a, button, .nav-trigger, .logo, .team-card, .metric-card, .epreuve, .code-parcours-card, .spec-card');
+            hoverTargets.forEach(el => {
                 el.addEventListener('mouseenter', () => {
                     cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
                     cursorOutline.style.borderColor = 'var(--accent-cyan)';
@@ -1734,14 +1762,14 @@ void loop()
                 });
             });
 
-            // NAVIGATION
+            // NAVIGATION SPA
             const pages = document.querySelectorAll('.page');
             const navLinks = document.querySelectorAll('.nav-link');
             const navTriggers = document.querySelectorAll('.nav-trigger');
             const logo = document.querySelector('.logo');
 
             function navigateToPage(targetId) {
-                // Update sections visibility and aria
+                // Gestion des sections
                 pages.forEach(page => {
                     if (page.id === targetId) {
                         page.classList.add('active');
@@ -1752,7 +1780,7 @@ void loop()
                     }
                 });
 
-                // Update menu active state
+                // Mise à jour du menu actif
                 navLinks.forEach(link => {
                     if (link.dataset.page === targetId) {
                         link.classList.add('active');
@@ -1763,10 +1791,10 @@ void loop()
                     }
                 });
 
-                // Smooth scroll to top
+                // Scroll en haut
                 window.scrollTo({ top: 0, behavior: 'smooth' });
 
-                // GSAP page entrance animation
+                // Animation d'entrée GSAP
                 const activePage = document.getElementById(targetId);
                 if (activePage && typeof gsap !== 'undefined') {
                     gsap.fromTo(activePage, 
@@ -1776,7 +1804,7 @@ void loop()
                 }
             }
 
-            // Listeners on menu links
+            // Écouteurs sur les liens du menu
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1784,7 +1812,7 @@ void loop()
                 });
             });
 
-            // Listeners on CTA buttons
+            // Écouteurs sur les boutons CTA
             navTriggers.forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1792,7 +1820,7 @@ void loop()
                 });
             });
 
-            // Logo click returns to home
+            // Logo retour à l'accueil
             logo.addEventListener('click', function() {
                 navigateToPage(this.dataset.target);
             });
@@ -1803,7 +1831,7 @@ void loop()
                 }
             });
 
-            // Initial GSAP animation for home page
+            // Animation GSAP initiale sur la page d'accueil
             if (typeof gsap !== 'undefined') {
                 gsap.from(".gsap-hero-text", { y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out" });
                 gsap.from(".gsap-fade-up", { y: 40, opacity: 0, duration: 1, delay: 0.4, ease: "power3.out" });
