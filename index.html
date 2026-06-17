@@ -1,6 +1,4 @@
-@@ -1,737 +1,1690 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark">
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -13,16 +11,16 @@
     
     <style>
         :root {
-            --bg-main: #050505; /* Noir très profond */
-            --bg-card: rgba(19, 25, 38, 0.4);
-            --bg-card-hover: rgba(25, 33, 50, 0.8);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --text-main: #f8fafc;
+            --bg-main: #0b0f19;
+            --bg-card: #131926;
+            --bg-card-hover: #172032;
+            --border-color: #1e293b;
+            --text-main: #f1f5f9;
             --text-muted: #94a3b8;
             --accent-blue: #3b82f6;
             --accent-cyan: #06b6d4;
-            --accent-glow: rgba(59, 130, 246, 0.3);
-            --code-bg: #02040a;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --code-bg: #070a12;
         }
 
         * {
@@ -34,19 +32,7 @@
 
         html {
             scroll-behavior: smooth;
-            cursor: none; /* Masque le curseur par défaut pour le curseur custom */
-        }
-
-        :root {
-            --bg-main: #0b0f19;
-            --bg-card: #131926;
-            --bg-card-hover: #172032;
-            --border-color: #1e293b;
-            --text-main: #f1f5f9;
-            --text-muted: #94a3b8;
-            --accent-blue: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.15);
-            --code-bg: #070a12;
+            cursor: none; /* custom cursor on desktop */
         }
 
         body {
@@ -61,7 +47,7 @@
                 radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%);
         }
 
-        /* ===== CURSEUR CUSTOM ===== */
+        /* ===== CUSTOM CURSOR ===== */
         .cursor-dot {
             width: 8px;
             height: 8px;
@@ -74,11 +60,6 @@
             z-index: 9999;
             transform: translate(-50%, -50%);
             transition: width 0.2s, height 0.2s, background-color 0.2s;
-        /* ===== ACCESSIBILITÉ ===== */
-        a:focus-visible, button:focus-visible, .logo:focus-visible {
-            outline: 2px solid var(--accent-blue);
-            outline-offset: 4px;
-            border-radius: 4px;
         }
 
         .cursor-outline {
@@ -92,15 +73,18 @@
             pointer-events: none;
             z-index: 9998;
             transform: translate(-50%, -50%);
-            transition: width 0.2s, height 0.2s, background-color 0.2s, border-color 0.2s;
+            transition: width 0.2s, height 0.2s, border-color 0.2s;
         }
 
-        /* ===== NAVIGATION GLASSMORPHISM ===== */
-        /* ===== MENUS DE NAVIGATION ===== */
+        /* ===== ACCESSIBILITY ===== */
+        a:focus-visible, button:focus-visible, .logo:focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        /* ===== NAVIGATION ===== */
         header {
-            background: rgba(5, 5, 5, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             background: rgba(11, 15, 25, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -121,7 +105,6 @@
 
         .logo {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--text-main);
@@ -131,15 +114,11 @@
         }
 
         .logo span {
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             color: var(--accent-blue);
         }
 
         .nav-links {
             display: flex;
-            gap: 0.5rem;
             gap: 1.5rem;
             list-style: none;
         }
@@ -148,26 +127,6 @@
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 500;
-            font-size: 0.9rem;
-            padding: 0.6rem 1rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateY(100%);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-        }
-
-        .nav-links a:hover::before, .nav-links a.active::before {
-            transform: translateY(0);
             font-size: 0.95rem;
             padding: 0.5rem 0.8rem;
             border-radius: 6px;
@@ -179,8 +138,7 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        /* ===== STRUCTURE PAGES ===== */
-        /* ===== STRUCTURE DES PAGES & ANIMATIONS ===== */
+        /* ===== PAGE STRUCTURE ===== */
         .page {
             display: none;
             opacity: 0;
@@ -194,10 +152,8 @@
             transform: translateY(0);
         }
 
-        /* ===== HERO SECTION ===== */
-        /* ===== EN-TÊTE HERO ===== */
+        /* ===== HERO ===== */
         .hero {
-            padding: 8rem 2rem 5rem;
             padding: 5rem 2rem 4rem;
             text-align: center;
             position: relative;
@@ -205,12 +161,8 @@
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-size: 3.5rem;
             font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(180deg, #FFFFFF 0%, #a1a1aa 100%);
             letter-spacing: -1.5px;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
@@ -231,18 +183,11 @@
             border: 1px solid rgba(6, 182, 212, 0.2);
             border-radius: 20px;
             background: rgba(6, 182, 212, 0.05);
-            font-size: 1.2rem;
-            color: var(--accent-blue);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
         }
 
         .hero .tagline {
-            font-size: 1.1rem;
             font-size: 1rem;
             color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto 3rem;
             max-width: 600px;
             margin: 0 auto 2.5rem;
         }
@@ -254,34 +199,25 @@
         }
 
         .btn {
-            padding: 1rem 2rem;
             padding: 0.8rem 1.8rem;
             border-radius: 8px;
             font-weight: 600;
             font-size: 0.95rem;
             cursor: pointer;
             border: 1px solid transparent;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
             transition: all 0.2s ease;
             font-family: inherit;
+            text-decoration: none;
         }
 
         .btn-primary {
             background: var(--accent-blue);
             color: white;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
             border: none;
             box-shadow: 0 4px 20px var(--accent-glow);
         }
 
         .btn-primary:hover {
-            background: #2563eb;
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
-            transform: translateY(-2px);
             background: #2563eb;
             box-shadow: 0 6px 24px rgba(59, 130, 246, 0.3);
         }
@@ -289,57 +225,40 @@
         .btn-secondary {
             background: rgba(255, 255, 255, 0.03);
             color: var(--text-main);
-            border-color: var(--border-color);
-            backdrop-filter: blur(10px);
             border: 1px solid var(--border-color);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
             border-color: #334155;
         }
 
-        /* ===== CONTENU & CARTES DYNAMIQUES ===== */
-        /* ===== ZONE DE CONTENU ===== */
+        /* ===== SECTION TITLES ===== */
         .section {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 2rem 2rem 6rem;
             padding: 3rem 2rem 5rem;
         }
 
         .section-title {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.2rem;
             font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 3rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            letter-spacing: -0.5px;
             margin-bottom: 2rem;
             position: relative;
+            letter-spacing: -0.5px;
         }
 
-        .section-title::before {
         .section-title::after {
             content: '';
             display: block;
-            width: 8px;
-            height: 8px;
             width: 40px;
             height: 3px;
             background: var(--accent-blue);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-blue);
             margin-top: 0.5rem;
             border-radius: 2px;
         }
 
-        /* ===== GRILLE ÉQUIPE ===== */
+        /* ===== TEAM GRID ===== */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -362,17 +281,17 @@
         }
 
         .avatar {
-            width: 50px;
-            height: 50px;
-            background: rgba(59, 130, 246, 0.1);
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(6,182,212,0.1));
             border: 1px solid rgba(59, 130, 246, 0.2);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.2rem;
-            color: var(--accent-blue);
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
             font-weight: 700;
             margin-bottom: 1.2rem;
         }
@@ -384,12 +303,13 @@
         }
 
         .team-role {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
             color: var(--accent-blue);
-            font-weight: 500;
-            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             margin-bottom: 1rem;
+            display: block;
         }
 
         .team-desc {
@@ -397,7 +317,7 @@
             font-size: 0.95rem;
         }
 
-        /* ===== DESIGN GESTION / METRICS ===== */
+        /* ===== METRICS ===== */
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -405,15 +325,11 @@
             margin-bottom: 3rem;
         }
 
-        /* EFFET DE SURVOL PREMIUM (Cartes) */
-        .hover-card {
         .metric-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            padding: 1.5rem;
             border-radius: 12px;
+            padding: 1.5rem;
         }
 
         .metric-value {
@@ -432,108 +348,81 @@
             margin-top: 0.2rem;
         }
 
-        /* TIMELINE */
+        /* ===== TIMELINE ===== */
         .timeline {
             margin: 2rem 0 4rem;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .hover-card::before {
-            content: "";
         .timeline-item {
             padding: 0 0 2.5rem 2rem;
             position: relative;
-            border-left: 2px solid var(--border-color);
+            border-left: 1px dashed var(--border-color);
         }
 
         .timeline-item:last-child {
-            border-left: 2px solid transparent;
+            border-left-color: transparent;
             padding-bottom: 0;
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(
-                800px circle at var(--mouse-x) var(--mouse-y), 
-                rgba(255, 255, 255, 0.06),
-                transparent 40%
-            );
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 0.5s;
-            left: -6px;
+            left: -5px;
             top: 0.3rem;
-            width: 10px;
-            height: 10px;
+            width: 9px;
+            height: 9px;
             background: var(--bg-main);
-            border: 2px solid var(--accent-blue);
+            border: 2px solid var(--accent-cyan);
             border-radius: 50%;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
         }
 
-        .hover-card:hover::before { opacity: 1; }
-        .hover-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-4px); }
-        .hover-card > * { position: relative; z-index: 1; }
         .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent-blue);
-            margin-bottom: 0.2rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
         }
 
-        /* GRILLES */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
         .timeline-title {
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 0.4rem;
         }
 
-        /* ÉQUIPE */
-        .avatar {
-            width: 56px; height: 56px;
-            background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(6,182,212,0.1));
-            border: 1px solid rgba(59, 130, 246, 0.2);
         .timeline-desc {
             color: var(--text-muted);
             font-size: 0.95rem;
         }
 
-        /* TABLEAU DE SUIVI */
+        /* ===== RISK TABLE ===== */
         .risks-table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 0;
             background: var(--bg-card);
             border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem;
-            color: var(--accent-cyan); font-weight: 700;
-            overflow: hidden;
             border: 1px solid var(--border-color);
         }
 
         .risks-table th, .risks-table td {
-            padding: 1rem 1.2rem;
+            padding: 1.2rem;
             text-align: left;
             font-size: 0.95rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .risks-table th {
-            background: rgba(255, 255, 255, 0.02);
-            border-bottom: 1px solid var(--border-color);
-            color: var(--text-main);
-            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            background: rgba(0,0,0,0.2);
+            color: white;
         }
 
-        .risks-table tr:not(:last-child) td {
-            border-bottom: 1px solid var(--border-color);
+        .risks-table tr:last-child td {
+            border-bottom: none;
         }
 
-        /* ===== FOCUS TECHNIQUE ROBOT ===== */
+        /* ===== ROBOT SPECS ===== */
         .robot-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -578,7 +467,7 @@
             font-size: 0.9rem;
         }
 
-        /* ===== BLOCS ÉPREUVES ===== */
+        /* ===== EPREUVES ===== */
         .epreuves-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -605,13 +494,8 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 1.5rem;
-            box-shadow: inset 0 0 20px rgba(59,130,246,0.05);
         }
 
-        .team-role {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
-            color: var(--accent-blue); text-transform: uppercase;
-            letter-spacing: 1px; margin-bottom: 1rem; display: block;
         .epreuve-badge {
             align-self: flex-start;
             background: rgba(255, 255, 255, 0.04);
@@ -623,10 +507,7 @@
             border: 1px solid var(--border-color);
         }
 
-        /* METRICS */
-        .metric-value { font-family: 'Space Grotesk', sans-serif; font-size: 2.2rem; font-weight: 700; color: white; line-height: 1.2;}
-        .metric-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;}
-        /* ===== AFFICHAGE DES CODES SOURCE ===== */
+        /* ===== CODE BLOCKS ===== */
         .code-parcours-card {
             background: var(--bg-card);
             border-radius: 12px;
@@ -635,59 +516,25 @@
             margin-bottom: 2rem;
         }
 
-        /* TIMELINE */
-        .timeline-item { padding: 0 0 3rem 2.5rem; position: relative; border-left: 1px dashed var(--border-color); }
-        .timeline-item:last-child { border-left-color: transparent; }
-        .timeline-item::before {
-            content: ''; position: absolute; left: -5px; top: 0;
-            width: 9px; height: 9px; background: var(--bg-main);
-            border: 2px solid var(--accent-cyan); border-radius: 50%;
-            box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
         .code-parcours-title {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
-        .timeline-date { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent-cyan); margin-bottom: 0.5rem; }
 
-        /* TABLEAU */
-        .risks-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color); }
-        .risks-table th, .risks-table td { padding: 1.2rem; text-align: left; font-size: 0.95rem; border-bottom: 1px solid var(--border-color); }
-        .risks-table th { font-family: 'Space Grotesk', sans-serif; background: rgba(0,0,0,0.2); color: white; }
-        .risks-table tr:last-child td { border-bottom: none; }
         .code-parcours-desc {
             color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 1.5rem;
         }
 
-        /* CODE BLOCKS */
         .code-container {
             background: var(--code-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
             border-radius: 8px;
             padding: 1.2rem;
             overflow-x: auto;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 1.5rem;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
             border: 1px solid rgba(255, 255, 255, 0.03);
-            /* Scrollbar personnalisée pour les blocs de code */
             scrollbar-width: thin;
-            scrollbar-color: rgba(255,255,255,0.2) transparent;
-        }
-        .code-container::-webkit-scrollbar { height: 6px; }
-        .code-container::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
-        .code-content { font-family: 'JetBrains Mono', monospace; color: #a5b4fc; font-size: 0.85rem; line-height: 1.7; }
-        .code-keyword { color: #c678dd; }
-        .code-function { color: #61afef; }
-        .code-number { color: #d19a66; }
-
-        /* VIDÉO */
-        .video-wrapper { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 1rem; }
-        .video-container { border-radius: 8px; overflow: hidden; background: #000; aspect-ratio: 16/9; }
-        .video-container video { width: 100%; height: 100%; object-fit: cover; }
             scrollbar-color: var(--border-color) var(--bg-main);
         }
 
@@ -695,18 +542,16 @@
             height: 8px;
         }
 
-        .status-box { margin-top: 1.5rem; background: rgba(249, 115, 22, 0.05); border-left: 4px solid #f97316; padding: 1.5rem; border-radius: 0 8px 8px 0; }
-        .status-title { color: #f97316; font-family: 'Space Grotesk', sans-serif; font-weight: 700; margin-bottom: 0.5rem; }
         .code-container::-webkit-scrollbar-track {
             background: var(--bg-main);
             border-radius: 4px;
         }
-        
+
         .code-container::-webkit-scrollbar-thumb {
             background: var(--border-color);
             border-radius: 4px;
         }
-        
+
         .code-container::-webkit-scrollbar-thumb:hover {
             background: var(--text-muted);
         }
@@ -718,7 +563,7 @@
             line-height: 1.6;
         }
 
-        /* ===== EN-TÊTE VIDÉO ===== */
+        /* ===== VIDEO ===== */
         .video-wrapper {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -727,7 +572,6 @@
             margin-top: 1rem;
         }
 
-        footer { text-align: center; padding: 4rem 2rem; border-top: 1px solid var(--border-color); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); }
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -771,8 +615,9 @@
             text-align: center;
             padding: 4rem 2rem;
             border-top: 1px solid var(--border-color);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
         footer p {
@@ -781,17 +626,45 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 1rem; }
-            .nav-links { flex-wrap: wrap; justify-content: center; }
-            .hero { padding: 4rem 1rem 3rem; }
-            .cursor-dot, .cursor-outline { display: none; } /* Désactive custom cursor sur mobile */
-            html { cursor: auto; }
-            .hero h1 { font-size: 2.3rem; }
-            .robot-container { grid-template-columns: 1fr; }
-            .nav-container { padding: 1rem; flex-direction: column; gap: 1rem; }
-            .nav-links { gap: 0.5rem; width: 100%; justify-content: center; flex-wrap: wrap; }
-            .nav-links a { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
-            .risks-table th, .risks-table td { padding: 0.6rem; font-size: 0.85rem; }
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 4rem 1rem 3rem;
+            }
+
+            .cursor-dot, .cursor-outline {
+                display: none;
+            }
+
+            html {
+                cursor: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .robot-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.6rem;
+            }
+
+            .risks-table th, .risks-table td {
+                padding: 0.6rem;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
@@ -802,51 +675,32 @@
 
     <header>
         <nav class="nav-container">
-            <div class="logo nav-trigger" data-target="home">Robotique<span>GEII</span></div>
             <div class="logo" tabindex="0" role="button" data-target="home">Robotique<span>GEII</span></div>
             <ul class="nav-links">
-                <li><a href="#home" class="nav-link active" data-page="home">Accueil</a></li>
                 <li><a href="#home" class="nav-link active" data-page="home" aria-current="page">Accueil</a></li>
                 <li><a href="#equipe" class="nav-link" data-page="equipe">Équipe</a></li>
                 <li><a href="#gestion" class="nav-link" data-page="gestion">Suivi</a></li>
-                <li><a href="#robot" class="nav-link" data-page="robot">Hardware</a></li>
                 <li><a href="#robot" class="nav-link" data-page="robot">Fiche technique</a></li>
                 <li><a href="#epreuves" class="nav-link" data-page="epreuves">Parcours</a></li>
                 <li><a href="#prog" class="nav-link" data-page="prog">Code C</a></li>
-                <li><a href="#videos" class="nav-link" data-page="videos">Tests</a></li>
                 <li><a href="#videos" class="nav-link" data-page="videos">Tests vidéo</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="main-content">
-        <section id="home" class="page active">
     <main>
         <section id="home" class="page active" aria-hidden="false">
             <div class="hero">
                 <span class="subtitle">IUT de Vélizy • BUT GEII</span>
-                <h1 class="gsap-hero-text">DÉVELOPPEMENT<br>ROBOTIQUE</h1>
-                <p class="tagline gsap-hero-text">Structure, calibration de capteurs et tests en boucle fermée sur notre plateforme Pololu 3Pi+.</p>
+                <h1 class="gsap-hero-text">DÉVELOPPEMENT ROBOTIQUE</h1>
+                <p class="tagline gsap-hero-text">Structure, calibration de capteurs et tests en boucle fermée sur notre robot suiveur de ligne Pololu 3Pi+.</p>
                 <div class="cta-group gsap-hero-text">
-                <p class="subtitle">IUT de Vélizy • BUT GEII</p>
-                <h1>DÉVELOPPEMENT ROBOTIQUE</h1>
-                <p class="tagline">Structure, calibration de capteurs et tests en boucle fermée sur notre robot suiveur de ligne Pololu 3Pi+.</p>
-                <div class="cta-group">
                     <button class="btn btn-primary nav-trigger" data-target="gestion">Consulter le suivi</button>
-                    <button class="btn btn-secondary nav-trigger" data-target="robot">Architecture Matérielle</button>
                     <button class="btn btn-secondary nav-trigger" data-target="robot">Détails matériels</button>
                 </div>
             </div>
 
             <article class="section gsap-fade-up">
-                <h2 class="section-title">Synthèse du projet</h2>
-                <div class="hover-card">
-                    <p style="color: var(--text-muted); font-size: 1.05rem;">
-                        Nous sommes un groupe de trois étudiants de l'IUT de Vélizy. Ce site centralise la documentation de notre projet d'automatisme et de programmation embarquée, basé sur le cahier des charges technique du concours de Cachan.
-                        <br><br>
-                        L'objectif critique est de configurer  les capteurs de la base Pololu 3Pi+ et d'implémenter des algorithmes de contrôle pour garantir un suivi de trajectoire à haute vitesse sans décrochage de la ligne noire.
-                    </p>
-            <article class="section">
                 <h2 class="section-title">Présentation du projet</h2>
                 <div style="color: var(--text-muted); font-size: 1rem;">
                     <p>Nous sommes un groupe de trois étudiants de l'IUT de Vélizy. Ce site regroupe l'avancement de notre projet d'automatisme et de programmation embarquée basé sur le cahier des charges technique du concours de Cachan.</p>
@@ -855,8 +709,6 @@
             </article>
         </section>
 
-        <section id="equipe" class="page">
-            <div class="hero"><span class="subtitle">Organisation</span><h1>L'ÉQUIPE</h1></div>
         <section id="equipe" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>L'ÉQUIPE</h1>
@@ -864,34 +716,21 @@
             </div>
 
             <article class="section">
-                <div class="grid-3">
-                    <div class="hover-card">
                 <div class="team-grid">
                     <div class="team-card">
                         <div class="avatar">Y</div>
-                        <h3 style="font-size: 1.4rem; font-weight: 600; color: white;">Yann</h3>
-                        <span class="team-role">Gestion & Suivi</span>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Supervise la planification des tâches, l'organisation globale et l'acquisition des métriques temporelles lors des runs d'entraînement.</p>
                         <h3 class="team-name">Yann</h3>
                         <p class="team-role">Gestion & Suivi de piste</p>
                         <p class="team-desc">Supervise la planification des tâches et l'organisation générale. Il prend également en charge la récolte des temps système lors des runs sur la piste d'entraînement.</p>
                     </div>
-                    <div class="hover-card">
                     <div class="team-card">
                         <div class="avatar">T</div>
-                        <h3 style="font-size: 1.4rem; font-weight: 600; color: white;">Tom</h3>
-                        <span class="team-role">Développement Embarqué</span>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Responsable de l'écriture en C, de la manipulation des registres moteurs et de la calibration de la boucle de rétroaction.</p>
                         <h3 class="team-name">Tom</h3>
                         <p class="team-role">Développement Embarqué</p>
                         <p class="team-desc">Responsable de l'écriture des fonctions en langage C, de la gestion des registres moteurs et de la mise au point des boucles de rétroaction de vitesse.</p>
                     </div>
-                    <div class="hover-card">
                     <div class="team-card">
                         <div class="avatar">F</div>
-                        <h3 style="font-size: 1.4rem; font-weight: 600; color: white;">Fabian</h3>
-                        <span class="team-role">Électronique & Interface</span>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">En charge du calibrage des capteurs optiques, du monitoring de l'alimentation et de l'architecture de cette documentation web.</p>
                         <h3 class="team-name">Fabian</h3>
                         <p class="team-role">Électronique & Interface</p>
                         <p class="team-desc">S'occupe de la calibration des capteurs optiques, de l'analyse de décharge des accumulateurs et de la mise en page de la documentation web.</p>
@@ -900,8 +739,6 @@
             </article>
         </section>
 
-        <section id="gestion" class="page">
-            <div class="hero"><span class="subtitle">Planning</span><h1>SUIVI DU PROJET</h1></div>
         <section id="gestion" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>SUIVI DU PROJET</h1>
@@ -909,55 +746,36 @@
             </div>
 
             <article class="section">
-                <div class="grid-3" style="margin-bottom: 4rem;">
-                    <div class="hover-card" style="padding: 1.5rem; text-align: center;">
-                        <div class="metric-value">15.04</div>
-                        <div class="metric-label">Début (Avril 2026)</div>
                 <h2 class="section-title">Indicateurs généraux</h2>
                 <div class="metrics-grid">
                     <div class="metric-card">
                         <div class="metric-value">15 avr. - 18 juin</div>
                         <div class="metric-label">Période d'évaluation</div>
                     </div>
-                    <div class="hover-card" style="padding: 1.5rem; text-align: center;">
-                        <div class="metric-value" style="color: var(--accent-cyan);">17</div>
-                        <div class="metric-label">Tâches validées</div>
                     <div class="metric-card">
                         <div class="metric-value">dépends</div>
                         <div class="metric-label">Tâches répertoriées</div>
                     </div>
-                    <div class="hover-card" style="padding: 1.5rem; text-align: center;">
-                        <div class="metric-value">11.06</div>
-                        <div class="metric-label">Évaluation Finale</div>
                     <div class="metric-card">
                         <div class="metric-value">0</div>
                         <div class="metric-label">Éléments externes</div>
                     </div>
                 </div>
 
-                <h2 class="section-title">Jalons Techniques</h2>
-                <div class="timeline hover-card" style="padding: 3rem;">
                 <h2 class="section-title">Calendrier de développement</h2>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Mi-Mai 2026</div>
-                        <h3 style="color: white; margin-bottom: 0.5rem;">Prototype Fonctionnel</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Validation de la chaîne d'acquisition I/O et premiers déplacements couplés en boucle ouverte.</p>
                         <div class="timeline-title">Premier prototype fonctionnel</div>
-                        <div class="timeline-desc">Vérification et validation des premiers déplacements autonomes moteurs .</div>
+                        <div class="timeline-desc">Vérification et validation des premiers déplacements autonomes moteurs.</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-date">26 Mai 2026</div>
-                        <h3 style="color: white; margin-bottom: 0.5rem;">Qualification Pistes</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Le robot s'aligne et maintient une trajectoire continue selon le protocole .</p>
                         <div class="timeline-title">Validation des pistes intermédiaires</div>
                         <div class="timeline-desc">Le robot parvient à suivre une trajectoire continue et à s'aligner sur les repères au sol selon le protocole de test.</div>
                     </div>
-                    <div class="timeline-item" style="border-left-color: transparent;">
                     <div class="timeline-item">
                         <div class="timeline-date">11 Juin 2026</div>
-                        <h3 style="color: var(--accent-blue); margin-bottom: 0.5rem;">Démonstration Finale</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Évaluation en conditions réelles de concours.</p>
                         <div class="timeline-title">Évaluation finale</div>
                         <div class="timeline-desc">Démonstration en conditions réelles.</div>
                     </div>
@@ -981,20 +799,18 @@
                         <tr>
                             <td style="font-weight: 500;">Dysfonctionnement d'un sous-ensemble</td>
                             <td>Arrêt complet des séances d'essais physiques.</td>
-                            <td>Vérification  des tensions d'alimentation et des connecteurs par Fabian.</td>
+                            <td>Vérification des tensions d'alimentation et des connecteurs par Fabian.</td>
                         </tr>
                         <tr>
                             <td style="font-weight: 500;">Sensibilité à l'éclairage ambiant</td>
                             <td>Perte de la ligne noire en cours de trajectoire.</td>
-                            <td>Mise en place d'un protocole de calibration  des capteurs avant chaque session.</td>
+                            <td>Mise en place d'un protocole de calibration des capteurs avant chaque session.</td>
                         </tr>
                     </tbody>
                 </table>
             </article>
         </section>
 
-        <section id="robot" class="page">
-            <div class="hero"><span class="subtitle">Spécifications</span><h1>ARCHITECTURE MATÉRIELLE</h1></div>
         <section id="robot" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>SPÉCIFICATIONS MATÉRIELLES</h1>
@@ -1002,18 +818,6 @@
             </div>
 
             <article class="section">
-                <div class="grid-2">
-                    <div class="hover-card" style="padding: 0; overflow: hidden; min-height: 300px;">
-    <iframe 
-        src="3pi-plus-32u4-oled-robot-dimensions.pdf"
-        style="width:100%; height:100%; min-height:300px; border:0;"
-    ></iframe>
-</div>
-                     
-                    <div style="display: flex; flex-direction: column; gap: 1rem;">
-                        <div class="hover-card" style="padding: 1.5rem;">
-                            <h4 style="color: white; margin-bottom: 0.5rem;">Châssis & Motricité</h4>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;">Format ultra-compact pour réduire l'inertie dans les virages. Transmission différentielle.</p>
                 <div class="robot-container">
                     <div class="robot-visual">[ Schéma Pololu 3Pi+ ]</div>
                     <div class="specs-list">
@@ -1025,27 +829,19 @@
                             <div class="spec-title">Motorisation</div>
                             <div class="spec-text">Moteurs CC équipés de codeurs magnétiques à quadrature pour le retour d'information de vitesse.</div>
                         </div>
-                        <div class="hover-card" style="padding: 1.5rem;">
-                            <h4 style="color: white; margin-bottom: 0.5rem;">Capteurs Optiques</h4>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;">Array de 5 capteurs de réflectance IR (QTR) haute sensibilité pour la lecture de la piste.</p>
                         <div class="spec-card">
                             <div class="spec-title">Capteurs de sol</div>
                             <div class="spec-text">Ligne de 5 capteurs de réflectance infrarouge mesurant le contraste entre la piste et le marquage au sol.</div>
                         </div>
-                        <div class="hover-card" style="padding: 1.5rem;">
-                            <h4 style="color: white; margin-bottom: 0.5rem;">Unité de Calcul</h4>
-                            <p style="color: var(--text-muted); font-size: 0.9rem;">MCU 20MHz dédié au calcul du contrôleur PID et à la lecture analogique haute fréquence.</p>
                         <div class="spec-card">
                             <div class="spec-title">Unité de traitement</div>
-                            <div class="spec-text">Microcontrôleur principal cadencé à 20 MHz s'occupant de la boucle  et de la lecture analogique.</div>
+                            <div class="spec-text">Microcontrôleur principal cadencé à 20 MHz s'occupant de la boucle PID et de la lecture analogique.</div>
                         </div>
                     </div>
                 </div>
             </article>
         </section>
 
-        <section id="epreuves" class="page">
-            <div class="hero"><span class="subtitle">Circuits</span><h1>PARCOURS DE VÉRIFICATION</h1></div>
         <section id="epreuves" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>PARCOURS DE VÉRIFICATION</h1>
@@ -1053,39 +849,22 @@
             </div>
 
             <article class="section">
-                <div class="grid-2">
-                    <div class="hover-card">
-                        <h3 style="color: white; margin-bottom: 0.5rem;">1. Ligne droite (Sprint)</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Accélération VMax avec maintien strict du capteur central.</p>
-                        <span class="subtitle" style="font-size: 0.7rem;">Contrôle Moteur</span>
                 <div class="epreuves-grid">
                     <div class="epreuve">
                         <h3 class="epreuve-title">Ligne droite (Sprint)</h3>
                         <p class="epreuve-text">Accélération maximale sur axe rectiligne avec maintien de la trajectoire médiane.</p>
                         <span class="epreuve-badge">Contrôle de vitesse</span>
                     </div>
-                    <div class="hover-card">
-                        <h3 style="color: white; margin-bottom: 0.5rem;">2. Enchaînement courbe</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Suivi sinueux exigeant une calibration agressive des gains Kp/Kd.</p>
-                        <span class="subtitle" style="font-size: 0.7rem; border-color: var(--accent-blue); color: var(--accent-blue);">Algorithme PID</span>
                     <div class="epreuve">
                         <h3 class="epreuve-title">Enchaînement de courbes</h3>
                         <p class="epreuve-text">Suivi de lignes sinueuses nécessitant un réglage précis des gains proportionnel et dérivé.</p>
                         <span class="epreuve-badge">Algorithme PID</span>
                     </div>
-                    <div class="hover-card">
-                        <h3 style="color: white; margin-bottom: 0.5rem;">3. Évitement</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Détection d'obstacle frontal et routine de dérivation autonome.</p>
-                        <span class="subtitle" style="font-size: 0.7rem;">Capteurs Proximité</span>
                     <div class="epreuve">
                         <h3 class="epreuve-title">Évitement d'obstacle</h3>
                         <p class="epreuve-text">Détection de bloc en milieu de voie, contournement par dérivation et recherche de ligne automatique.</p>
                         <span class="epreuve-badge">Capteurs de proximité</span>
                     </div>
-                    <div class="hover-card">
-                        <h3 style="color: white; margin-bottom: 0.5rem;">4. Arrêt sur repère</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Détection de la ligne d'arrêt transversal et freinage actif.</p>
-                        <span class="subtitle" style="font-size: 0.7rem;">Odométrie</span>
                     <div class="epreuve">
                         <h3 class="epreuve-title">Arrêt sur repère</h3>
                         <p class="epreuve-text">Identification d'une marque d'arrêt au sol et décélération contrôlée jusqu'à immobilisation complète.</p>
@@ -1095,8 +874,6 @@
             </article>
         </section>
 
-        <section id="prog" class="page">
-            <div class="hero"><span class="subtitle">Software</span><h1>PROGRAMMES EMBARQUÉS</h1></div>
         <section id="prog" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>CODE SOURCE</h1>
@@ -1104,14 +881,7 @@
             </div>
 
             <article class="section">
-                
-                <div class="hover-card" style="margin-bottom: 2rem;">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.3rem;">PID & Suivi Simple (P21)</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">Contrôleur Proportionnel-Dérivé de base. Kp=0.08, Kd=0.04.</p>
-                        </div>
-                        <span class="subtitle" style="margin:0;">main.c</span>
+                <!-- Code blocks as provided, keep them intact -->
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 3 - Filtrage et détection des tirets (Dashes)</h3>
                     <p class="code-parcours-desc">Ce script assure le suivi de la ligne principale et comptabilise les lignes transversales. Un filtre numérique (anti-rebond par boucles) évite les doubles détections sur un même marquage. L'alignement repose sur un coefficient Kp de 0.06.</p>
@@ -1341,10 +1111,7 @@ void loop()
                     <h3 class="code-parcours-title">Parcours 21 - Suivi de ligne simple</h3>
                     <p class="code-parcours-desc">Programme de base pour le suivi de ligne utilisant un contrôleur PID (Proportionnel et Dérivé). Le robot utilise les 5 capteurs de réflectance pour ajuster sa trajectoire et rester centré sur la piste.</p>
                     <div class="code-container">
-<pre class="code-content"><span class="code-keyword">void</span> <span class="code-function">loop</span>() {
-  sensors.<span class="code-function">readCalibrated</span>(s);
-  <span class="code-keyword">int</span> error;
-                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+<pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
 using namespace Pololu3piPlus32U4;
 
 LineSensors sensors;
@@ -1374,10 +1141,6 @@ void loop()
   // ========== SUIVI DE LIGNE SIMPLE ==========
   int error;
 
-  <span class="code-keyword">if</span> (s[<span class="code-number">2</span>] > <span class="code-number">500</span>) {
-    error = (s[<span class="code-number">3</span>] - s[<span class="code-number">1</span>]); <span class="code-keyword">// Centré</span>
-  } <span class="code-keyword">else</span> {
-    error = (s[<span class="code-number">4</span>] + s[<span class="code-number">3</span>]) - (s[<span class="code-number">0</span>] + s[<span class="code-number">1</span>]); <span class="code-keyword">// Déviation</span>
   if (s[2] &gt; 500)
   {
     // Ligne bien centrée
@@ -1389,18 +1152,12 @@ void loop()
     error = (s[4] + s[3]) - (s[0] + s[1]);
   }
 
-  <span class="code-keyword">if</span> (<span class="code-function">abs</span>(error - lastError) > <span class="code-number">2000</span>) error = lastError;
   if (abs(error - lastError) &gt; 2000)
     error = lastError;
 
-  <span class="code-keyword">int</span> correction = (error * Kp) + ((error - lastError) * Kd);
   int correction = (error * Kp) + ((error - lastError) * Kd);
   lastError = error;
 
-  <span class="code-keyword">int</span> leftSpeed = <span class="code-function">constrain</span>(baseSpeed + correction, -<span class="code-number">150</span>, <span class="code-number">200</span>);
-  <span class="code-keyword">int</span> rightSpeed = <span class="code-function">constrain</span>(baseSpeed - correction, -<span class="code-number">150</span>, <span class="code-number">200</span>);
-  
-  motors.<span class="code-function">setSpeeds</span>(leftSpeed, rightSpeed);
   int leftSpeed = baseSpeed + correction;
   int rightSpeed = baseSpeed - correction;
 
@@ -1412,12 +1169,6 @@ void loop()
                     </div>
                 </div>
 
-                <div class="hover-card">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                        <div>
-                            <h3 style="color: white; margin-bottom: 0.5rem; font-size: 1.3rem;">Gestion Dynamique (P22)</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">Machine d'états adaptant la vitesse (55/90/130) selon les marqueurs lus.</p>
-                        </div>
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 22 - Gestion avancée des 3 vitesses (Rouge/Orange/Vert)</h3>
                     <p class="code-parcours-desc">Parcours complexe avec gestion dynamique de 3 vitesses (SLOW=55, MEDIUM=90, FAST=130) selon 12 événements détectés. Machine d'états sophistiquée pour adapter la vitesse aux zones colorisées et aux intersections successives.</p>
@@ -1566,20 +1317,7 @@ void loop()
                     <h3 class="code-parcours-title">Parcours 23 - Détection de 11 tirets et virage 90° droite</h3>
                     <p class="code-parcours-desc">Le robot compte les tirets détectés sur les capteurs latéraux. Au 11ème tiret détecté, il exécute automatiquement un virage de 90° vers la droite. Utilise des gains PID ajustés (Kp=0.1, Kd=0.05) pour un suivi précis en approche du virage.</p>
                     <div class="code-container">
-<pre class="code-content"><span class="code-keyword">bool</span> detectLeft = (s[<span class="code-number">0</span>] > MARKER_THRESHOLD);
-<span class="code-keyword">bool</span> detectRight = (s[<span class="code-number">4</span>] > MARKER_THRESHOLD);
-
-<span class="code-keyword">if</span> ((detectLeft || detectRight) && !onMarker) {
-    onMarker = <span class="code-keyword">true</span>;
-    crossingCount++;
-    debounceCount = DEBOUNCE_LOOPS;
-
-    <span class="code-keyword">switch</span> (crossingCount) {
-    <span class="code-keyword">case</span> <span class="code-number">1</span>:  baseSpeed = SPEED_SLOW;   <span class="code-keyword">break</span>;
-    <span class="code-keyword">case</span> <span class="code-number">2</span>:  baseSpeed = SPEED_FAST;   <span class="code-keyword">break</span>;
-    <span class="code-keyword">case</span> <span class="code-number">4</span>:  baseSpeed = SPEED_MEDIUM; <span class="code-keyword">break</span>;
-    <span class="code-keyword">// ... mappings</span>
-                        <pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
+<pre class="code-content">#include &lt;Pololu3piPlus32U4.h&gt;
 using namespace Pololu3piPlus32U4;
 
 LineSensors sensors;
@@ -1933,8 +1671,6 @@ void loop()
             </article>
         </section>
 
-        <section id="videos" class="page">
-            <div class="hero"><span class="subtitle">Analyse</span><h1>ENREGISTREMENTS DES RUNS</h1></div>
         <section id="videos" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>ENREGISTREMENTS DES RUNS</h1>
@@ -1945,18 +1681,12 @@ void loop()
                 <h2 class="section-title">Tests sur le plateau technique</h2>
                 <div class="video-wrapper">
                     <div class="video-container">
-                        <video controls poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><rect width='100' height='100' fill='%231e293b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2394a3b8' font-family='sans-serif'>Vidéo Test</text></svg>">
-                            <source src="video1.mov" type="video/mp4">
                         <video controls preload="metadata" src="video1.mov">
                             Lecture vidéo non supportée par le navigateur. Le fichier video1.mov doit être présent à la racine du répertoire.
                         </video>
                     </div>
                     
                     <div class="status-box">
-                        <h4 class="status-title">Rapport d'anomalie dynamique</h4>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">
-                            Constat : Décrochages intermittents lors des accélérations (V>100). Les variations lumineuses de la salle modifient l'offset des capteurs QTR. Action : Implémentation d'un filtrage logiciel et augmentation de la fréquence de calibration avant le run de notation.
-                        </p>
                         <div class="status-title">Comportement relevé en cours d'essai</div>
                         <div class="status-text">
                             Le suivi de ligne montre des décrochages intermittents lors des phases d'accélération. Les variations de l'intensité lumineuse résiduelle de la salle modifient les seuils de lecture des capteurs de réflectance. L'équipe travaille sur l'optimisation mathématique du filtrage logiciel des entrées pour fiabiliser la trajectoire avant la notation.
@@ -1968,8 +1698,6 @@ void loop()
     </main>
 
     <footer>
-        <p>IUT de Vélizy • BUT GEII • Promo 2026</p>
-        <p style="margin-top: 1rem; color: var(--accent-blue);">Yann — Tom — Fabian</p>
         <p>Projet d'Étude Robotique • BUT GEII</p>
         <p>Yann | Tom | Fabian</p>
         <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.4;">IUT de Vélizy - 2026</p>
@@ -1977,75 +1705,43 @@ void loop()
     </footer>
 
     <script>
-        // 1. Curseur personnalisé (Désactivé sur mobile via CSS)
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-
-        window.addEventListener('mousemove', function(e) {
-            const posX = e.clientX;
-            const posY = e.clientY;
-            
-            // Animation fluide du curseur
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
-            
-            // L'outline suit avec un léger délai
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        });
-
-        // Effet de hover sur les liens pour le curseur
-        document.querySelectorAll('a, button, .nav-trigger, .hover-card').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                cursorOutline.style.borderColor = 'var(--accent-cyan)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
-                cursorOutline.style.borderColor = 'rgba(59, 130, 246, 0.5)';
-            });
-        });
-
-        // 2. Cartes : Effet de brillance dynamique (Mouse Track)
-        const cards = document.querySelectorAll('.hover-card');
-        cards.forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-
-        // 3. Navigation SPA & Animations GSAP
-        const pages = document.querySelectorAll('.page');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const navTriggers = document.querySelectorAll('.nav-trigger');
-
-        // Animation d'entrée au chargement
-        gsap.from(".gsap-hero-text", { y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out" });
-        gsap.from(".gsap-fade-up", { y: 40, opacity: 0, duration: 1, delay: 0.4, ease: "power3.out" });
-
-        function navigateTo(targetId) {
-            const currentActive = document.querySelector('.page.active');
-            const newActive = document.getElementById(targetId);
-            
-            if(currentActive === newActive) return;
-
-            // Mise à jour de la navbar
         document.addEventListener('DOMContentLoaded', function() {
-            // Sélection des éléments interactifs
+            // CUSTOM CURSOR
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+
+            window.addEventListener('mousemove', function(e) {
+                const posX = e.clientX;
+                const posY = e.clientY;
+                
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+                
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 500, fill: "forwards" });
+            });
+
+            document.querySelectorAll('a, button, .nav-trigger, .logo, .team-card, .metric-card, .epreuve, .code-parcours-card').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                    cursorOutline.style.borderColor = 'var(--accent-cyan)';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                    cursorOutline.style.borderColor = 'rgba(59, 130, 246, 0.5)';
+                });
+            });
+
+            // NAVIGATION
+            const pages = document.querySelectorAll('.page');
             const navLinks = document.querySelectorAll('.nav-link');
             const navTriggers = document.querySelectorAll('.nav-trigger');
-            const pages = document.querySelectorAll('.page');
             const logo = document.querySelector('.logo');
 
-            // Fonction centrale de navigation
             function navigateToPage(targetId) {
-                // Mise à jour de l'affichage des sections
+                // Update sections visibility and aria
                 pages.forEach(page => {
                     if (page.id === targetId) {
                         page.classList.add('active');
@@ -2056,7 +1752,7 @@ void loop()
                     }
                 });
 
-                // Mise à jour de l'état du menu principal
+                // Update menu active state
                 navLinks.forEach(link => {
                     if (link.dataset.page === targetId) {
                         link.classList.add('active');
@@ -2067,68 +1763,51 @@ void loop()
                     }
                 });
 
-                // Retour visuel en haut de page en douceur
+                // Smooth scroll to top
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // GSAP page entrance animation
+                const activePage = document.getElementById(targetId);
+                if (activePage && typeof gsap !== 'undefined') {
+                    gsap.fromTo(activePage, 
+                        { opacity: 0, y: 30 },
+                        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
+                    );
+                }
             }
 
-            // Écouteurs sur les liens du menu
+            // Listeners on menu links
             navLinks.forEach(link => {
-                link.classList.toggle('active', link.dataset.page === targetId);
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     navigateToPage(this.dataset.page);
                 });
             });
 
-            // Transition GSAP
-            gsap.to(currentActive, {
-                opacity: 0, 
-                y: -20, 
-                duration: 0.3,
-                onComplete: () => {
-                    currentActive.classList.remove('active');
-                    currentActive.style.transform = "translateY(0)"; // Reset
-                    
-                    newActive.classList.add('active');
-                    window.scrollTo(0, 0);
-
-                    // Animer l'entrée de la nouvelle page
-                    gsap.fromTo(newActive, 
-                        { opacity: 0, y: 30 },
-                        { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }
-                    );
-                }
-            // Écouteurs sur les boutons Call-To-Action (Accueil)
+            // Listeners on CTA buttons
             navTriggers.forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
                     navigateToPage(this.dataset.target);
                 });
             });
-        }
 
-        // Écouteurs de navigation
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                navigateTo(link.dataset.page);
-            // Écouteur sur le logo pour retourner à l'accueil
+            // Logo click returns to home
             logo.addEventListener('click', function() {
                 navigateToPage(this.dataset.target);
             });
-        });
 
-        navTriggers.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                navigateTo(btn.dataset.target);
-            
-            // Accessibilité : gestion de la touche "Entrée" sur le logo
             logo.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') {
                     navigateToPage(this.dataset.target);
                 }
             });
+
+            // Initial GSAP animation for home page
+            if (typeof gsap !== 'undefined') {
+                gsap.from(".gsap-hero-text", { y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out" });
+                gsap.from(".gsap-fade-up", { y: 40, opacity: 0, duration: 1, delay: 0.4, ease: "power3.out" });
+            }
         });
     </script>
 </body>
