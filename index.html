@@ -80,8 +80,7 @@
             background: var(--accent-blue);
             border-radius: 50%;
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             pointer-events: none;
             z-index: 9999;
             transform: translate(-50%, -50%);
@@ -94,8 +93,7 @@
             border: 1px solid rgba(59, 130, 246, 0.5);
             border-radius: 50%;
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             pointer-events: none;
             z-index: 9998;
             transform: translate(-50%, -50%);
@@ -167,11 +165,7 @@
         .hamburger.active span:nth-child(1) {
             transform: rotate(45deg) translate(10px, 10px);
         }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
+        .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -7px);
         }
@@ -216,7 +210,6 @@
             from { opacity: 0; transform: translateY(20px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeOutDown {
             from { opacity: 1; transform: translateY(0); }
             to   { opacity: 0; transform: translateY(10px); }
@@ -298,7 +291,6 @@
             border: none;
             box-shadow: 0 4px 20px var(--accent-glow);
         }
-
         .btn-primary:hover {
             background: #2563eb;
             box-shadow: 0 6px 24px rgba(59, 130, 246, 0.3);
@@ -309,10 +301,7 @@
             color: var(--text-main);
             border: 1px solid var(--border-color);
         }
-
-        .btn-secondary:hover {
-            border-color: #334155;
-        }
+        .btn-secondary:hover { border-color: #334155; }
 
         /* ===== SECTIONS ===== */
         .section {
@@ -354,7 +343,6 @@
             padding: 2rem;
             transition: all 0.3s ease;
         }
-
         .team-card:hover {
             background: var(--bg-card-hover);
             border-color: #334155;
@@ -363,41 +351,24 @@
         }
 
         .avatar {
-            width: 56px;
-            height: 56px;
+            width: 56px; height: 56px;
             background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(6,182,212,0.1));
             border: 1px solid rgba(59, 130, 246, 0.2);
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4rem;
-            color: var(--accent-cyan);
-            font-weight: 700;
+            font-size: 1.4rem; color: var(--accent-cyan); font-weight: 700;
             margin-bottom: 1.2rem;
         }
 
-        .team-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.2rem;
-        }
-
+        .team-name { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.2rem; }
         .team-role {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            display: block;
+            font-size: 0.8rem; color: var(--accent-blue);
+            text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 1rem; display: block;
         }
-
-        .team-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        .team-desc { color: var(--text-muted); font-size: 0.95rem; }
 
         /* ===== METRICS ===== */
         .metrics-grid {
@@ -416,43 +387,26 @@
 
         .metric-value {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text-main);
+            font-size: 1.8rem; font-weight: 700; color: var(--text-main);
         }
 
         .metric-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 0.2rem;
+            font-size: 0.8rem; font-weight: 600; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.5px; margin-top: 0.2rem;
         }
 
         /* ===== TIMELINE ===== */
-        .timeline {
-            margin: 2rem 0 4rem;
-        }
-
+        .timeline { margin: 2rem 0 4rem; }
         .timeline-item {
             padding: 0 0 2.5rem 2rem;
             position: relative;
             border-left: 1px dashed var(--border-color);
         }
-
-        .timeline-item:last-child {
-            border-left-color: transparent;
-            padding-bottom: 0;
-        }
-
+        .timeline-item:last-child { border-left-color: transparent; padding-bottom: 0; }
         .timeline-item::before {
             content: '';
-            position: absolute;
-            left: -5px;
-            top: 0.3rem;
-            width: 9px;
-            height: 9px;
+            position: absolute; left: -5px; top: 0.3rem;
+            width: 9px; height: 9px;
             background: var(--bg-main);
             border: 2px solid var(--accent-cyan);
             border-radius: 50%;
@@ -461,48 +415,25 @@
 
         .timeline-date {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--accent-cyan);
-            margin-bottom: 0.5rem;
+            font-size: 0.85rem; color: var(--accent-cyan); margin-bottom: 0.5rem;
         }
-
-        .timeline-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.4rem;
-        }
-
-        .timeline-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+        .timeline-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .timeline-desc { color: var(--text-muted); font-size: 0.95rem; }
 
         /* ===== TABLEAU DES RISQUES ===== */
         .risks-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: var(--bg-card);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+            width: 100%; border-collapse: separate; border-spacing: 0;
+            background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border-color);
         }
-
         .risks-table th, .risks-table td {
-            padding: 1.2rem;
-            text-align: left;
-            font-size: 0.95rem;
+            padding: 1.2rem; text-align: left; font-size: 0.95rem;
             border-bottom: 1px solid var(--border-color);
         }
-
         .risks-table th {
             font-family: 'Space Grotesk', sans-serif;
-            background: rgba(0,0,0,0.2);
-            color: white;
+            background: rgba(0,0,0,0.2); color: white;
         }
-
-        .risks-table tr:last-child td {
-            border-bottom: none;
-        }
+        .risks-table tr:last-child td { border-bottom: none; }
 
         /* ===== FICHE TECHNIQUE ROBOT ===== */
         .robot-container {
@@ -511,50 +442,25 @@
             gap: 2.5rem;
             align-items: start;
         }
-
         .robot-visual {
             background: linear-gradient(145deg, #131926 0%, #0b0f19 100%);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             font-family: 'Space Grotesk', sans-serif;
-            color: var(--text-muted);
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            color: var(--text-muted); font-weight: 600; letter-spacing: 0.5px;
             height: 500px;
         }
+        .robot-visual iframe { width: 100%; height: 100%; border: 0; }
 
-        .robot-visual iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .specs-list {
-            display: grid;
-            gap: 1rem;
-        }
-
+        .specs-list { display: grid; gap: 1rem; }
         .spec-card {
-            background: var(--bg-card);
-            padding: 1.2rem;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
+            background: var(--bg-card); padding: 1.2rem;
+            border-radius: 10px; border: 1px solid var(--border-color);
         }
-
-        .spec-title {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .spec-text {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+        .spec-title { font-weight: 600; font-size: 1rem; margin-bottom: 0.2rem; }
+        .spec-text { color: var(--text-muted); font-size: 0.9rem; }
 
         /* ===== ÉPREUVES ===== */
         .epreuves-grid {
@@ -562,73 +468,36 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
-
         .epreuve {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.8rem;
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            background: var(--bg-card); border-radius: 12px;
+            padding: 1.8rem; border: 1px solid var(--border-color);
+            display: flex; flex-direction: column; justify-content: space-between;
         }
-
-        .epreuve-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .epreuve-text {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
+        .epreuve-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .epreuve-text { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; }
         .epreuve-badge {
             align-self: flex-start;
             background: rgba(255, 255, 255, 0.04);
             color: var(--text-main);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
+            padding: 0.2rem 0.6rem; border-radius: 4px;
+            font-size: 0.8rem; font-weight: 500; border: 1px solid var(--border-color);
         }
 
         /* ===== BLOCS DE CODE ===== */
         .code-parcours-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 2rem;
-            border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
+            background: var(--bg-card); border-radius: 12px;
+            padding: 2rem; border: 1px solid var(--border-color); margin-bottom: 2rem;
         }
-
-        .code-parcours-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .code-parcours-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
+        .code-parcours-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .code-parcours-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; }
 
         /* ===== PRISM.JS OVERRIDE ===== */
         pre[class*="language-"] {
             background: var(--code-bg) !important;
-            border-radius: 8px;
-            overflow-x: auto;
-            padding: 1.2rem;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            margin: 0;
-            scrollbar-width: thin;
-            scrollbar-color: var(--border-color) var(--bg-main);
+            border-radius: 8px; overflow-x: auto; padding: 1.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.03); margin: 0;
+            scrollbar-width: thin; scrollbar-color: var(--border-color) var(--bg-main);
         }
-
         pre[class*="language-"]::-webkit-scrollbar { height: 8px; }
         pre[class*="language-"]::-webkit-scrollbar-track { background: var(--bg-main); border-radius: 4px; }
         pre[class*="language-"]::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
@@ -636,10 +505,8 @@
 
         code[class*="language-"] {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            background: none !important;
-            color: #cbd5e1;
+            font-size: 0.85rem; line-height: 1.6;
+            background: none !important; color: #cbd5e1;
         }
 
         .token.keyword { color: #ff7b72; }
@@ -651,50 +518,33 @@
 
         /* ===== VIDÉO ===== */
         .video-wrapper {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 1rem;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 1.5rem; margin-top: 1rem;
         }
-
         .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-            background: #000;
+            position: relative; padding-bottom: 56.25%; height: 0;
+            overflow: hidden; border-radius: 8px; background: #000;
         }
-
         .video-container video {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: none;
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; border: none;
         }
-
         .status-box {
             margin-top: 1.5rem;
             background: rgba(249, 115, 22, 0.05);
             border: 1px solid rgba(249, 115, 22, 0.15);
-            padding: 1.2rem;
-            border-radius: 8px;
+            padding: 1.2rem; border-radius: 8px;
         }
-
         .status-title { color: #f97316; font-weight: 600; font-size: 0.95rem; margin-bottom: 0.2rem; }
         .status-text  { color: var(--text-muted); font-size: 0.9rem; }
 
         /* ===== FOOTER ===== */
         footer {
-            text-align: center;
-            padding: 4rem 2rem;
+            text-align: center; padding: 4rem 2rem;
             border-top: 1px solid var(--border-color);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+            font-size: 0.85rem; color: var(--text-muted);
         }
-
         footer p { margin-bottom: 0.3rem; }
 
         /* ===== RESPONSIVE ===== */
@@ -702,12 +552,10 @@
             .hamburger { display: flex; }
             .nav-container { justify-content: space-between; }
             .nav-links {
-                position: fixed;
-                left: 0; top: 60px; width: 100%; height: 0;
+                position: fixed; left: 0; top: 60px; width: 100%; height: 0;
                 flex-direction: column; gap: 0;
                 background: rgba(11, 15, 25, 0.95);
-                overflow: hidden;
-                transition: height 0.3s ease;
+                overflow: hidden; transition: height 0.3s ease;
                 border-bottom: 1px solid var(--border-color);
             }
             .nav-links.open { height: auto; max-height: calc(100vh - 60px); }
@@ -900,7 +748,7 @@
             </article>
         </section>
 
-        <!-- PAGE PARCOURS (avec les challenges) -->
+        <!-- PAGE PARCOURS (contient maintenant les challenges) -->
         <section id="epreuves" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>PARCOURS DE VÉRIFICATION</h1>
@@ -931,6 +779,7 @@
                     </div>
                 </div>
 
+                <!-- 🚀 CHALLENGES DÉPLACÉS ICI -->
                 <h2 class="section-title" style="margin-top: 3rem;">Sujets des Challenges</h2>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
                     <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;">
@@ -949,7 +798,7 @@
             </article>
         </section>
 
-        <!-- PAGE CODE C -->
+        <!-- PAGE CODE C (intégralité des parcours commentés) -->
         <section id="prog" class="page" aria-hidden="true">
             <div class="hero">
                 <h1>CODE SOURCE</h1>
@@ -957,39 +806,157 @@
             </div>
 
             <article class="section">
-                <!-- Parcours 3 (avec commentaires) -->
+                <!-- Parcours 3 -->
                 <div class="code-parcours-card">
                     <h3 class="code-parcours-title">Parcours 3 - Filtrage et détection des tirets (Dashes)</h3>
                     <p class="code-parcours-desc">Ce script assure le suivi de la ligne principale et comptabilise les lignes transversales. Un filtre numérique (anti-rebond par boucles) évite les doubles détections sur un même marquage. L'alignement repose sur un coefficient Kp de 0.06.</p>
+                    <pre><code class="language-c">#include &lt;Pololu3piPlus32U4.h&gt;   // Inclut la bibliothèque matérielle du robot
+using namespace Pololu3piPlus32U4; // Utilise l'espace de noms pour simplifier le code
+
+LineSensors sensors;  // Capteurs de ligne infrarouge
+Motors motors;        // Moteurs du robot
+
+uint16_t s[5];            // Tableau des 5 valeurs des capteurs
+int baseSpeed = 110;      // Vitesse de base des moteurs
+float Kp = 0.06;          // Gain proportionnel du correcteur
+int lastError = 0;        // Dernière erreur mesurée (pour filtrage)
+
+int noLineCount = 0;                // Compteur de cycles sans ligne détectée
+const int NO_LINE_THRESHOLD = 25;   // Seuil avant arrêt (perte de ligne)
+const int LINE_DETECT_MIN = 200;    // Valeur minimale pour considérer une ligne présente
+
+int crossingCount = 0;           // Nombre de tirets détectés
+const int MAX_CROSSINGS = 4;     // Nombre de tirets avant arrêt
+bool onDash = false;             // Indique si on est actuellement sur un tiret
+bool waitingToStop = false;      // Attend l'arrêt après le dernier tiret
+int debounceCount = 0;           // Compteur d'anti-rebond
+const int DEBOUNCE_LOOPS = 80;   // Nombre de cycles d'anti-rebond
+
+#define DASH_SENSOR    s[4]      // Capteur utilisé pour détecter le tiret
+#define DASH_NEIGHBOR  s[3]      // Capteur voisin pour confirmer le tiret
+const int DASH_THRESHOLD = 500;  // Seuil de détection d'un tiret
+
+void setup()
+{
+  delay(1000);  // Pause d'une seconde avant initialisation
+  // Calibration automatique des capteurs en tournant sur place
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60); // Alternance de direction
+    sensors.calibrate();  // Lecture pour calibration
+  }
+  motors.setSpeeds(0, 0); // Arrêt des moteurs après calibration
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);  // Lecture des valeurs calibrées des capteurs
+
+  // Recherche de la valeur maximale parmi les capteurs
+  int maxVal = 0;
+  for (int i = 0; i &lt; 5; i++)
+    if (s[i] &gt; maxVal) maxVal = s[i];
+
+  // Vérification de la perte de ligne
+  if (maxVal &lt; LINE_DETECT_MIN)
+  {
+    noLineCount++;                           // Incrémente le compteur de perte
+    if (noLineCount &gt;= NO_LINE_THRESHOLD)    // Si trop de cycles sans ligne
+    {
+      motors.setSpeeds(0, 0);  // Arrêt des moteurs
+      while (1);               // Boucle infinie (arrêt définitif)
+    }
+  }
+  else noLineCount = 0;  // Réinitialise le compteur si la ligne est retrouvée
+
+  // Gestion de l'anti-rebond pour la détection des tirets
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;  // Décrémente le compteur d'anti-rebond
+  }
+  else
+  {
+    // Détection d'un tiret isolé sur le capteur droit
+    bool dashAlone = (DASH_SENSOR &gt; DASH_THRESHOLD) && (DASH_NEIGHBOR &lt; DASH_THRESHOLD);
+
+    if (dashAlone && !onDash)       // Si nouveau tiret détecté
+    {
+      onDash = true;                // On est sur un tiret
+      crossingCount++;              // Incrémente le compteur de tirets
+      debounceCount = DEBOUNCE_LOOPS; // Lance l'anti-rebond
+
+      if (crossingCount &gt;= MAX_CROSSINGS)  // Si on a atteint le nombre voulu
+        waitingToStop = true;              // Prépare l'arrêt
+    }
+
+    if (!dashAlone && onDash)  // Si on vient de quitter le tiret
+    {
+      onDash = false;  // On n'est plus sur un tiret
+
+      if (waitingToStop)  // Si on devait s'arrêter après ce tiret
+      {
+        motors.setSpeeds(0, 0);  // Arrêt des moteurs
+        while (1);               // Boucle infinie
+      }
+    }
+  }
+
+  // Calcul de l'erreur de position par rapport à la ligne
+  int error = (s[4] + s[3]) - (s[0] + s[1]);  // Différence capteurs droits - gauches
+  if (s[2] &gt; (s[1] + s[3]) / 2)               // Si le capteur central voit bien la ligne
+    error = (s[3] - s[1]);                    // Erreur plus fine avec les capteurs adjacents
+  if (abs(error - lastError) &gt; 1500)          // Filtrage des variations brutales
+    error = lastError;                        // Ignore la variation anormale
+
+  lastError = error;  // Mémorise l'erreur pour le prochain cycle
+
+  // Correction proportionnelle
+  int correction = error * Kp;
+  int leftSpeed  = baseSpeed + correction;   // Moteur gauche
+  int rightSpeed = baseSpeed - correction;   // Moteur droit
+  leftSpeed  = constrain(leftSpeed, -150, 200);  // Limite les vitesses
+  rightSpeed = constrain(rightSpeed, -150, 200);
+  motors.setSpeeds(leftSpeed, rightSpeed);   // Applique les vitesses
+}</code></pre>
+                </div>
+
+                <!-- Parcours 13 -->
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">Parcours 13 - Demi-tour et retour</h3>
+                    <p class="code-parcours-desc">Le robot suit la ligne jusqu'à sa fin, puis effectue un demi-tour automatique (180°) pour revenir au point de départ. Utilise un algorithme de détection de perte de ligne et une fonction turn180() pour pivoter avec précision.</p>
                     <pre><code class="language-c">#include &lt;Pololu3piPlus32U4.h&gt;   // Bibliothèque du robot
 using namespace Pololu3piPlus32U4; // Espace de noms
 
 LineSensors sensors;  // Capteurs de ligne
 Motors motors;        // Moteurs
 
-uint16_t s[5];            // Valeurs des 5 capteurs
+uint16_t s[5];            // Valeurs des capteurs
+
 int baseSpeed = 110;      // Vitesse de base
-float Kp = 0.06;          // Gain proportionnel
+float Kp = 0.08;          // Gain proportionnel
+float Kd = 0.04;          // Gain dérivé
 int lastError = 0;        // Dernière erreur
 
-int noLineCount = 0;                // Compteur sans ligne
-const int NO_LINE_THRESHOLD = 25;   // Seuil perte de ligne
-const int LINE_DETECT_MIN = 200;    // Seuil présence ligne
+int state = 0;                // 0 = aller, 1 = retour
+int noLineCount = 0;          // Compteur absence de ligne
+const int NO_LINE_THRESHOLD = 50;  // Seuil de perte de ligne
+const int LINE_DETECT_MIN = 200;   // Seuil de détection
 
-int crossingCount = 0;           // Compteur de tirets
-const int MAX_CROSSINGS = 4;     // Nombre max de tirets
-bool onDash = false;             // Présence sur un tiret
-bool waitingToStop = false;      // Arrêt après dernier tiret
-int debounceCount = 0;           // Anti-rebond
-const int DEBOUNCE_LOOPS = 80;   // Cycles anti-rebond
-
-#define DASH_SENSOR    s[4]      // Capteur tiret
-#define DASH_NEIGHBOR  s[3]      // Capteur voisin
-const int DASH_THRESHOLD = 500;  // Seuil tiret
+void turn180()
+{
+  motors.setSpeeds(0, 0);  // Arrêt avant la rotation
+  delay(200);              // Pause de stabilisation
+  motors.setSpeeds(100, -100);  // Rotation sur place
+  delay(1000);                  // Durée du demi-tour (ajuster selon le robot)
+  motors.setSpeeds(0, 0);  // Arrêt
+  delay(100);              // Pause
+  lastError = 0;           // Réinitialise l'erreur
+}
 
 void setup()
 {
-  delay(1000);
+  delay(1000);  // Pause initiale
+  // Calibration par rotation
   for (int i = 0; i &lt; 80; i++)
   {
     motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
@@ -1000,10 +967,441 @@ void setup()
 
 void loop()
 {
-  sensors.readCalibrated(s);
+  sensors.readCalibrated(s);  // Lecture capteurs
+
+  // Détection du maximum
   int maxVal = 0;
   for (int i = 0; i &lt; 5; i++)
+  {
     if (s[i] &gt; maxVal) maxVal = s[i];
+  }
+
+  // FIN ALLER → demi-tour
+  if (state == 0)  // Si on est en phase aller
+  {
+    if (maxVal &lt; LINE_DETECT_MIN)  // Si la ligne est perdue
+    {
+      noLineCount++;
+      if (noLineCount &gt;= NO_LINE_THRESHOLD)  // Confirmation de la perte
+      {
+        motors.setSpeeds(0, 0);  // Arrêt
+        delay(500);
+        turn180();               // Demi-tour
+
+        // Avance un peu pour retrouver la ligne
+        unsigned long startTime = millis();
+        while (millis() - startTime &lt; 800)
+        {
+          sensors.readCalibrated(s);
+          motors.setSpeeds(110, 110);  // Avance tout droit
+        }
+
+        noLineCount = 0;   // Réinitialise
+        lastError = 0;
+        state = 1;         // Passe en mode retour
+        return;
+      }
+    }
+    else
+    {
+      noLineCount = 0;  // Ligne retrouvée
+    }
+  }
+
+  // ===== suivi de ligne =====
+  int error;
+
+  if (s[2] &gt; 500)                    // Si le capteur central est bien sur la ligne
+  {
+    error = s[3] - s[1];             // Erreur basée sur les capteurs adjacents
+  }
+  else
+  {
+    error = (s[4] + s[3]) - (s[0] + s[1]); // Erreur basée sur les capteurs extérieurs
+  }
+
+  // Filtrage des variations brutales
+  if (abs(error - lastError) &gt; 2000)
+    error = lastError;
+
+  // Correction PID
+  int correction =
+    (error * Kp) +
+    ((error - lastError) * Kd);
+  lastError = error;
+
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+
+  leftSpeed = constrain(leftSpeed, -150, 200);
+  rightSpeed = constrain(rightSpeed, -150, 200);
+
+  motors.setSpeeds(leftSpeed, rightSpeed);
+}</code></pre>
+                </div>
+
+                <!-- Parcours 21 -->
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">Parcours 21 - Suivi de ligne simple</h3>
+                    <p class="code-parcours-desc">Programme de base pour le suivi de ligne utilisant un contrôleur PID (Proportionnel et Dérivé). Le robot utilise les 5 capteurs de réflectance pour ajuster sa trajectoire et rester centré sur la piste.</p>
+                    <pre><code class="language-c">#include &lt;Pololu3piPlus32U4.h&gt;   // Bibliothèque du robot
+using namespace Pololu3piPlus32U4; // Espace de noms
+
+LineSensors sensors;  // Capteurs de ligne
+Motors motors;        // Moteurs
+uint16_t s[5];        // Tableau des valeurs capteurs
+
+int baseSpeed = 110;  // Vitesse de base
+float Kp = 0.08;      // Gain proportionnel
+float Kd = 0.04;      // Gain dérivé
+int lastError = 0;    // Dernière erreur
+
+void setup()
+{
+  delay(1000);  // Pause initiale
+  // Calibration par rotation
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);  // Lecture capteurs
+
+  // ========== SUIVI DE LIGNE SIMPLE ==========
+  int error;
+
+  if (s[2] &gt; 500)  // Si le capteur central est bien sur la ligne
+  {
+    // Ligne bien centrée : erreur basée sur les capteurs adjacents
+    error = (s[3] - s[1]);
+  }
+  else
+  {
+    // Ligne sur les côtés : erreur basée sur les capteurs extérieurs
+    error = (s[4] + s[3]) - (s[0] + s[1]);
+  }
+
+  // Filtrage des sauts d'erreur anormaux
+  if (abs(error - lastError) &gt; 2000)
+    error = lastError;
+
+  // Correction PID
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+
+  int leftSpeed = baseSpeed + correction;   // Moteur gauche
+  int rightSpeed = baseSpeed - correction;  // Moteur droit
+
+  // Limitation des vitesses
+  leftSpeed = constrain(leftSpeed, -150, 200);
+  rightSpeed = constrain(rightSpeed, -150, 200);
+
+  motors.setSpeeds(leftSpeed, rightSpeed);  // Applique les vitesses
+}</code></pre>
+                </div>
+
+                <!-- Parcours 22 -->
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">Parcours 22 - Gestion avancée des 3 vitesses (Rouge/Orange/Vert)</h3>
+                    <p class="code-parcours-desc">Parcours complexe avec gestion dynamique de 3 vitesses selon 12 événements détectés. Machine d'états sophistiquée pour adapter la vitesse aux zones et intersections.</p>
+                    <pre><code class="language-c">#include &lt;Pololu3piPlus32U4.h&gt;   // Bibliothèque du robot
+using namespace Pololu3piPlus32U4; // Espace de noms
+
+LineSensors sensors;  // Capteurs de ligne
+Motors motors;        // Moteurs
+
+uint16_t s[5];            // Valeurs des capteurs
+
+int baseSpeed = 90;       // Vitesse initiale
+const int SPEED_SLOW = 55;    // Vitesse lente (rouge)
+const int SPEED_MEDIUM = 90;  // Vitesse moyenne (orange)
+const int SPEED_FAST = 130;   // Vitesse rapide (vert)
+
+float Kp = 0.04;          // Gain proportionnel
+float Kd = 0.08;          // Gain dérivé
+int lastError = 0;        // Dernière erreur
+
+int noLineCount = 0;                // Compteur perte de ligne
+const int NO_LINE_THRESHOLD = 25;   // Seuil de perte
+const int LINE_DETECT_MIN = 200;    // Seuil de détection ligne
+
+int crossingCount = 0;           // Nombre d'événements détectés
+bool onMarker = false;           // Indique si on est sur un marqueur
+int debounceCount = 0;           // Anti-rebond
+const int DEBOUNCE_LOOPS = 50;   // Cycles d'anti-rebond
+
+const int MARKER_THRESHOLD = 500; // Seuil de détection d'un marqueur latéral
+
+void setup()
+{
+  delay(1000);  // Pause initiale
+  // Calibration
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);  // Lecture capteurs
+
+  // Vérification présence ligne
+  int maxVal = 0;
+  for (int i = 0; i &lt; 5; i++)
+  {
+    if (s[i] &gt; maxVal) maxVal = s[i];
+  }
+
+  if (maxVal &lt; LINE_DETECT_MIN)  // Ligne absente
+  {
+    noLineCount++;
+    if (noLineCount &gt;= NO_LINE_THRESHOLD)  // Perte confirmée
+    {
+      motors.setSpeeds(0, 0);  // Arrêt
+      while (1);               // Boucle infinie
+    }
+  }
+  else
+  {
+    noLineCount = 0;  // Ligne présente
+  }
+
+  // Gestion des marqueurs avec anti-rebond
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;
+  }
+  else
+  {
+    bool detectLeft = (s[0] &gt; MARKER_THRESHOLD);   // Marqueur à gauche
+    bool detectRight = (s[4] &gt; MARKER_THRESHOLD);  // Marqueur à droite
+
+    if ((detectLeft || detectRight) && !onMarker)  // Nouveau marqueur détecté
+    {
+      onMarker = true;                 // On est sur un marqueur
+      crossingCount++;                 // Incrémente le compteur
+      debounceCount = DEBOUNCE_LOOPS;  // Anti-rebond
+
+      // Changement de vitesse selon le numéro de l'événement
+      switch (crossingCount)
+      {
+        case 1:  baseSpeed = SPEED_SLOW;   break;  // Événement 1 → lent
+        case 2:  baseSpeed = SPEED_FAST;   break;  // Événement 2 → rapide
+        case 3:  baseSpeed = SPEED_SLOW;   break;  // etc.
+        case 4:  baseSpeed = SPEED_MEDIUM; break;
+        case 5:  baseSpeed = SPEED_MEDIUM; break;
+        case 6:  baseSpeed = SPEED_MEDIUM; break;
+        case 7:  baseSpeed = SPEED_MEDIUM; break;
+        case 8:  baseSpeed = SPEED_FAST;   break;
+        case 9:  baseSpeed = SPEED_MEDIUM; break;
+        case 10: baseSpeed = SPEED_MEDIUM; break;
+        case 11: baseSpeed = SPEED_FAST;   break;
+        case 12: baseSpeed = SPEED_SLOW;   break;
+      }
+    }
+
+    if (!detectLeft && !detectRight && onMarker)  // Marqueur quitté
+    {
+      onMarker = false;
+    }
+  }
+
+  // Calcul de l'erreur de suivi de ligne
+  int error = 0;
+ 
+  if (s[2] &gt; (s[1] + s[3]) / 2)  // Ligne centrée
+  {
+    error = (s[3] - s[1]);       // Erreur fine
+  }
+  else
+  {
+    error = (s[4] + s[3]) - (s[0] + s[1]); // Erreur large
+  }
+
+  // Filtrage des variations brutales
+  if (abs(error - lastError) &gt; 1500)
+  {
+    error = lastError;
+  }
+
+  // Correction PID
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+
+  // Limitation des vitesses avec des bornes adaptées
+  if (leftSpeed &gt; 220)   leftSpeed = 220;
+  if (leftSpeed &lt; -150)  leftSpeed = -150;
+  if (rightSpeed &gt; 220)  rightSpeed = 220;
+  if (rightSpeed &lt; -150) rightSpeed = -150;
+
+  motors.setSpeeds(leftSpeed, rightSpeed);  // Applique les vitesses
+}</code></pre>
+                </div>
+
+                <!-- Parcours 23 -->
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">Parcours 23 - Détection de 11 tirets et virage 90° droite</h3>
+                    <p class="code-parcours-desc">Le robot compte les tirets détectés et exécute automatiquement un virage de 90° vers la droite au 11ème tiret.</p>
+                    <pre><code class="language-c">#include &lt;Pololu3piPlus32U4.h&gt;   // Bibliothèque du robot
+using namespace Pololu3piPlus32U4; // Espace de noms
+
+LineSensors sensors;  // Capteurs de ligne
+Motors motors;        // Moteurs
+
+uint16_t s[5];            // Valeurs des capteurs
+
+int baseSpeed = 110;      // Vitesse de base
+float Kp = 0.1;           // Gain proportionnel
+float Kd = 0.05;          // Gain dérivé
+int lastError = 0;        // Dernière erreur
+
+int markCount = 0;             // Compteur de marques
+bool onMark = false;           // Indique si on est sur une marque
+int debounceCount = 0;         // Anti-rebond
+const int DEBOUNCE_LOOPS = 120; // Cycles d'anti-rebond
+const int SIDE_THRESHOLD = 400; // Seuil de détection d'un tiret latéral
+
+bool turnDone = false;  // Indique si le virage a déjà été effectué
+
+void turn90Right()
+{
+  motors.setSpeeds(0, 0);     // Arrêt
+  delay(200);                 // Pause
+  motors.setSpeeds(100, -100); // Rotation à droite
+  delay(420);                 // Durée pour ~90°
+  motors.setSpeeds(0, 0);     // Arrêt
+  delay(100);                 // Pause
+  lastError = 0;              // Réinitialise l'erreur
+}
+
+void setup()
+{
+  delay(1000);  // Pause initiale
+  // Calibration
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);  // Lecture capteurs
+
+  // ========== COMPTER LES TIRETS ==========
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;  // Décrémente l'anti-rebond
+  }
+  else
+  {
+    // Détection d'un tiret (capteur droit, gauche ou central très fort)
+    bool markDetected = (s[4] &gt; SIDE_THRESHOLD) || (s[0] &gt; SIDE_THRESHOLD) || (s[2] &gt; 800);
+
+    if (markDetected && !onMark)  // Nouveau tiret
+    {
+      onMark = true;                // On est sur un tiret
+      markCount++;                  // Incrémente le compteur
+      debounceCount = DEBOUNCE_LOOPS; // Anti-rebond
+
+      if (markCount == 11 && !turnDone)  // Au 11ème tiret
+      {
+        turn90Right();    // Virage 90° droite
+        turnDone = true;  // Virage effectué
+      }
+    }
+
+    if (!markDetected && onMark)  // Tiret quitté
+    {
+      onMark = false;
+    }
+  }
+
+  // ========== SUIVI DE LIGNE ==========
+  int error = (s[3] + s[4]) - (s[0] + s[1]); // Erreur basée sur les capteurs extérieurs
+
+  // Filtrage des variations brutales
+  if (abs(error - lastError) &gt; 2000)
+    error = lastError;
+
+  // Correction PID
+  int correction = (error * Kp) + ((error - lastError) * Kd);
+  lastError = error;
+
+  int leftSpeed = baseSpeed + correction;
+  int rightSpeed = baseSpeed - correction;
+
+  // Limitation des vitesses
+  leftSpeed = constrain(leftSpeed, -150, 200);
+  rightSpeed = constrain(rightSpeed, -150, 200);
+
+  motors.setSpeeds(leftSpeed, rightSpeed);  // Applique
+}</code></pre>
+                </div>
+
+                <!-- Parcours 5 -->
+                <div class="code-parcours-card">
+                    <h3 class="code-parcours-title">Parcours 5 - Demi-tour au 2ème tiret droit</h3>
+                    <p class="code-parcours-desc">Le robot détecte les tirets uniquement sur le capteur droit. Au 2ème tiret droit détecté, il effectue un demi-tour pour revenir en arrière.</p>
+                    <pre><code class="language-c">#include &lt;Pololu3piPlus32U4.h&gt;   // Bibliothèque du robot
+using namespace Pololu3piPlus32U4; // Espace de noms
+
+LineSensors sensors;  // Capteurs de ligne
+Motors motors;        // Moteurs
+
+uint16_t s[5];            // Valeurs des capteurs
+int baseSpeed = 110;      // Vitesse de base
+float Kp = 0.04;          // Gain proportionnel
+float Kd = 0.08;          // Gain dérivé
+int lastError = 0;        // Dernière erreur
+
+int noLineCount = 0;                // Compteur perte de ligne
+const int NO_LINE_THRESHOLD = 25;   // Seuil de perte
+const int LINE_DETECT_MIN = 200;    // Seuil de détection
+
+int crossingCount = 0;           // Compteur de tirets
+bool onDash = false;             // Sur un tiret
+int debounceCount = 0;           // Anti-rebond
+const int DEBOUNCE_LOOPS = 80;   // Cycles d'anti-rebond
+bool turnaroundDone = false;     // Demi-tour déjà fait
+
+const int DASH_THRESHOLD = 500;  // Seuil tiret
+
+void setup()
+{
+  delay(1000);  // Pause
+  // Calibration
+  for (int i = 0; i &lt; 80; i++)
+  {
+    motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
+    sensors.calibrate();
+  }
+  motors.setSpeeds(0, 0);
+}
+
+void loop()
+{
+  sensors.readCalibrated(s);  // Lecture capteurs
+
+  // Vérification ligne
+  int maxVal = 0;
+  for (int i = 0; i &lt; 5; i++)
+  {
+    if (s[i] &gt; maxVal) maxVal = s[i];
+  }
 
   if (maxVal &lt; LINE_DETECT_MIN)
   {
@@ -1014,78 +1412,105 @@ void loop()
       while (1);
     }
   }
-  else noLineCount = 0;
+  else
+  {
+    noLineCount = 0;
+  }
 
+  // Détection des tirets avec anti-rebond
   if (debounceCount &gt; 0)
   {
     debounceCount--;
   }
   else
   {
-    bool dashAlone = (DASH_SENSOR &gt; DASH_THRESHOLD) && (DASH_NEIGHBOR &lt; DASH_THRESHOLD);
-    if (dashAlone && !onDash)
+    // Tiret détecté uniquement sur le capteur droit (s[4]) et pas sur le voisin (s[3])
+    bool dashAlone = (s[4] &gt; DASH_THRESHOLD) && (s[3] &lt; DASH_THRESHOLD);
+
+    if (dashAlone && !onDash)  // Nouveau tiret
     {
       onDash = true;
       crossingCount++;
       debounceCount = DEBOUNCE_LOOPS;
-      if (crossingCount &gt;= MAX_CROSSINGS) waitingToStop = true;
+
+      if (crossingCount == 2 && !turnaroundDone)  // Au 2ème tiret
+      {
+        turnaroundDone = true;
+        motors.setSpeeds(0, 0);   // Arrêt
+        delay(200);
+        motors.setSpeeds(50, -50); // Demi-tour
+        delay(750);
+        motors.setSpeeds(0, 0);   // Arrêt
+        delay(100);
+        lastError = 0;            // Réinitialise l'erreur
+      }
     }
-    if (!dashAlone && onDash)
+
+    if (!dashAlone && onDash)  // Fin du tiret
     {
       onDash = false;
-      if (waitingToStop)
-      {
-        motors.setSpeeds(0, 0);
-        while (1);
-      }
     }
   }
 
+  // Suivi de ligne
   int error = (s[4] + s[3]) - (s[0] + s[1]);
   if (s[2] &gt; (s[1] + s[3]) / 2)
+  {
     error = (s[3] - s[1]);
+  }
   if (abs(error - lastError) &gt; 1500)
+  {
     error = lastError;
+  }
 
+  int correction = (error * Kp) + ((error - lastError) * Kd);
   lastError = error;
-  int correction = error * Kp;
-  int leftSpeed  = baseSpeed + correction;
+
+  int leftSpeed = baseSpeed + correction;
   int rightSpeed = baseSpeed - correction;
-  leftSpeed  = constrain(leftSpeed, -150, 200);
-  rightSpeed = constrain(rightSpeed, -150, 200);
+
+  if (leftSpeed &gt; 200) leftSpeed = 200;
+  if (leftSpeed &lt; -150) leftSpeed = -150;
+  if (rightSpeed &gt; 200) rightSpeed = 200;
+  if (rightSpeed &lt; -150) rightSpeed = -150;
+
   motors.setSpeeds(leftSpeed, rightSpeed);
 }</code></pre>
                 </div>
 
-                <!-- Parcours 13 -->
+                <!-- Parcours 9 -->
                 <div class="code-parcours-card">
-                    <h3 class="code-parcours-title">Parcours 13 - Demi-tour et retour</h3>
-                    <p class="code-parcours-desc">Le robot suit la ligne jusqu'à sa fin, puis effectue un demi-tour automatique (180°) pour revenir au point de départ.</p>
-                    <pre><code class="language-c">#include &lt;Pololu3piPlus32U4.h&gt;
-using namespace Pololu3piPlus32U4;
+                    <h3 class="code-parcours-title">Parcours 9 - Repères latéraux et déviation à 90°</h3>
+                    <p class="code-parcours-desc">Le robot détecte les marques sur les capteurs latéraux. Au 7ème tiret latéral détecté, il exécute un virage de 90° vers la gauche.</p>
+                    <pre><code class="language-c">#include &lt;Pololu3piPlus32U4.h&gt;   // Bibliothèque du robot
+using namespace Pololu3piPlus32U4; // Espace de noms
 
-LineSensors sensors;
-Motors motors;
-uint16_t s[5];
-int baseSpeed = 110;
-float Kp = 0.08, Kd = 0.04;
-int lastError = 0;
-int state = 0;                // 0=aller, 1=retour
-int noLineCount = 0;
-const int NO_LINE_THRESHOLD = 50;
-const int LINE_DETECT_MIN = 200;
+LineSensors sensors;  // Capteurs de ligne
+Motors motors;        // Moteurs
 
-void turn180()
-{
-  motors.setSpeeds(0, 0); delay(200);
-  motors.setSpeeds(100, -100); delay(1000);
-  motors.setSpeeds(0, 0); delay(100);
-  lastError = 0;
-}
+uint16_t s[5];            // Valeurs des capteurs
+int baseSpeed = 110;      // Vitesse de base
+float Kp = 0.04;          // Gain proportionnel
+float Kd = 0.08;          // Gain dérivé
+int lastError = 0;        // Dernière erreur
+
+int noLineCount = 0;                // Compteur perte de ligne
+const int NO_LINE_THRESHOLD = 25;   // Seuil perte
+const int LINE_DETECT_MIN = 200;    // Seuil détection
+
+int sideCount = 0;               // Compteur de marques latérales
+const int TURN_AT = 7;           // Numéro de la marque pour tourner
+bool onMark = false;             // Sur une marque
+int debounceCount = 0;           // Anti-rebond
+const int DEBOUNCE_LOOPS = 80;   // Cycles d'anti-rebond
+bool turnDone = false;           // Virage déjà effectué
+
+const int SIDE_THRESHOLD = 500;  // Seuil marque latérale
 
 void setup()
 {
-  delay(1000);
+  delay(1000);  // Pause
+  // Calibration
   for (int i = 0; i &lt; 80; i++)
   {
     motors.setSpeeds((i &lt; 40) ? 60 : -60, (i &lt; 40) ? -60 : 60);
@@ -1096,49 +1521,91 @@ void setup()
 
 void loop()
 {
-  sensors.readCalibrated(s);
-  int maxVal = 0;
-  for (int i = 0; i &lt; 5; i++) if (s[i] &gt; maxVal) maxVal = s[i];
+  sensors.readCalibrated(s);  // Lecture capteurs
 
-  if (state == 0)
+  // Vérification ligne
+  int maxVal = 0;
+  for (int i = 0; i &lt; 5; i++)
   {
-    if (maxVal &lt; LINE_DETECT_MIN)
-    {
-      noLineCount++;
-      if (noLineCount &gt;= NO_LINE_THRESHOLD)
-      {
-        motors.setSpeeds(0, 0); delay(500);
-        turn180();
-        unsigned long start = millis();
-        while (millis() - start &lt; 800)
-        {
-          sensors.readCalibrated(s);
-          motors.setSpeeds(110, 110);
-        }
-        noLineCount = 0; lastError = 0;
-        state = 1; return;
-      }
-    }
-    else noLineCount = 0;
+    if (s[i] &gt; maxVal) maxVal = s[i];
   }
 
-  int error;
-  if (s[2] &gt; 500) error = s[3] - s[1];
-  else error = (s[4] + s[3]) - (s[0] + s[1]);
-  if (abs(error - lastError) &gt; 2000) error = lastError;
+  if (maxVal &lt; LINE_DETECT_MIN)
+  {
+    noLineCount++;
+    if (noLineCount &gt;= NO_LINE_THRESHOLD)
+    {
+      motors.setSpeeds(0, 0);
+      while (1);
+    }
+  }
+  else
+  {
+    noLineCount = 0;
+  }
+
+  // Détection des marques latérales avec anti-rebond
+  if (debounceCount &gt; 0)
+  {
+    debounceCount--;
+  }
+  else
+  {
+    // Marque détectée à gauche (s[0]) ou à droite (s[4])
+    bool markDetected = (s[4] &gt; SIDE_THRESHOLD) || (s[0] &gt; SIDE_THRESHOLD);
+
+    if (markDetected && !onMark)  // Nouvelle marque
+    {
+      onMark = true;
+      sideCount++;
+      debounceCount = DEBOUNCE_LOOPS;
+
+      if (sideCount == TURN_AT && !turnDone)  // 7ème marque → virage
+      {
+        turnDone = true;
+        motors.setSpeeds(0, 0);   // Arrêt
+        delay(200);
+
+        motors.setSpeeds(50, -50); // Virage à gauche (inverser les signes pour droite)
+        delay(375);                // Durée pour ~90°
+        motors.setSpeeds(0, 0);   // Arrêt
+        delay(100);
+
+        lastError = 0;            // Réinitialise l'erreur
+      }
+    }
+
+    if (!markDetected && onMark)  // Marque quittée
+    {
+      onMark = false;
+    }
+  }
+
+  // Suivi de ligne
+  int error = (s[4] + s[3]) - (s[0] + s[1]);
+  if (s[2] &gt; (s[1] + s[3]) / 2)
+  {
+    error = (s[3] - s[1]);
+  }
+  if (abs(error - lastError) &gt; 1500)
+  {
+    error = lastError;
+  }
 
   int correction = (error * Kp) + ((error - lastError) * Kd);
   lastError = error;
+
   int leftSpeed = baseSpeed + correction;
   int rightSpeed = baseSpeed - correction;
-  leftSpeed = constrain(leftSpeed, -150, 200);
-  rightSpeed = constrain(rightSpeed, -150, 200);
+
+  if (leftSpeed &gt; 200) leftSpeed = 200;
+  if (leftSpeed &lt; -150) leftSpeed = -150;
+  if (rightSpeed &gt; 200) rightSpeed = 200;
+  if (rightSpeed &lt; -150) rightSpeed = -150;
+
   motors.setSpeeds(leftSpeed, rightSpeed);
 }</code></pre>
                 </div>
-
-                <!-- Parcours 21, 22, 23, 5, 9 (identiques avec commentaires) -->
-                <!-- … (tous les autres blocs de code commentés) … -->
             </article>
         </section>
 
@@ -1181,7 +1648,6 @@ void loop()
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Curseur personnalisé
             const cursorDot = document.querySelector('.cursor-dot');
             const cursorOutline = document.querySelector('.cursor-outline');
 
@@ -1206,7 +1672,6 @@ void loop()
                 });
             });
 
-            // Menu hamburger
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             hamburger.addEventListener('click', () => {
@@ -1220,7 +1685,6 @@ void loop()
                 });
             });
 
-            // Navigation SPA
             const pages = document.querySelectorAll('.page');
             const navLinks_items = document.querySelectorAll('.nav-link');
             const navTriggers = document.querySelectorAll('.nav-trigger');
